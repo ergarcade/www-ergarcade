@@ -1,0 +1,25 @@
+body {
+    width: 85%;
+    max-width: 75%;
+    margin: auto;
+}
+
+#header {
+    padding-top: 1em;
+}
+#header ul,
+#footer ul {
+    text-align: center;
+    margin: auto;
+}
+#header ul li,
+#footer ul li{
+    display: inline;
+    list-style-type: none;
+}
+#footer ul {
+    font-size: 3em;
+}
+#content {
+    padding: 0 1em;
+}
