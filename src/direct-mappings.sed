@@ -1,8 +1,10 @@
 s#%concept2%#<a href="http://concept2.com">Concept2</a>#g
+s#%ergdata%#<a href="http://www.concept2.com/service/software/ergdata">ErgData</a>#g
 s#%performance-monitor%#<a href="http://www.concept2.com/indoor-rowers/performance-monitors">Performance Monitor</a>#g
 s#%making-muscle%#<a href="http://www.makingmuscle.com.au">Making Muscle</a>#g
 s#%ergarcade-patreon%#<a href="tbd">Erg Arcade Patreon</a>#g
 s#%concept2-coach%#<a href="http://www.concept2.com.au/">Concept2 coach</a>#g
+s#%unity%#<a href="https://unity3d.com">Unity</a>#g
 
 s#%facebook%#<a href="http://facebook.com/ergarcade">Facebook</a>#g
 s#%instagram%#<a href="http://instagram.com/ergarcade">Instagram</a>#g
@@ -14,8 +16,10 @@ s#%detailed-setup%#<a href="/detailed-setup.html">detailed setup</a>#g
 
 s#%Home%#<a href="/">Home</a>#g
 s#%Applications%#<a href="/applications.html">Applications</a>#g
+s#%applications%#<a href="/applications.html">applications</a>#g
 s#%Supporters%#<a href="/supporters.html">Supporters</a>#g
-s#%Contact%#<a href="/contact.html">Contact</a>#g
+s#%supporters%#<a href="/supporters.html">supporters</a>#g
+s#%Author%#<a href="/author.html">Author</a>#g
 
 
 s#%visualisations%#<a href="/visualisations.html">visualisations</a>#g

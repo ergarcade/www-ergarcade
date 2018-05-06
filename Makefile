@@ -8,7 +8,7 @@ CSS := $(patsubst ./src/webroot/css/%.css,./docs/css/%.css,$(CSS_SRCS))
 
 MAPPINGS := src/direct-mappings.sed
 
-./docs/%.html: ./src/webroot/%.html
+./docs/%.html: ./src/webroot/%.html $(MAPPINGS) ./src/head.html ./src/foot.html
 	cat src/head.html ./$< src/foot.html | sed -f $(MAPPINGS) > $@
 
 ./docs/css/%.css: ./src/webroot/css/%.css
@@ -18,6 +18,11 @@ help:
 	@echo "make deploy: generate website docs/ from src/"
 
 images:
+	@mkdir -p ./docs/images
 	@cp -af ./src/webroot/images/* ./docs/images/
 
-deploy: images $(HTML) $(CSS)
+javascript:
+	@mkdir -p ./docs/js
+	@cp -af ./src/webroot/js/* ./docs/js/
+
+deploy: images javascript $(HTML) $(CSS)
