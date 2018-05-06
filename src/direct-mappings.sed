@@ -39,3 +39,5 @@ s#%omniscient%#<a href="/tools/omniscient.html">Omniscient</a>#g
 s#%bigview%#<a href="/tools/bigview.html">Big View</a>#g
 
 s#%webgl-fluid-simulation%#<a href="/visualisations/webgl-fluid-simulation.html">webgl fluid simulation</a>#g
+
+s#%ergarcade-logo%#<span class="centre fa-stack fa-2x"><i class="fas fa-circle fa-stack-2x"></i><i class="fas fa-gamepad fa-stack-1x fa-inverse"></i></span>#g
