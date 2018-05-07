@@ -1,3 +1,6 @@
+/*
+ * Colours.
+ */
 body {
     width: 45em;
     margin: auto;
@@ -13,6 +16,26 @@ body a, body a:visited {
     color: #336E7B;
 }
 
+/*
+ * Images.
+ */
+ul.gallery {
+    list-style-type: none;
+    padding: 0;
+    width: 100%;
+    margin: auto;
+}
+ul.gallery li {
+    float: left;
+    padding: 5px;
+}
+p {
+    clear: both;
+}
+
+/*
+ * Layout.
+ */
 #header {
     padding-bottom: 1em;
 }
@@ -22,13 +45,13 @@ body a, body a:visited {
     padding-left: 0;
     text-align: center;
     margin: auto;
+    list-style-type: none;
 }
 #header ul li,
 #footer ul li{
     margin-left: 0.5em;
     margin-right: 0.5em;
     display: inline-block;
-    list-style-type: none;
 }
 #footer ul {
     padding-top: 0;

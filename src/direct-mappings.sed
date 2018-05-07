@@ -69,3 +69,6 @@ s#%logo-developers-link%#<a href="/developers.html" title="Developers"><div clas
 s#%logo-about-link%#<a href="/about.html" title="About"><div class="centre"><i class="far fa-smile fa-2x"></i></div></a>#g
 
 s#%youtube-\(.*\)%#<iframe id="ytplayer" class="centre" width="640" height="360" type="text/html" src="https://www.youtube.com/embed/\1?fs=1&autoplay=0&origin=http://ergarcade.com" frameborder="0" allowfullscreen></iframe>#g
+
+
+s#%image-\(.*\)-\(.*\)%#<a href="\2"><img src="/images/\1" alt="\1" /></a>#g

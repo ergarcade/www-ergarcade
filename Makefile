@@ -19,10 +19,12 @@ help:
 
 images:
 	@mkdir -p ./docs/images
+	@rm -f ./docs/images/*
 	cp -af ./src/webroot/images/* ./docs/images/
 
 javascript:
 	@mkdir -p ./docs/js
+	@rm -f ./docs/js/*
 	cp -af ./src/webroot/js/* ./docs/js/
 
 deploy: images javascript $(HTML) $(CSS)
