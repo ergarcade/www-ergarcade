@@ -1,5 +1,5 @@
 body {
-    width: 50%;
+    width: 45em;
     margin: auto;
 
     color: #222930;
@@ -23,16 +23,14 @@ body a, body a:visited {
     text-align: center;
     margin: auto;
 }
-#header ul li {
-    margin-right: 1em;
-}
 #header ul li,
 #footer ul li{
+    margin-left: 0.5em;
+    margin-right: 0.5em;
     display: inline-block;
     list-style-type: none;
 }
 #footer ul {
-    font-size: 3em;
     padding-top: 0;
 }
 #content {
