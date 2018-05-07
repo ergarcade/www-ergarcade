@@ -1,16 +1,15 @@
 body {
     width: 50%;
     margin: auto;
-/*
-    background: #222930;
-    color: #e9e9e9;
-    */
+
     color: #222930;
     background: #e9e9e9;
 }
 
 body a, body a:visited {
-    /*color: #4eb1ba;*/
+    color: #336E7B;
+}
+.fas {
     color: #336E7B;
 }
 
@@ -24,9 +23,12 @@ body a, body a:visited {
     text-align: center;
     margin: auto;
 }
+#header ul li {
+    margin-right: 1em;
+}
 #header ul li,
 #footer ul li{
-    display: inline;
+    display: inline-block;
     list-style-type: none;
 }
 #footer ul {
@@ -47,6 +49,6 @@ body a, body a:visited {
 h1, h2, h3, h4, h5, h6 {
 	text-align: center;
 }
-.fas {
-    color: #336E7B;
+ul.questions li {
+    padding-bottom: 1em;
 }

@@ -9,8 +9,10 @@ s#%github-ergarcade%#<a href="https://github.com/ergarcade">GitHub</a>#g
 
 s#%facebook%#<a href="http://facebook.com/ergarcade" target="_blank">Facebook</a>#g
 s#%instagram%#<a href="http://instagram.com/ergarcade" target="_blank">Instagram</a>#g
-s#%facebook-icon-link%#<a href="https://wwww.facebook.com/ergarcade"><i class="fab fa-facebook"></i></a>#g
-s#%instagram-icon-link%#<a href="https://wwww.instagram.com/ergarcade"><i class="fab fa-instagram"></i></a>#g
+s#%googlegroups%#<a href="https://groups.google.com/forum/\#!forum/erg-arcade" target="_blank">Google Groups</a>#g
+s#%facebook-icon-link%#<a href="https://wwww.facebook.com/ergarcade" target="_blank"><i class="fab fa-facebook" title="Facebook"></i></a>#g
+s#%instagram-icon-link%#<a href="https://wwww.instagram.com/ergarcade" target="_blank"><i class="fab fa-instagram" title="Instagram"></i></a>#g
+s#%googlegroups-icon-link%#<a href="https://groups.google.com/forum/\#!forum/erg-arcade" target="_blank" title="Google Groups"><i class="fas fa-users"></i></a>#g
 
 s#%ergarcade%#<a href="/">Erg Arcade</a>#g
 s#%detailed-setup%#<a href="/detailed-setup.html">detailed setup</a>#g
@@ -51,3 +53,12 @@ s#%logo-sync%#<div class="centre"><i class="fas fa-sync fa-2x"></i></div>#g
 s#%logo-wrench%#<div class="centre"><i class="fas fa-wrench fa-2x"></i></div>#g
 s#%logo-eye%#<div class="centre"><i class="fas fa-eye fa-2x"></i></div>#g
 s#%logo-gamepad%#<div class="centre"><i class="fas fa-gamepad fa-2x"></i></div>#g
+s#%logo-link%#<div class="centre"><i class="fas fa-link fa-2x"></i></div>#g
+s#%logo-bicycle%#<div class="centre"><i class="fas fa-bicycle fa-2x"></i></div>#g
+s#%logo-road%#<div class="centre"><i class="fas fa-road fa-2x"></i></div>#g
+
+s#%logo-home-link%#<a href="/" title="Home"><div class="centre"><i class="fas fa-home"></i></div></a>#g
+s#%logo-applications-link%#<a href="/applications.html" title="Applications"><div class="centre"><i class="fas fa-gamepad"></i></div></a>#g
+s#%logo-supporters-link%#<a href="/supporters.html" title="Supporters"><div class="centre"><i class="fas fa-hands-helping"></i></div></a>#g
+s#%logo-developers-link%#<a href="/developers.html" title="Developers"><div class="centre"><i class="fas fa-code"></i></div></a>#g
+s#%logo-author-link%#<a href="/author.html" title="Author"><div class="centre"><i class="far fa-smile"></i></div></a>#g
