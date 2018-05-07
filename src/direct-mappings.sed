@@ -5,9 +5,10 @@ s#%making-muscle%#<a href="http://www.makingmuscle.com.au">Making Muscle</a>#g
 s#%ergarcade-patreon%#<a href="tbd">Erg Arcade Patreon</a>#g
 s#%concept2-coach%#<a href="http://www.concept2.com.au/">Concept2 coach</a>#g
 s#%unity%#<a href="https://unity3d.com">Unity</a>#g
+s#%github-ergarcade%#<a href="https://github.com/ergarcade">GitHub</a>#g
 
-s#%facebook%#<a href="http://facebook.com/ergarcade">Facebook</a>#g
-s#%instagram%#<a href="http://instagram.com/ergarcade">Instagram</a>#g
+s#%facebook%#<a href="http://facebook.com/ergarcade" target="_blank">Facebook</a>#g
+s#%instagram%#<a href="http://instagram.com/ergarcade" target="_blank">Instagram</a>#g
 s#%facebook-icon-link%#<a href="https://wwww.facebook.com/ergarcade"><i class="fab fa-facebook"></i></a>#g
 s#%instagram-icon-link%#<a href="https://wwww.instagram.com/ergarcade"><i class="fab fa-instagram"></i></a>#g
 
@@ -19,6 +20,7 @@ s#%Applications%#<a href="/applications.html">Applications</a>#g
 s#%applications%#<a href="/applications.html">applications</a>#g
 s#%Supporters%#<a href="/supporters.html">Supporters</a>#g
 s#%supporters%#<a href="/supporters.html">supporters</a>#g
+s#%Developers%#<a href="/developers.html">Developers</a>#g
 s#%Author%#<a href="/author.html">Author</a>#g
 
 
@@ -40,4 +42,12 @@ s#%bigview%#<a href="/tools/bigview.html">Big View</a>#g
 
 s#%webgl-fluid-simulation%#<a href="/visualisations/webgl-fluid-simulation.html">webgl fluid simulation</a>#g
 
-s#%ergarcade-logo%#<span class="centre fa-stack fa-2x"><i class="fas fa-circle fa-stack-2x"></i><i class="fas fa-gamepad fa-stack-1x fa-inverse"></i></span>#g
+s#%logo-ergarcade%#<span class="centre fa-stack fa-3x"><i class="fas fa-circle-notch fa-stack-2x"></i><i class="fas fa-gamepad fa-stack-1x"></i></span>#g
+s#%logo-question%#<div class="centre"><i class="fas fa-question fa-2x"></i></div>#g
+s#%logo-cogs%#<div class="centre"><i class="fas fa-cogs fa-2x"></i></div>#g
+s#%logo-rocket%#<div class="centre"><i class="fas fa-rocket fa-2x"></i></div>#g
+s#%logo-hands-helping%#<div class="centre"><i class="fas fa-hands-helping fa-2x"></i></div>#g
+s#%logo-sync%#<div class="centre"><i class="fas fa-sync fa-2x"></i></div>#g
+s#%logo-wrench%#<div class="centre"><i class="fas fa-wrench fa-2x"></i></div>#g
+s#%logo-eye%#<div class="centre"><i class="fas fa-eye fa-2x"></i></div>#g
+s#%logo-gamepad%#<div class="centre"><i class="fas fa-gamepad fa-2x"></i></div>#g

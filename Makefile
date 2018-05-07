@@ -12,17 +12,17 @@ MAPPINGS := src/direct-mappings.sed
 	cat src/head.html ./$< src/foot.html | sed -f $(MAPPINGS) > $@
 
 ./docs/css/%.css: ./src/webroot/css/%.css
-	@cp ./$< $@
+	cp ./$< $@
 
 help:
 	@echo "make deploy: generate website docs/ from src/"
 
 images:
 	@mkdir -p ./docs/images
-	@cp -af ./src/webroot/images/* ./docs/images/
+	cp -af ./src/webroot/images/* ./docs/images/
 
 javascript:
 	@mkdir -p ./docs/js
-	@cp -af ./src/webroot/js/* ./docs/js/
+	cp -af ./src/webroot/js/* ./docs/js/
 
 deploy: images javascript $(HTML) $(CSS)
