@@ -18,13 +18,16 @@ help:
 	@echo "make deploy: generate website docs/ from src/"
 
 images:
+	@echo "copying images"
 	@mkdir -p ./docs/images
 	@rm -f ./docs/images/*
-	cp -af ./src/webroot/images/* ./docs/images/
+	@cp -af ./src/webroot/images/* ./docs/images/
+	@cp -af ./src/webroot/favicon.ico ./docs/
 
 javascript:
+	@echo "copying javascript"
 	@mkdir -p ./docs/js
 	@rm -f ./docs/js/*
-	cp -af ./src/webroot/js/* ./docs/js/
+	@cp -af ./src/webroot/js/* ./docs/js/
 
 deploy: images javascript $(HTML) $(CSS)

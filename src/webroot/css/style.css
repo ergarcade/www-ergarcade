@@ -32,6 +32,10 @@ ul.gallery li {
 p {
     clear: both;
 }
+.img-holder {
+    position: relative;
+    text-align: center;
+}
 
 /*
  * Layout.

@@ -60,6 +60,8 @@ s#%logo-user%#<div class="centre"><i class="fas fa-user fa-2x"></i></div>#g
 s#%logo-users%#<div class="centre"><i class="fas fa-users fa-2x"></i></div>#g
 s#%logo-tablet%#<div class="centre"><i class="fas fa-tablet-alt fa-2x"></i></div>#g
 s#%logo-tv%#<div class="centre"><i class="fas fa-tv fa-2x"></i></div>#g
+s#%logo-history%#<div class="centre"><i class="fas fa-history fa-2x"></i></div>#g
+s#%logo-future%#<div class="centre"><i class="fas fa-space-shuttle fa-2x"></i></div>#g
 
 s#%logo-home-link%#<a href="/" title="Home"><div class="centre"><i class="fas fa-home fa-2x"></i></div></a>#g
 s#%logo-applications-link%#<a href="/applications.html" title="Applications"><div class="centre"><i class="fas fa-gamepad fa-2x"></i></div></a>#g
@@ -68,7 +70,7 @@ s#%logo-supporters-link%#<a href="/supporters.html" title="Supporters"><div clas
 s#%logo-developers-link%#<a href="/developers.html" title="Developers"><div class="centre"><i class="fas fa-code fa-2x"></i></div></a>#g
 s#%logo-about-link%#<a href="/about.html" title="About"><div class="centre"><i class="far fa-smile fa-2x"></i></div></a>#g
 
+s#%youtube-placehold-\(.*\)^\(.*\)%#<div class="img-holder"><img class="yt-placehold centre" src="\2" data-video="http://www.youtube.com/embed/\1" /></div>#g
 s#%youtube-\(.*\)%#<iframe id="ytplayer" class="centre" width="640" height="360" type="text/html" src="https://www.youtube.com/embed/\1?fs=1&autoplay=0&origin=http://ergarcade.com" frameborder="0" allowfullscreen></iframe>#g
-
 
 s#%image-\(.*\)-\(.*\)%#<a href="\2"><img src="/images/\1" alt="\1" /></a>#g
