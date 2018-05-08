@@ -1,16 +1,18 @@
 /*
  * Replace placeholder images with YouTube player when clicked.
+ *
+ * https://stackoverflow.com/questions/13725683/how-to-add-a-splash-screen-placeholder-image-for-a-youtube-video
  */
 (function() {
     let els = document.querySelectorAll('img.yt-placehold');
 
     for (let i = 0; i < els.length; i++) {
         els[i].addEventListener('click', function() {
-            let video = '<iframe ' +
-                'id="ytplayer" class="centre" width="640" height="360" ' +
+            let video = '<div class="centre"><iframe ' +
+                'id="ytplayer" width="640" height="360" ' +
                 'type="text/html" ' +
-                'src="'+ els[i].getAttribute('data-video') +'?autoplay=1&origin=http://ergarcade.com" frameborder="0" allowfullscreen></iframe>';
-            /* els[i].outerHTML = video;   /* replace image element */
+                'src="'+ els[i].getAttribute('data-video') +'?autoplay=1&origin=http://ergarcade.com" frameborder="0" allowfullscreen>' +
+                '</div></iframe>';
             els[i].parentNode.outerHTML = video;
         });
 

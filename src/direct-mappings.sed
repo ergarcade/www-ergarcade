@@ -43,9 +43,10 @@ s#%omniscient%#<a href="/tools/omniscient.html">Omniscient</a>#g
 s#%bigview%#<a href="/tools/bigview.html">Big View</a>#g
 
 s#%webgl-fluid-simulation%#<a href="/visualisations/webgl-fluid-simulation.html">webgl fluid simulation</a>#g
+s@%remote-viewer%@<a href="/detailed-setup.html#remote-viewing">remote viewer</a>@g
 
-s#%logo-ergarcade%#<span class="centre fa-stack fa-3x"><i class="fas fa-circle-notch fa-stack-2x"></i><i class="fas fa-gamepad fa-stack-1x"></i></span>#g
-s#%logo-question%#<div class="centre"><i class="fas fa-question fa-2x"></i></div>#g
+s#%logo-ergarcade%#<div class="centre"><span class="fa-stack fa-3x"><i class="fas fa-circle-notch fa-stack-2x"></i><i class="fas fa-gamepad fa-stack-1x"></i></span></div>#g
+s#%logo-question%#<div class="centre"><i class="fas fa-question-circle fa-2x"></i></div>#g
 s#%logo-cogs%#<div class="centre"><i class="fas fa-cogs fa-2x"></i></div>#g
 s#%logo-rocket%#<div class="centre"><i class="fas fa-rocket fa-2x"></i></div>#g
 s#%logo-hands-helping%#<div class="centre"><i class="fas fa-hands-helping fa-2x"></i></div>#g
@@ -62,15 +63,19 @@ s#%logo-tablet%#<div class="centre"><i class="fas fa-tablet-alt fa-2x"></i></div
 s#%logo-tv%#<div class="centre"><i class="fas fa-tv fa-2x"></i></div>#g
 s#%logo-history%#<div class="centre"><i class="fas fa-history fa-2x"></i></div>#g
 s#%logo-future%#<div class="centre"><i class="fas fa-space-shuttle fa-2x"></i></div>#g
+s#%logo-general%#<div class="centre"><i class="fas fa-question-circle fa-2x"></i></div>#g
+s#%logo-websdk%#<div class="centre"><i class="fas fa-websdk fa-2x"></i></div>#g
 
 s#%logo-home-link%#<a href="/" title="Home"><div class="centre"><i class="fas fa-home fa-2x"></i></div></a>#g
+s#%logo-setup-link%#<a href="/detailed-setup.html" title="Setup"><div class="centre"><i class="fas fa-cogs fa-2x"></i></div></a>#g
 s#%logo-applications-link%#<a href="/applications.html" title="Applications"><div class="centre"><i class="fas fa-gamepad fa-2x"></i></div></a>#g
 s#%logo-troubleshooting-link%#<a href="/troubleshooting.html" title="Troubleshooting"><div class="centre"><i class="fas fa-wrench fa-2x"></i></div></a>#g
 s#%logo-supporters-link%#<a href="/supporters.html" title="Supporters"><div class="centre"><i class="fas fa-hands-helping fa-2x"></i></div></a>#g
 s#%logo-developers-link%#<a href="/developers.html" title="Developers"><div class="centre"><i class="fas fa-code fa-2x"></i></div></a>#g
-s#%logo-about-link%#<a href="/about.html" title="About"><div class="centre"><i class="far fa-smile fa-2x"></i></div></a>#g
+s#%logo-about-link%#<a href="/about.html" title="About"><div class="centre"><i class="fas fa-smile fa-2x"></i></div></a>#g
+s#%logo-roadmap-link%#<a href="/roadmap.html" title="Roadmap"><div class="centre"><i class="fas fa-road fa-2x"></i></div></a>#g
 
-s#%youtube-placehold-\(.*\)^\(.*\)%#<div class="img-holder"><img class="yt-placehold centre" src="\2" data-video="http://www.youtube.com/embed/\1" /></div>#g
+s#%youtube-placehold-\(.*\)^\(.*\)%#<div class="img-holder centre"><img class="yt-placehold centre" src="\2" data-video="http://www.youtube.com/embed/\1" /></div>#g
 s#%youtube-\(.*\)%#<iframe id="ytplayer" class="centre" width="640" height="360" type="text/html" src="https://www.youtube.com/embed/\1?fs=1&autoplay=0&origin=http://ergarcade.com" frameborder="0" allowfullscreen></iframe>#g
 
 s#%image-\(.*\)-\(.*\)%#<a href="\2"><img src="/images/\1" alt="\1" /></a>#g
