@@ -13,6 +13,7 @@ s#%googlegroups%#<a href="https://groups.google.com/forum/\#!forum/erg-arcade" t
 s#%facebook-icon-link%#<a href="https://wwww.facebook.com/ergarcade" target="_blank"><i class="fab fa-facebook fa-2x" title="Facebook"></i></a>#g
 s#%instagram-icon-link%#<a href="https://wwww.instagram.com/ergarcade" target="_blank"><i class="fab fa-instagram fa-2x" title="Instagram"></i></a>#g
 s#%googlegroups-icon-link%#<a href="https://groups.google.com/forum/\#!forum/erg-arcade" target="_blank" title="Google Groups"><i class="fas fa-users fa-2x"></i></a>#g
+s#%enquiry-form%#<a href="https://goo.gl/forms/GyHjFSYm3sJLb83S2" target="_blank">enquiry form</a>#g
 
 s#%ergarcade%#<a href="/">Erg Arcade</a>#g
 s#%detailed-setup%#<a href="/detailed-setup.html">detailed setup</a>#g
@@ -65,6 +66,9 @@ s#%logo-history%#<div class="centre"><i class="fas fa-history fa-2x"></i></div>#
 s#%logo-future%#<div class="centre"><i class="fas fa-space-shuttle fa-2x"></i></div>#g
 s#%logo-general%#<div class="centre"><i class="fas fa-question-circle fa-2x"></i></div>#g
 s#%logo-websdk%#<div class="centre"><i class="fas fa-websdk fa-2x"></i></div>#g
+s#%logo-globe%#<div class="centre"><i class="fas fa-globe fa-2x"></i></div>#g
+s#%logo-graduation-cap%#<div class="centre"><i class="fas fa-graduation-cap fa-2x"></i></div>#g
+s#%logo-laptop%#<div class="centre"><i class="fas fa-laptop fa-2x"></i></div>#g
 
 s#%logo-home-link%#<a href="/" title="Home"><div class="centre"><i class="fas fa-home fa-2x"></i></div></a>#g
 s#%logo-setup-link%#<a href="/detailed-setup.html" title="Setup"><div class="centre"><i class="fas fa-cogs fa-2x"></i></div></a>#g
@@ -74,6 +78,7 @@ s#%logo-supporters-link%#<a href="/supporters.html" title="Supporters"><div clas
 s#%logo-developers-link%#<a href="/developers.html" title="Developers"><div class="centre"><i class="fas fa-code fa-2x"></i></div></a>#g
 s#%logo-about-link%#<a href="/about.html" title="About"><div class="centre"><i class="fas fa-smile fa-2x"></i></div></a>#g
 s#%logo-roadmap-link%#<a href="/roadmap.html" title="Roadmap"><div class="centre"><i class="fas fa-road fa-2x"></i></div></a>#g
+s#%logo-training-link%#<a href="/training.html" title="Developers"><div class="centre"><i class="fas fa-graduation-cap fa-2x"></i></div></a>#g
 
 s#%youtube-placehold-\(.*\)^\(.*\)%#<div class="img-holder centre"><img class="yt-placehold centre" src="\2" data-video="http://www.youtube.com/embed/\1" /></div>#g
 s#%youtube-\(.*\)%#<iframe id="ytplayer" class="centre" width="640" height="360" type="text/html" src="https://www.youtube.com/embed/\1?fs=1&autoplay=0&origin=http://ergarcade.com" frameborder="0" allowfullscreen></iframe>#g
