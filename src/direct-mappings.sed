@@ -13,6 +13,7 @@ s#%googlegroups%#<a href="https://groups.google.com/forum/\#!forum/erg-arcade" t
 s#%facebook-icon-link%#<a href="https://wwww.facebook.com/ergarcade" target="_blank"><i class="fab fa-facebook fa-2x" title="Facebook"></i></a>#g
 s#%instagram-icon-link%#<a href="https://wwww.instagram.com/ergarcade" target="_blank"><i class="fab fa-instagram fa-2x" title="Instagram"></i></a>#g
 s#%googlegroups-icon-link%#<a href="https://groups.google.com/forum/\#!forum/erg-arcade" target="_blank" title="Google Groups"><i class="fas fa-users fa-2x"></i></a>#g
+s#%wiki-icon-link%#<a href="https://github.com/angrytongan/ergarcade/wiki" target="_blank" title="Wiki"><i class="fab fa-wikipedia-w fa-2x"></i></a>#g
 s#%enquiry-form%#<a href="https://goo.gl/forms/GyHjFSYm3sJLb83S2" target="_blank">enquiry form</a>#g
 
 s#%ergarcade%#<a href="/">Erg Arcade</a>#g
@@ -38,6 +39,7 @@ s#%Games%#<a href="/games.html">Games</a>#g
 s#%support%#<a href="/support.html">support</a>#g
 s#%roadmap%#<a href="/roadmap.html">roadmap</a>#g
 s#%troubleshooting%#<a href="/troubleshooting.html">troubleshooting</a>#g
+s#%wiki%#<a href="https://github.com/angrytongan/ergarcade/wiki">Erg Arcade wiki</a>#g
 
 s#%c2proxy%#<a href="/tools/c2proxy.html">c2proxy</a>#g
 s#%omniscient%#<a href="/tools/omniscient.html">Omniscient</a>#g
