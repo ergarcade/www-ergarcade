@@ -10,8 +10,8 @@ s#%github-ergarcade%#<a href="https://github.com/ergarcade" target="_blank">GitH
 s#%facebook%#<a href="http://facebook.com/ergarcade" target="_blank">Facebook</a>#g
 s#%instagram%#<a href="http://instagram.com/ergarcade" target="_blank">Instagram</a>#g
 s#%googlegroups%#<a href="https://groups.google.com/forum/\#!forum/erg-arcade" target="_blank">Google Groups</a>#g
-s#%facebook-icon-link%#<a href="https://wwww.facebook.com/ergarcade" target="_blank"><i class="fab fa-facebook fa-2x" title="Facebook"></i></a>#g
-s#%instagram-icon-link%#<a href="https://wwww.instagram.com/ergarcade" target="_blank"><i class="fab fa-instagram fa-2x" title="Instagram"></i></a>#g
+s#%facebook-icon-link%#<a href="https://www.facebook.com/ergarcade" target="_blank"><i class="fab fa-facebook fa-2x" title="Facebook"></i></a>#g
+s#%instagram-icon-link%#<a href="https://www.instagram.com/theergarcade" target="_blank"><i class="fab fa-instagram fa-2x" title="Instagram"></i></a>#g
 s#%googlegroups-icon-link%#<a href="https://groups.google.com/forum/\#!forum/erg-arcade" target="_blank" title="Google Groups"><i class="fas fa-users fa-2x"></i></a>#g
 s#%wiki-icon-link%#<a href="https://github.com/angrytongan/ergarcade/wiki" target="_blank" title="Wiki"><i class="fab fa-wikipedia-w fa-2x"></i></a>#g
 s#%enquiry-form%#<a href="https://goo.gl/forms/GyHjFSYm3sJLb83S2" target="_blank">enquiry form</a>#g

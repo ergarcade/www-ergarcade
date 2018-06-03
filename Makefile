@@ -30,4 +30,7 @@ javascript:
 	@rm -f ./docs/js/*
 	@cp -af ./src/webroot/js/* ./docs/js/
 
-deploy: images javascript $(HTML) $(CSS)
+css:
+	@mkdir -p ./docs/css
+
+deploy: images javascript css $(HTML) $(CSS)
