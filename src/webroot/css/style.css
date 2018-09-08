@@ -1,0 +1,81 @@
+/*
+ * Colours.
+ */
+body {
+    width: 45em;
+    margin: auto;
+
+    color: #222930;
+    background: #e9e9e9;
+}
+
+body a, body a:visited {
+    color: #336E7B;
+}
+.fas {
+    color: #336E7B;
+}
+
+/*
+ * Images.
+ */
+ul.gallery {
+    list-style-type: none;
+    padding: 0;
+    width: 100%;
+    margin: auto;
+}
+ul.gallery li {
+    float: left;
+    padding: 5px;
+}
+p {
+    clear: both;
+}
+.img-holder {
+    position: relative;
+    text-align: center;
+}
+
+/*
+ * Layout.
+ */
+#header {
+    padding-bottom: 1em;
+}
+#footer {
+    padding-top: 1em;
+}
+#header ul,
+#footer ul {
+    padding-top: 1em;
+    padding-left: 0;
+    text-align: center;
+    margin: auto;
+    list-style-type: none;
+}
+#header ul li,
+#footer ul li{
+    margin-left: 0.5em;
+    margin-right: 0.5em;
+    display: inline-block;
+}
+#footer ul {
+    padding-top: 0;
+}
+#content {
+    padding: 0 1em;
+}
+.centre {
+    text-align: center;
+	margin: auto;
+}
+.section {
+    padding-top: 1em;
+}
+h1, h2, h3, h4, h5, h6 {
+	text-align: center;
+}
+ul.questions li {
+    padding-bottom: 1em;
+}
