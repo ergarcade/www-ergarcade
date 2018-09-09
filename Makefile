@@ -7,9 +7,11 @@ HTML := $(patsubst ./src/webroot/%.html,./docs/%.html,$(HTML_SRCS))
 CSS := $(patsubst ./src/webroot/css/%.css,./docs/css/%.css,$(CSS_SRCS))
 
 MAPPINGS := src/direct-mappings.sed
+SUBSTITUTES := src/file-subs.sed
 
 ./docs/%.html: ./src/webroot/%.html $(MAPPINGS) ./src/head.html ./src/foot.html
-	cat src/head.html ./$< src/foot.html | sed -f $(MAPPINGS) > $@
+# cat src/head.html ./$< src/foot.html | sed -f $(MAPPINGS) > $@
+	sed -f $(SUBSTITUTES) ./$< | sed -f $(MAPPINGS) > $@
 
 ./docs/css/%.css: ./src/webroot/css/%.css
 	cp ./$< $@
