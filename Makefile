@@ -2,6 +2,7 @@
 
 HTML_SRCS := $(wildcard ./src/webroot/*.html)
 CSS_SRCS := $(wildcard ./src/webroot/css/*.css)
+OTHER_SRCS := ./src/webroot/CNAME
 
 HTML := $(patsubst ./src/webroot/%.html,./docs/%.html,$(HTML_SRCS))
 CSS := $(patsubst ./src/webroot/css/%.css,./docs/css/%.css,$(CSS_SRCS))
@@ -10,7 +11,6 @@ MAPPINGS := src/direct-mappings.sed
 SUBSTITUTES := src/file-subs.sed
 
 ./docs/%.html: ./src/webroot/%.html $(MAPPINGS) ./src/head.html ./src/foot.html
-# cat src/head.html ./$< src/foot.html | sed -f $(MAPPINGS) > $@
 	sed -f $(SUBSTITUTES) ./$< | sed -f $(MAPPINGS) > $@
 
 ./docs/css/%.css: ./src/webroot/css/%.css
@@ -36,3 +36,8 @@ css:
 	@mkdir -p ./docs/css
 
 site: images javascript css $(HTML) $(CSS)
+	@cp -f $(OTHER_SRCS) ./docs
+
+clean:
+	@rm -rf docs/*
+	git checkout docs/

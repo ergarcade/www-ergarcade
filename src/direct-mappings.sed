@@ -7,13 +7,11 @@ s#%concept2-coach%#<a href="http://www.concept2.com.au/" target="_blank">Concept
 s#%unity%#<a href="https://unity3d.com" target="_blank">Unity</a>#g
 s#%github-ergarcade%#<a href="https://github.com/ergarcade" target="_blank">GitHub</a>#g
 
-s#%facebook%#<a href="http://facebook.com/ergarcade" target="_blank">Facebook</a>#g
 s#%instagram%#<a href="http://instagram.com/ergarcade" target="_blank">Instagram</a>#g
 s#%googlegroups%#<a href="https://groups.google.com/forum/\#!forum/erg-arcade" target="_blank">Google Groups</a>#g
 s#%facebook-icon-link%#<a href="https://www.facebook.com/ergarcade" target="_blank"><i class="fab fa-facebook fa-2x" title="Facebook"></i></a>#g
 s#%instagram-icon-link%#<a href="https://www.instagram.com/ergarcade" target="_blank"><i class="fab fa-instagram fa-2x" title="Instagram"></i></a>#g
 s#%googlegroups-icon-link%#<a href="https://groups.google.com/forum/\#!forum/erg-arcade" target="_blank" title="Google Groups"><i class="fas fa-users fa-2x"></i></a>#g
-s#%wiki-icon-link%#<a href="https://github.com/angrytongan/ergarcade/wiki" target="_blank" title="Wiki"><i class="fab fa-wikipedia-w fa-2x"></i></a>#g
 s#%enquiry-form%#<a href="https://goo.gl/forms/GyHjFSYm3sJLb83S2" target="_blank">enquiry form</a>#g
 
 s#%ergarcade%#<a href="/">Erg Arcade</a>#g
@@ -22,6 +20,7 @@ s#%setup%#<a href="/setup.html">setup</a>#g
 s#%Home%#<a href="/">Home</a>#g
 s#%Applications%#<a href="/applications.html">Applications</a>#g
 s#%applications%#<a href="/applications.html">applications</a>#g
+s#%application%#<a href="/applications.html">application</a>#g
 s#%Supporters%#<a href="/supporters.html">Supporters</a>#g
 s#%supporters%#<a href="/supporters.html">supporters</a>#g
 s#%Developers%#<a href="/developers.html">Developers</a>#g
@@ -39,7 +38,6 @@ s#%Games%#<a href="/games.html">Games</a>#g
 s#%support%#<a href="/support.html">support</a>#g
 s#%roadmap%#<a href="/roadmap.html">roadmap</a>#g
 s#%troubleshooting%#<a href="/troubleshooting.html">troubleshooting</a>#g
-s#%wiki%#<a href="https://github.com/angrytongan/ergarcade/wiki">Erg Arcade wiki</a>#g
 
 s#%c2proxy%#<a href="/tools/c2proxy.html">c2proxy</a>#g
 s#%omniscient%#<a href="/tools/omniscient.html">Omniscient</a>#g
@@ -74,21 +72,31 @@ s#%logo-laptop%#<div class="centre"><i class="fas fa-laptop fa-2x"></i></div>#g
 
 s#%logo-home-link%#<a href="/" title="Home"><div class="centre"><i class="fas fa-home fa-2x"></i></div></a>#g
 s#%logo-setup-link%#<a href="/setup.html" title="Setup"><div class="centre"><i class="fas fa-cogs fa-2x"></i></div></a>#g
-s#%logo-applications-link%#<a href="/applications.html" title="Applications"><div class="centre"><i class="fas fa-gamepad fa-2x"></i></div></a>#g
 s#%logo-troubleshooting-link%#<a href="/troubleshooting.html" title="Troubleshooting"><div class="centre"><i class="fas fa-wrench fa-2x"></i></div></a>#g
 s#%logo-supporters-link%#<a href="/supporters.html" title="Supporters"><div class="centre"><i class="fas fa-hands-helping fa-2x"></i></div></a>#g
-s#%logo-developers-link%#<a href="/developers.html" title="Developers"><div class="centre"><i class="fas fa-code fa-2x"></i></div></a>#g
+s#%logo-developers-link%#<a href="/developers.html" title="Developers"><div class="centre"><i class="fas fa-laptop-code fa-2x"></i></div></a>#g
 s#%logo-about-link%#<a href="/about.html" title="About"><div class="centre"><i class="fas fa-smile fa-2x"></i></div></a>#g
 s#%logo-roadmap-link%#<a href="/roadmap.html" title="Roadmap"><div class="centre"><i class="fas fa-road fa-2x"></i></div></a>#g
 s#%logo-training-link%#<a href="/training.html" title="Developers"><div class="centre"><i class="fas fa-graduation-cap fa-2x"></i></div></a>#g
+s#%logo-applications-link%#<a href="/applications.html"><div class="centre"><span class="fa-stack fa-2x"><i class="fas fa-circle-notch fa-stack-2x"></i><i class="fas fa-gamepad fa-stack-1x"></i></span></div></a>#g
 
 s#%youtube-placehold-\(.*\)^\(.*\)%#<div class="img-holder centre"><img class="yt-placehold centre" src="\2" data-video="http://www.youtube.com/embed/\1" /></div>#g
 s#%youtube-\(.*\)%#<iframe id="ytplayer" class="centre" width="640" height="360" type="text/html" src="https://www.youtube.com/embed/\1?fs=1&autoplay=0&origin=http://ergarcade.com" frameborder="0" allowfullscreen></iframe>#g
 
 s#%image-\(.*\)-\(.*\)%#<a href="\2"><img src="/images/\1" alt="\1" /></a>#g
 
-s#%chrome-web-browser%#<a href="http://google.com/chrome">Chrome web browser</a>#g
+s#%chrome-web-browser%#<a target="_blank" href="http://google.com/chrome">Chrome web browser</a>#g
+s#%web-bluetooth%#<a target="_blank" href="https://webbluetoothcg.github.io/web-bluetooth/">Web Bluetooth</a>#g
 
-s#%open-source-software%#<a href="https://en.wikipedia.org/wiki/Open-source_software">Open Source software</a>#g
+s#%c2proxy-wiki%#<a target="_blank" href="https://github.com/ergarcade/c2proxy/wiki">c2proxy wiki</a>#
+s#%pm5-detail-wiki%#<a target="_blank" href="https://github.com/ergarcade/pm5-detail/wiki">pm5-detail wiki</a>#
+s#%pm5-detail%#<a target="_blank" href="https://github.com/ergarcade/pm5-detail">pm5-detail</a>#
+s^%can-i-use-web-bluetooth-\(.*\)%^<a target="_blank" href="https://caniuse.com/#feat=web-bluetooth">\1</a>^
 
-s#%df-reddit-\(.*\)%#<a target="_blank" href="https://www.reddit.com/user/angrytongan">\1</a>#
+s#%open-source-software%#<a target="_blank" href="https://en.wikipedia.org/wiki/Open-source_software">Open Source software</a>#g
+s#%mit-licence%#<a href="https://opensource.org/licenses/MIT">MIT licence</a>#g
+
+s#%get-in-touch%#<a href="http://facebook.com/ergarcade" target="_blank">get in touch</a>#g
+
+s#%official-sdk%#<a target="_blank" href="https://www.concept2.com/service/software/software-development-kit">software development kit</a>#g
+s#%CSAFE%#<a target="_blank" href="https://en.wikipedia.org/wiki/Communications_Specification_for_Fitness_Equipment">CSAFE</a>#g

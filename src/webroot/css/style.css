@@ -2,18 +2,19 @@
  * Colours.
  */
 body {
-    width: 45em;
+    width: 80%;
     margin: auto;
 
     color: #222930;
     background: #e9e9e9;
 }
 
-body a, body a:visited {
-    color: #336E7B;
-}
-.fas {
-    color: #336E7B;
+body a, body a:visited,
+h1, h2, h3, h4, h5, h6,
+.fas, .fab,
+hr{
+    border-color: #2668d8;
+    color: #2668d8;
 }
 
 /*
@@ -41,7 +42,7 @@ p {
  * Layout.
  */
 #header {
-    padding-bottom: 1em;
+    padding-bottom: 0;
 }
 #footer {
     padding-top: 1em;
@@ -78,4 +79,11 @@ h1, h2, h3, h4, h5, h6 {
 }
 ul.questions li {
     padding-bottom: 1em;
+}
+
+@media screen and (min-width: 800px) {
+    body {
+        width: 700px;
+        margin: auto;
+    }
 }
