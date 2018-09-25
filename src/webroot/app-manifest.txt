@@ -1,0 +1,2 @@
+product-a|Product A|tool, visualisation, game
+product-b|Product B|tool

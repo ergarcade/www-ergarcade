@@ -1,4 +1,4 @@
-.PHONY: site
+.PHONY: site clean css javascript images help
 
 HTML_SRCS := $(wildcard ./src/webroot/*.html)
 CSS_SRCS := $(wildcard ./src/webroot/css/*.css)
@@ -35,9 +35,16 @@ javascript:
 css:
 	@mkdir -p ./docs/css
 
-site: images javascript css $(HTML) $(CSS)
+site: images javascript css docs/applications.html $(HTML) $(CSS)
 	@cp -f $(OTHER_SRCS) ./docs
 
+src/webroot/applications.html: src/webroot/app-manifest.txt
+	./build_applications.sh $< > $@
+
+docs/applications.html: src/webroot/applications.html
+	sed -f $(SUBSTITUTES) ./$< | sed -f $(MAPPINGS) > $@
+
 clean:
-	@rm -rf docs/*
+	@rm -rf docs/*.html docs/css/* docs/images/* docs/js/* docs/favicon.ico src/webroot/applications.html
 	git checkout docs/
+	mkdir -p docs/products
