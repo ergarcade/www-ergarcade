@@ -92,7 +92,7 @@ ul.questions li {
     padding-bottom: 1em;
 }
 
-.box-third {
+.box-half {
     width: 100%;
     float: none;
 }
@@ -105,12 +105,12 @@ ul.questions li {
 
 @media screen and (min-width: 800px) {
     body {
-        width: 700px;
+        width: 640px; /* 80% x 800 */
         margin: auto;
     }
 
-    .box-third {
-        width: 30%;
+    .box-half {
+        width: 49%;
         float: left;
     }
 
