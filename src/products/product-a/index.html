@@ -6,16 +6,11 @@
 <a target="_blank" href="/applications/product-a/">Start The Flaming Carrot of Death!</a>
 </p>
 
-<ul class="gallery">
-    <li><a target="_blank" href="./images/placeholder-640x360.jpg"><img src="./images/placeholder-80x45.jpeg" /></a></li>
-    <li><a target="_blank" href="./images/placeholder-640x360.jpg"><img src="./images/placeholder-80x45.jpeg" /></a></li>
-    <li><a target="_blank" href="./images/placeholder-640x360.jpg"><img src="./images/placeholder-80x45.jpeg" /></a></li>
-    <li><a target="_blank" href="./images/placeholder-640x360.jpg"><img src="./images/placeholder-80x45.jpeg" /></a></li>
-    <li><a target="_blank" href="./images/placeholder-640x360.jpg"><img src="./images/placeholder-80x45.jpeg" /></a></li>
-    <li><a target="_blank" href="./images/placeholder-640x360.jpg"><img src="./images/placeholder-80x45.jpeg" /></a></li>
-    <li><a target="_blank" href="./images/placeholder-640x360.jpg"><img src="./images/placeholder-80x45.jpeg" /></a></li>
-    <li><a target="_blank" href="./images/placeholder-640x360.jpg"><img src="./images/placeholder-80x45.jpeg" /></a></li>
-    <li><a target="_blank" href="./images/placeholder-640x360.jpg"><img src="./images/placeholder-80x45.jpeg" /></a></li>
+<ul class="gallery-images">
+    <li data-src="./images/placeholder-640x360.jpg"><img src="./images/placeholder-80x45.jpeg" /></li>
+    <li data-src="./images/placeholder-640x360.jpg"><img src="./images/placeholder-80x45.jpeg" /></li>
+    <li data-src="./images/placeholder-640x360.jpg"><img src="./images/placeholder-80x45.jpeg" /></li>
+    <li data-src="./images/placeholder-640x360.jpg"><img src="./images/placeholder-80x45.jpeg" /></li>
 </ul>
 
 <p>
@@ -32,12 +27,13 @@ culpa qui officia deserunt mollit anim id est laborum.
     <p>
     Click the configuration that matches your setup for detailed instructions.
     </p>
-    <ul>
-        <li>%mac-os-x-over-bluetooth%</li>
-        <li>%mac-os-x-over-usb%</li>
-        <li>%windows-over-bluetooth%</li>
-        <li>%windows-over-usb%</li>
-        <li>%android-over-bluetooth%</li>
+
+    <ul class="gallery-videos">
+        <li data-src="%video-mac-os-x-over-bluetooth%"><a href="">Mac OS X over Bluetooth</a></li>
+        <li data-src="%video-mac-os-x-over-usb%"><a href="">Mac OS X over USB</a></li>
+        <li data-src="%video-windows-over-bluetooth%"><a href="">Windows over Bluetooth</a></li>
+        <li data-src="%video-windows-over-usb%"><a href="">Windows over USB</a></li>
+        <li data-src="%video-android-over-bluetooth%"><a href="">Android over Bluetooth</a></li>
     </ul>
 </div>
 
@@ -53,6 +49,14 @@ culpa qui officia deserunt mollit anim id est laborum.
     </ul>
 </div>
 
-<p></p>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/1.6.11/js/lightgallery.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/lg-video/1.2.2/lg-video.min.js"></script>
+<script>
+$('.gallery-images').lightGallery();
+$('.gallery-videos').lightGallery({
+    preload: 0
+});
+</script>
 
 %foot%

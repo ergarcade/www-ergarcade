@@ -35,8 +35,8 @@ s#%get-in-touch%#<a href="http://facebook.com/ergarcade" target="_blank">get in 
 s#%official-sdk%#<a target="_blank" href="https://www.concept2.com/service/software/software-development-kit">software development kit</a>#g
 s#%CSAFE%#<a target="_blank" href="https://en.wikipedia.org/wiki/Communications_Specification_for_Fitness_Equipment">CSAFE</a>#g
 
-s#%mac-os-x-over-bluetooth%#<a href="">Mac OS X over Bluetooth</a>#g
-s#%mac-os-x-over-usb%#<a href="">Mac OS X over USB</a>#g
-s#%windows-over-bluetooth%#<a href="">Windows over Bluetooth</a>#g
-s#%windows-over-usb%#<a href="">Windows over USB</a>#g
-s#%android-over-bluetooth%#<a href="">Android over Bluetooth</a>#g
+s#%video-mac-os-x-over-bluetooth%#https://www.youtube.com/watch?v=ABd-dokXh_4#g
+s#%video-mac-os-x-over-usb%#https://www.youtube.com/watch?v=ABd-dokXh_4#g
+s#%video-windows-over-bluetooth%#https://www.youtube.com/watch?v=ABd-dokXh_4#g
+s#%video-windows-over-usb%#https://www.youtube.com/watch?v=ABd-dokXh_4#g
+s#%video-android-over-bluetooth%#https://www.youtube.com/watch?v=ABd-dokXh_4#g

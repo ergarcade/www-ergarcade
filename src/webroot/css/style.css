@@ -30,13 +30,13 @@ hr {
 /*
  * Images.
  */
-ul.gallery {
+ul.gallery-images {
     list-style-type: none;
     padding: 0;
     width: 100%;
     margin: auto;
 }
-ul.gallery li {
+ul.gallery-images li {
     float: left;
     padding-left: 5px;
 }
