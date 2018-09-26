@@ -22,7 +22,12 @@ echo "%head%";
 echo "<h1>Applications</h1>";
 echo "<ul class=\"gallery\">";
 
-cat $1 | while IFS='' read -r line || [[ -n "$line" ]]; do
+PREVIOUS_NAME=""
+PREVIOUS_PATH=""
+LAST_PRODUCT=""
+
+#cat $1 | while IFS='' read -r line || [[ -n "$line" ]]; do
+while IFS='' read -r line || [[ -n "$line" ]]; do
     IFS='|' TOKENS=( $line )
     IFS=' ,' CATEGORIES=( ${TOKENS[2]} )
 
@@ -34,7 +39,7 @@ cat $1 | while IFS='' read -r line || [[ -n "$line" ]]; do
 
     if [ ! -f src/products/${TOKENS[0]}/images/thumbnail.jpg ]; then
         echo "$PROG: can't find thumbnail for src/products/${TOKENS[0]}" 1>&2
-        continue
+        continue;
     fi
 
     # verify application exists in docs/applications/<name>
@@ -53,9 +58,33 @@ cat $1 | while IFS='' read -r line || [[ -n "$line" ]]; do
     # Expand our macros.
     # XXX Maybe not here - push back to makefile so we don't dupe this stuff.
 	sed -i.bak -f src/file-subs.sed docs/products/${TOKENS[0]}/index.html && \
-        sed -i.bak -f src/direct-mappings.sed docs/products/${TOKENS[0]}/index.html &&
-        rm -f docs/products/${TOKENS[0]}/index.html.bak
-done
+        sed -i.bak -f src/direct-mappings.sed docs/products/${TOKENS[0]}/index.html
+
+    # Set the previous product.
+    if [ ! -z "$PREVIOUS_NAME" ]; then
+        sed -i.bak \
+            -e "s#%previous-product%#<span class=\"left\">Back: <a href=\"${PREVIOUS_PATH}\">\&lt; ${PREVIOUS_NAME}</a></span>#g" \
+            docs/products/${TOKENS[0]}/index.html
+    else
+        sed -i.bak -e "s#%previous-product%##g" docs/products/${TOKENS[0]}/index.html
+    fi
+
+    PREVIOUS_NAME=${TOKENS[1]};
+    PREVIOUS_PATH="/products/${TOKENS[0]}";
+
+    # Set the next product link, of the _last_ product we did.
+    if [ ! -z "$LAST_PRODUCT" ]; then
+        sed -i.bak \
+            -e "s#%next-product%#<span class=\"right\">Next: <a href=\"/products/${TOKENS[0]}\">${TOKENS[1]} \&gt;</a></span>#g" \
+            docs/products/${LAST_PRODUCT}/index.html
+    fi
+
+    LAST_PRODUCT=${TOKENS[0]}
+done <<< "$(cat $1)"
+
+sed -i.bak -e "s#%next-product%##g" docs/${PREVIOUS_PATH}/index.html
+
+find docs -name "*.bak" -exec rm {} \;
 
 echo "</ul>";
 echo "%foot%"

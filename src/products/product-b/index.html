@@ -3,22 +3,17 @@
 <h1>Product B</h1>
 
 <p class="launch">
-<a target="_blank" href="/applications/product-b/">Start The Hammer of Righteousness!</a>
+<a target="_blank" href="/applications/product-b/">Start The Raging Hamster!</a>
 </p>
 
-<ul class="gallery">
-    <li><img src="./images/placeholder-80x45.jpeg" /></li>
-    <li><img src="./images/placeholder-80x45.jpeg" /></li>
-    <li><img src="./images/placeholder-80x45.jpeg" /></li>
-    <li><img src="./images/placeholder-80x45.jpeg" /></li>
-    <li><img src="./images/placeholder-80x45.jpeg" /></li>
-    <li><img src="./images/placeholder-80x45.jpeg" /></li>
-    <li><img src="./images/placeholder-80x45.jpeg" /></li>
-    <li><img src="./images/placeholder-80x45.jpeg" /></li>
-    <li><img src="./images/placeholder-80x45.jpeg" /></li>
-    <li><img src="./images/placeholder-80x45.jpeg" /></li>
-    <li><img src="./images/placeholder-80x45.jpeg" /></li>
-    <li><img src="./images/placeholder-80x45.jpeg" /></li>
+<ul class="gallery gallery-images">
+    <li data-src="./images/placeholder-640x360.jpg"><img src="./images/placeholder-80x45.jpeg" /></li>
+    <li data-src="./images/placeholder-640x360.jpg"><img src="./images/placeholder-80x45.jpeg" /></li>
+    <li data-src="./images/placeholder-640x360.jpg"><img src="./images/placeholder-80x45.jpeg" /></li>
+    <li data-src="./images/placeholder-640x360.jpg"><img src="./images/placeholder-80x45.jpeg" /></li>
+    <li data-src="./images/placeholder-640x360.jpg"><img src="./images/placeholder-80x45.jpeg" /></li>
+    <li data-src="./images/placeholder-640x360.jpg"><img src="./images/placeholder-80x45.jpeg" /></li>
+    <li data-src="./images/placeholder-640x360.jpg"><img src="./images/placeholder-80x45.jpeg" /></li>
 </ul>
 
 <p>
@@ -30,34 +25,45 @@ fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
 culpa qui officia deserunt mollit anim id est laborum.
 </p>
 
-<div class="box-third">
-    <h2>Requirements</h2>
+<div class="box-half">
+    <h2>Works on</h2>
+    <ul class="gallery-videos">
+        <li data-src="%video-mac-os-x-over-bluetooth%"><a href="">Mac OS X over Bluetooth</a></li>
+        <li data-src="%video-mac-os-x-over-usb%"><a href="">Mac OS X over USB</a> (requires %c2proxy%)</li>
+        <li data-src="%video-windows-over-bluetooth%"><a href="">Windows over Bluetooth</a></li>
+        <li data-src="%video-windows-over-usb%"><a href="">Windows over USB</a> (requires %c2proxy%)</li>
+        <li data-src="%video-android-over-bluetooth%"><a href="">Android over Bluetooth</a></li>
+    </ul>
+    <p>
+    For detailed setup instructions, click the configuration that matches your setup.
+    </p>
+</div>
+
+<div class="box-half">
+    <h2>Notes</h2>
     <ul>
-        <li>Lorem ipsum dolor sit amet</li>
-        <li>consectetur adipiscing elit</li>
-        <li>sed do eiusmod tempor</li>
+        <li>This application is for a single erg only.</li>
+        <li>This application supports multiple ergs.</li>
+        <li>Windows over Bluetooth setups requires Chrome version 70 or greater;
+            make sure to update your %chrome-web-browser%.</li>
+        <li>For multi-erg setups, such as studios or gyms, connect all ergs to a
+            powered multi-port USB hub, and the hub to your computer.</li>
     </ul>
 </div>
 
-<div class="box-third">
-    <h2>Platforms</h2>
-    <ul>
-        <li>Mac OS X using Bluetooth</li>
-        <li>Mac OS X using c2proxy</li>
-        <li>Windows via c2proxy</li>
-        <li>Android using Bluetooth</li>
-    </ul>
-</div>
+<p>
+%previous-product%
+%next-product%
+</p>
 
-<div class="box-third">
-    <h2>Setup</h2>
-    <ul>
-        <li>Do this.</li>
-        <li>Do that.</li>
-    </ul>
-</div>
-
-<p></p>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/1.6.11/js/lightgallery.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/lg-video/1.2.2/lg-video.min.js"></script>
+<script>
+$('.gallery-images').lightGallery();
+$('.gallery-videos').lightGallery({
+    preload: 0
+});
+</script>
 
 %foot%
-

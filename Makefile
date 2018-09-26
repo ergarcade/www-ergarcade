@@ -47,4 +47,5 @@ docs/applications.html: src/webroot/applications.html
 clean:
 	@rm -rf docs/*.html docs/css/* docs/images/* docs/js/* docs/favicon.ico src/webroot/applications.html
 	git checkout docs/
+	rm -rf docs/products
 	mkdir -p docs/products
