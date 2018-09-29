@@ -7,3 +7,13 @@
     r src/foot.html
     d
 }
+
+/%support%/ {
+    r src/support.html
+    d
+}
+
+/%js-lightgallery%/ {
+    r src/js-lightgallery.html
+    d
+}

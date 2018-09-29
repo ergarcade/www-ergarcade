@@ -20,11 +20,15 @@ body {
 
 body a, body a:visited,
 h1, h2, h3, h4, h5, h6,
-.fas, .fab,
+.fas, .fab, .far,
 .launch,
 hr {
     border-color: #2668d8;
     color: #2668d8;
+}
+
+hr {
+    clear: both;
 }
 
 /*
@@ -35,6 +39,7 @@ ul.gallery {
     padding: 0;
     width: 100%;
     margin: auto;
+    text-align: center;
 }
 ul.gallery li {
     float: left;
@@ -42,10 +47,6 @@ ul.gallery li {
 }
 p {
     clear: both;
-}
-.img-holder {
-    position: relative;
-    text-align: center;
 }
 
 /*
@@ -72,29 +73,12 @@ p {
     margin-right: 0.5em;
     display: inline-block;
 }
-#footer ul {
-    padding-top: 0;
-}
-#content {
-    padding: 0 1em;
-}
 .centre {
     text-align: center;
 	margin: auto;
 }
-.section {
-    padding-top: 1em;
-}
 h1, h2, h3, h4, h5, h6 {
 	text-align: center;
-}
-ul.questions li {
-    padding-bottom: 1em;
-}
-
-.box-half {
-    width: 100%;
-    float: none;
 }
 
 .left {
@@ -104,25 +88,55 @@ ul.questions li {
     float: right;
 }
 
+.support {
+    background: #fcfcfc;
+    padding: 5px 1em;
+    clear: both;
+}
+
+.container {
+    position: relative;
+    width: 100%;
+}
+
+.overlay {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    transition: .2s ease;
+    opacity: .8;
+}
+.container:hover .overlay {
+    opacity: 1;
+}
+.fa-play-circle {
+    top: 50%;
+    left: 50%;
+    position: absolute;
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
 @media screen and (max-width: 400px) {
     #header {
         font-size: smaller;
     }
 }
 
-@media screen and (min-width: 800px) {
+@media screen and (min-width: 840px) {
     body {
-        width: 640px; /* 80% x 800 */
+        width: 672px; /* 80% x 840 */
         margin: auto;
     }
 
     .box-half {
         width: 49%;
         float: left;
-    }
-
-    .launch {
-        width: 30%;
-        float: right;
     }
 }

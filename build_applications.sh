@@ -19,12 +19,14 @@ fi
 #
 
 echo "%head%";
+echo "<div class=\"applications\">";
 echo "<h1>Applications</h1>";
 echo "<ul class=\"gallery\">";
 
 PREVIOUS_NAME=""
 PREVIOUS_PATH=""
 LAST_PRODUCT=""
+SET_PREVIOUS_NEXT_PRODUCT=""
 
 #cat $1 | while IFS='' read -r line || [[ -n "$line" ]]; do
 while IFS='' read -r line || [[ -n "$line" ]]; do
@@ -60,31 +62,42 @@ while IFS='' read -r line || [[ -n "$line" ]]; do
 	sed -i.bak -f src/file-subs.sed docs/products/${TOKENS[0]}/index.html && \
         sed -i.bak -f src/direct-mappings.sed docs/products/${TOKENS[0]}/index.html
 
-    # Set the previous product.
-    if [ ! -z "$PREVIOUS_NAME" ]; then
-        sed -i.bak \
-            -e "s#%previous-product%#<span class=\"left\">Back: <a href=\"${PREVIOUS_PATH}\">\&lt; ${PREVIOUS_NAME}</a></span>#g" \
-            docs/products/${TOKENS[0]}/index.html
+    # Set previous and next product.
+    # XXX This feels dodgy. Take out for now.
+    if [ ! -z "$SET_PREVIOUS_NEXT_PRODUCT" ]; then
+        # Set the previous product.
+        if [ ! -z "$PREVIOUS_NAME" ]; then
+            sed -i.bak \
+                -e "s#%previous-product%#<span class=\"left\">Back: <a href=\"${PREVIOUS_PATH}\">\&lt; ${PREVIOUS_NAME}</a></span>#g" \
+                docs/products/${TOKENS[0]}/index.html
+        else
+            sed -i.bak -e "s#%previous-product%##g" docs/products/${TOKENS[0]}/index.html
+        fi
+
+        PREVIOUS_NAME=${TOKENS[1]};
+        PREVIOUS_PATH="/products/${TOKENS[0]}";
+
+        # Set the next product link, of the _last_ product we did.
+        if [ ! -z "$LAST_PRODUCT" ]; then
+            sed -i.bak \
+                -e "s#%next-product%#<span class=\"right\">Next: <a href=\"/products/${TOKENS[0]}\">${TOKENS[1]} \&gt;</a></span>#g" \
+                docs/products/${LAST_PRODUCT}/index.html
+        fi
+
+        LAST_PRODUCT=${TOKENS[0]}
     else
-        sed -i.bak -e "s#%previous-product%##g" docs/products/${TOKENS[0]}/index.html
+        sed -i.bak -e "s#%next-product%##g" -e "s#%previous-product%##g" docs/products/${TOKENS[0]}/index.html
     fi
 
-    PREVIOUS_NAME=${TOKENS[1]};
-    PREVIOUS_PATH="/products/${TOKENS[0]}";
-
-    # Set the next product link, of the _last_ product we did.
-    if [ ! -z "$LAST_PRODUCT" ]; then
-        sed -i.bak \
-            -e "s#%next-product%#<span class=\"right\">Next: <a href=\"/products/${TOKENS[0]}\">${TOKENS[1]} \&gt;</a></span>#g" \
-            docs/products/${LAST_PRODUCT}/index.html
-    fi
-
-    LAST_PRODUCT=${TOKENS[0]}
 done <<< "$(cat $1)"
 
-sed -i.bak -e "s#%next-product%##g" docs/${PREVIOUS_PATH}/index.html
+if [ ! -z "${PREVIOUS_PATH}" ]; then
+    sed -i.bak -e "s#%next-product%##g" docs/${PREVIOUS_PATH}/index.html
+fi
 
 find docs -name "*.bak" -exec rm {} \;
 
 echo "</ul>";
+echo "</div>";
+echo ""
 echo "%foot%"
