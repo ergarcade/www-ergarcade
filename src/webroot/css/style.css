@@ -121,6 +121,7 @@ h1, h2, h3, h4, h5, h6 {
     -ms-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
     text-align: center;
+    color: #f00;
 }
 
 @media screen and (max-width: 400px) {
