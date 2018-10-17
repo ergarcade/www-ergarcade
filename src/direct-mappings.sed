@@ -13,9 +13,7 @@ s#%applications%#<a href="/applications.html">applications</a>#g
 s#%c2proxy%#<a href="/tools/c2proxy.html">c2proxy</a>#g
 
 s#%logo-home-link%#<a href="/" title="Home"><div class="centre"><i class="fas fa-home fa-2x"></i></div></a>#g
-s#%logo-setup-link%#<a href="/setup.html" title="Setup"><div class="centre"><i class="fas fa-cogs fa-2x"></i></div></a>#g
 s#%logo-applications-link%#<a href="/applications.html"><div class="centre"><span class="fa-stack fa-2x"><i class="fas fa-circle-notch fa-stack-2x"></i><i class="fas fa-gamepad fa-stack-1x"></i></span></div></a>#g
-s#%logo-developers-link%#<a href="/developers.html" title="Developers"><div class="centre"><i class="fas fa-laptop-code fa-2x"></i></div></a>#g
 s#%logo-about-link%#<a href="/about.html" title="About"><div class="centre"><i class="far fa-smile fa-2x"></i></div></a>#g
 
 s#%logo-play-button-\([0-9]\)%#<div class="overlay"><i class="far fa-play-circle fa-\1x"></i></div>#g

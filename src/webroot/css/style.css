@@ -45,6 +45,12 @@ ul.gallery li {
     float: left;
     padding-left: 5px;
 }
+ul.gallery img {
+    opacity: 0.8;
+}
+ul.gallery img:hover {
+    opacity: 1.0;
+}
 p {
     clear: both;
 }
@@ -121,7 +127,7 @@ h1, h2, h3, h4, h5, h6 {
     -ms-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
     text-align: center;
-    color: #f00;
+    color: #2668d8;
 }
 
 @media screen and (max-width: 400px) {

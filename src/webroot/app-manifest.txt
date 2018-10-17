@@ -1,2 +1,3 @@
 product-a|Product A|tool, visualisation, game
 product-b|Product B|tool
+pm5-detail|pm5-detail|tool
