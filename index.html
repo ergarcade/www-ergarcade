@@ -7,84 +7,7 @@
 
         <title>Welcome to the Erg Arcade!</title>
 
-        <style type="text/css">
-        body {
-            max-width: 700px;
-            margin: auto;
-            padding: 1em;
-        }
-        dd {
-            margin-bottom: 1em;
-        }
-        img {
-            display: block;
-            max-width: 100%;
-            margin: auto;
-            height: auto;
-        }
-        h1 {
-            text-align: center;
-        }
-
-        /* colours */
-        body {
-            background-color: #ededed;
-            color: #212121;
-        }
-        a {
-            /* color: #c3423f; */
-            color: #0057a9;
-        }
-
-        #header {
-            width: 100%;
-        }
-        #sidebar {
-            width: 10em;
-            float: left;
-        }
-        #main {
-            margin-left: 11em;
-        }
-
-        .centre {
-            text-align: center;
-        }
-
-        dt {
-            font-weight: bold;
-        }
-
-        .ergarcade-logo-dark {
-            display: none;
-        }
-
-        @media (prefers-color-scheme: dark) {
-            body {
-                background-color: #111;
-                color: white;
-            }
-            a {
-                color: #c3423f;
-            }
-            .ergarcade-logo {
-                display: none;
-            }
-            .ergarcade-logo-dark {
-                display: block;
-            }
-        }
-
-        @media (max-width: 500px) {
-            #sidebar {
-                width: 100%;
-            }
-            #main {
-                margin-left: 0;
-            }
-        }
-
-        </style>
+        <link rel="stylesheet" type="text/css" href="style.css">
     </head>
 
     <body>
@@ -155,7 +78,14 @@
             <dl>
                 <dt><a href="https://ergarcade.github.io/WebGL-Fluid-Simulation">WebGL Fluid Simulation</a></dt>
                 <dd>Based on the original work by <a href="https://github.com/PavelDoGreat/WebGL-Fluid-Simulation">Pavel Dobryakov</a>,
-                    this fluid simulation responds to strokes made on a rower or SkiErg. Desktop only.<br />
+                    this fluid simulation responds to strokes made on a rower or SkiErg.<br />
+                    <br />
+                    <strong>Tested:</strong> Mac OS X, PM5</br />
+                    <strong>Requires:</strong> Desktop, Google Chrome, Bluetooth</dd>
+
+                <dt><a href="https://ergarcade.github.io/mrdoob-clouds">Mr.doob Clouds</a></dt>
+                <dd>Based on the original work by <a href="https://github.com/mrdoob">Mr.doob</a>,
+                    enjoy a relaxing or speedy travel through the clouds based on your pace.<br />
                     <br />
                     <strong>Tested:</strong> Mac OS X, PM5</br />
                     <strong>Requires:</strong> Desktop, Google Chrome, Bluetooth</dd>
