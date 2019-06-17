@@ -7,92 +7,173 @@
 
         <title>Welcome to the Erg Arcade!</title>
 
-    <style type="text/css">
-    body {
-        max-width: 700px;
-        margin: auto;
-        padding: 1em;
-    }
-    dd {
-        margin-bottom: 1em;
-    }
-    img {
-        display: block;
-        max-width: 100%;
-        margin: auto;
-        height: auto;
-    }
-    h1 {
-        text-align: center;
-    }
-
-    /* colours */
-    body {
-        background-color: #ededed;
-        color: #212121;
-    }
-    a {
-        color: #c3423f;
-    }
-
-    @media (prefers-color-scheme: dark) {
+        <style type="text/css">
         body {
-            background-color: #111;
-            color: white;
+            max-width: 700px;
+            margin: auto;
+            padding: 1em;
         }
-    }
+        dd {
+            margin-bottom: 1em;
+        }
+        img {
+            display: block;
+            max-width: 100%;
+            margin: auto;
+            height: auto;
+        }
+        h1 {
+            text-align: center;
+        }
 
-    </style>
+        /* colours */
+        body {
+            background-color: #ededed;
+            color: #212121;
+        }
+        a {
+            /* color: #c3423f; */
+            color: #0057a9;
+        }
+
+        #header {
+            width: 100%;
+        }
+        #sidebar {
+            width: 10em;
+            float: left;
+        }
+        #main {
+            margin-left: 11em;
+        }
+
+        .centre {
+            text-align: center;
+        }
+
+        dt {
+            font-weight: bold;
+        }
+
+        .ergarcade-logo-dark {
+            display: none;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            body {
+                background-color: #111;
+                color: white;
+            }
+            a {
+                color: #c3423f;
+            }
+            .ergarcade-logo {
+                display: none;
+            }
+            .ergarcade-logo-dark {
+                display: block;
+            }
+        }
+
+        @media (max-width: 500px) {
+            #sidebar {
+                width: 100%;
+            }
+            #main {
+                margin-left: 0;
+            }
+        }
+
+        </style>
     </head>
 
     <body>
-        <h1>Welcome to the Erg Arcade!</h1>
+        <div id="header">
+            <div class="centre">
+                <img src="images/ergarcade-64x64.png" class="ergarcade-logo" alt="ergarcade.com" />
+                <img src="images/ergarcade-dark-64x64.png" class="ergarcade-logo-dark" alt="ergarcade.com" />
+            </div>
+            <h1>Welcome to the Erg&nbsp;Arcade!</h1>
 
-        <img src="images/13109002_223898111320684_484395489_n.jpg" alt="sweaty rower" />
+            <hr />
 
-        <p>
-        The Erg Arcade is a collection of tools, utilities and games that use
-        the Concept2 range of ergometers.
-        </p>
+            <p class="centre">
+            The Erg Arcade is a collection of tools, utilities and games that use
+            the <a href="https://www.concept2.com">Concept2</a> range of ergometers.
+            </p>
 
-        <hr />
-        <a href="#user-tools">User Tools</a>
-        <a href="#programmer-tools">Programmer Tools</a>
-        <a href="#visualisations">Visualisations</a>
-        <a href="#games">Games</a>
-        <hr />
+            <hr />
+        </div>
 
-        <h2 id="user-tools">User Tools</h2>
-        <dl>
-            <dt><a href="https://ergarcade.github.io/pm5-detail/">pm5-detail</a></dt>
-            <dd>Display all variables exposed by the <a href="https://www.concept2.com">Concept2</a>
-                <a href="https://www.concept2.com/service/monitors/pm5">Performance Monitor 5 (PM5)</a>
-                over it's Bluetooth Low Energy (BLE) interface. Useful to see all the interesting
-                data provided by the PM5, over and above what you see on the monitor.</dd>
+        <div id="sidebar">
+            <ul>
+                <li><a href="#user-tools">User Tools</a></li>
+                <li><a href="#programmer-tools">Programmer Tools</a></li>
+                <li><a href="#visualisations">Visualisations</a></li>
+                <li><a href="#games">Games</a></li>
+                <li><a href="#source">Source code</a></li>
+            </ul>
 
-            <dt><a href="https://ergarcade.github.io/c2log-overlay">c2log-overlay</a></dt>
-            <dd>Create a movie showing pace, strokes per minute, elapsed time, distance,
-                watts and cals per hour from a <a href="https://log.concept2.com">Concept2 Online logbook session</a>.
-                Useful for overlaying a technique video.</dd>
-        </dl>
+            <hr />
+        </div>
 
-        <h2 id="programmer-tools">Programmer tools</h2>
-        <dl>
-            <dt><a href="https://ergarcade.github.io/pm5-dump">pm5-dump</a></dt>
-            <dd>Generate a JSON dump of all <a href="https://www.concept2.com/service/monitors/pm5">Performance Monitor 5 (PM5)</a>
-                variables over it's Bluetooth Low Energy (BLE) interface. Useful for
-                creating files as test inputs during development.</dd>
-        </dl>
+        <div id="main">
+            <h2 id="user-tools">User Tools</h2>
+            <dl>
+                <dt><a href="https://ergarcade.github.io/pm5-detail/">pm5-detail</a></dt>
+                <dd>Display all variables exposed by the <a href="https://www.concept2.com">Concept2</a>
+                    <a href="https://www.concept2.com/service/monitors/pm5">Performance Monitor 5 (PM5)</a>
+                    over it's Bluetooth Low Energy (BLE) interface. Useful to see all the interesting
+                    data provided by the PM5, over and above what you see on the monitor.<br />
+                    <br />
+                    <strong>Tested:</strong> Mac OS X, PM5</br />
+                    <strong>Requires:</strong> Desktop, Google Chrome, Bluetooth</dd>
 
-        <h2 id="visualisations">Visualisations</h2>
-        <dl>
-            <dt><a href="https://ergarcade.github.io/WebGL-Fluid-Simulation">WebGL Fluid Simulation</a></dt>
-            <dd>Based on the original work by <a href="https://github.com/PavelDoGreat/WebGL-Fluid-Simulation">Pavel Dobryakov</a>,
-                this fluid simulation responds to strokes made on a rower or SkiErg. Desktop only.</dd>
-        </dl>
+                <dt><a href="https://ergarcade.github.io/c2log-overlay">c2log-overlay</a></dt>
+                <dd>Create a movie showing pace, strokes per minute, elapsed time, distance,
+                    watts and cals per hour from a <a href="https://log.concept2.com">Concept2 Online logbook session</a>.
+                    Useful for overlaying a technique video.<br />
+                    <br />
+                    <strong>Tested:</strong> Mac OS X</br />
+                    <strong>Requires:</strong> Desktop, Google Chrome</dd>
+            </dl>
 
-        <h2 id="games">Games</h2>
-        <p>Coming soon!</p>
+            <hr />
+            <h2 id="programmer-tools">Programmer tools</h2>
+            <dl>
+                <dt><a href="https://ergarcade.github.io/pm5-dump">pm5-dump</a></dt>
+                <dd>Generate a JSON dump of all <a href="https://www.concept2.com/service/monitors/pm5">Performance Monitor 5 (PM5)</a>
+                    variables over it's Bluetooth Low Energy (BLE) interface. Useful for
+                    creating files as test inputs during development.<br />
+                    <br />
+                    <strong>Tested:</strong> Mac OS X, PM5</br />
+                    <strong>Requires:</strong> Desktop, Google Chrome, Bluetooth</dd>
+            </dl>
+
+            <hr />
+            <h2 id="visualisations">Visualisations</h2>
+            <dl>
+                <dt><a href="https://ergarcade.github.io/WebGL-Fluid-Simulation">WebGL Fluid Simulation</a></dt>
+                <dd>Based on the original work by <a href="https://github.com/PavelDoGreat/WebGL-Fluid-Simulation">Pavel Dobryakov</a>,
+                    this fluid simulation responds to strokes made on a rower or SkiErg. Desktop only.<br />
+                    <br />
+                    <strong>Tested:</strong> Mac OS X, PM5</br />
+                    <strong>Requires:</strong> Desktop, Google Chrome, Bluetooth</dd>
+            </dl>
+
+            <hr />
+            <h2 id="games">Games</h2>
+            <p>Coming soon!</p>
+
+            <hr />
+            <h2 id="source">Source Code</h2>
+            <p>
+            All applications on the Erg Arcade are <a
+                href="https://en.wikipedia.org/wiki/Open_source">Open
+                Source</a> and available from <a
+            href="https://www.github.com/ergarcade">GitHub</a>.
+            </p>
+        </div>
 
         <hr />
         <a href="https://reddit.com/u/angrytongan">Find me here.</a>
