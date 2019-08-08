@@ -8,6 +8,7 @@
         <title>Welcome to the Erg Arcade!</title>
 
         <link rel="stylesheet" type="text/css" href="style.css">
+        <script src="js/app.js"></script>
     </head>
 
     <body>
@@ -30,6 +31,35 @@
 
         <div id="sidebar">
             <ul>
+                <li><input type="checkbox" name="filter_mac_os_x" id="filter_mac_os_x" checked="checked">
+                    <label for="filter_mac_os_x">Mac OS X</label></li>
+                <li><input type="checkbox" name="filter_windows" id="filter_windows" checked="checked">
+                    <label for="filter_windows">Windows</label></li>
+                <li><input type="checkbox" name="filter_ios" id="filter_ios" checked="checked">
+                    <label for="filter_ios">iOS</label></li>
+                <li><input type="checkbox" name="filter_android" id="filter_android" checked="checked">
+                    <label for="filter_android">Android</label></li>
+                <li><input type="checkbox" name="filter_pm5" id="filter_pm5" checked="checked">
+                    <label for="filter_pm5">PM5</label></li>
+                <li><input type="checkbox" name="filter_rowerg" id="filter_rowerg" checked="checked">
+                    <label for="filter_rowerg">RowErg</label></li>
+                <li><input type="checkbox" name="filter_skierg" id="filter_skierg" checked="checked">
+                    <label for="filter_skierg">SkiErg</label></li>
+                <li><input type="checkbox" name="filter_bluetooth" id="filter_bluetooth" checked="checked">
+                    <label for="filter_skierg">Bluetooth</label></li>
+                <li><input type="checkbox" name="filter_chrome" id="filter_chrome" checked="checked">
+                    <label for="filter_skierg">Chrome</label></li>
+                <li><input type="checkbox" name="filter_desktop" id="filter_desktop" checked="checked">
+                    <label for="filter_skierg">Desktop</label></li>
+            </ul>
+            <div style="text-align: center; ">
+                <button id="filters_all">All</button>
+                <button id="filters_none">None</button>
+            </div>
+
+            <hr />
+
+            <ul>
                 <li><a href="#user-tools">User Tools</a></li>
                 <li><a href="#programmer-tools">Programmer Tools</a></li>
                 <li><a href="#visualisations">Visualisations</a></li>
@@ -43,52 +73,62 @@
         <div id="main">
             <h2 id="user-tools">User Tools</h2>
             <dl>
-                <dt><a href="https://ergarcade.github.io/pm5-detail/">pm5-detail</a></dt>
-                <dd>Display all variables exposed by the <a href="https://www.concept2.com">Concept2</a>
-                    <a href="https://www.concept2.com/service/monitors/pm5">Performance Monitor 5 (PM5)</a>
-                    over it's Bluetooth Low Energy (BLE) interface. Useful to see all the interesting
-                    data provided by the PM5, over and above what you see on the monitor.<br />
-                    <br />
-                    <strong>Tested:</strong> Mac OS X, PM5, RowErg, SkiErg</br />
-                    <strong>Requires:</strong> Desktop, Google Chrome, Bluetooth</dd>
+                <div class="app filter_mac_os_x filter_pm5 filter_rowerg filter_skierg filter_desktop filter_chrome filter_bluetooth">
+                    <dt><a href="https://ergarcade.github.io/pm5-detail/">pm5-detail</a></dt>
+                    <dd>Display all variables exposed by the <a href="https://www.concept2.com">Concept2</a>
+                        <a href="https://www.concept2.com/service/monitors/pm5">Performance Monitor 5 (PM5)</a>
+                        over it's Bluetooth Low Energy (BLE) interface. Useful to see all the interesting
+                        data provided by the PM5, over and above what you see on the monitor.<br />
+                        <br />
+                        <strong>Tested:</strong> Mac OS X, PM5, RowErg, SkiErg</br />
+                        <strong>Requires:</strong> Desktop, Google Chrome, Bluetooth</dd>
+                </div>
 
-                <dt><a href="https://ergarcade.github.io/c2log-overlay">c2log-overlay</a></dt>
-                <dd>Create a movie showing pace, strokes per minute, elapsed time, distance,
-                    watts and cals per hour from a <a href="https://log.concept2.com">Concept2 Online logbook session</a>.
-                    Useful for overlaying a technique video.<br />
-                    <br />
-                    <strong>Tested:</strong> Mac OS X</br />
-                    <strong>Requires:</strong> Desktop, Google Chrome</dd>
+                <div class="app filter_mac_os_x filter_desktop filter_chrome">
+                    <dt><a href="https://ergarcade.github.io/c2log-overlay">c2log-overlay</a></dt>
+                    <dd>Create a movie showing pace, strokes per minute, elapsed time, distance,
+                        watts and cals per hour from a <a href="https://log.concept2.com">Concept2 Online logbook session</a>.
+                        Useful for overlaying a technique video.<br />
+                        <br />
+                        <strong>Tested:</strong> Mac OS X</br />
+                        <strong>Requires:</strong> Desktop, Google Chrome</dd>
+                </div>
             </dl>
 
             <hr />
             <h2 id="programmer-tools">Programmer tools</h2>
             <dl>
-                <dt><a href="https://ergarcade.github.io/pm5-dump">pm5-dump</a></dt>
-                <dd>Generate a JSON dump of all <a href="https://www.concept2.com/service/monitors/pm5">Performance Monitor 5 (PM5)</a>
-                    variables over it's Bluetooth Low Energy (BLE) interface. Useful for
-                    creating files as test inputs during development.<br />
-                    <br />
-                    <strong>Tested:</strong> Mac OS X, PM5, RowErg, SkiErg</br />
-                    <strong>Requires:</strong> Desktop, Google Chrome, Bluetooth</dd>
+                <div class="app filter_mac_os_x filter_pm5 filter_rowerg filter_skierg filter_desktop filter_chrome filter_bluetooth">
+                    <dt><a href="https://ergarcade.github.io/pm5-dump">pm5-dump</a></dt>
+                    <dd>Generate a JSON dump of all <a href="https://www.concept2.com/service/monitors/pm5">Performance Monitor 5 (PM5)</a>
+                        variables over it's Bluetooth Low Energy (BLE) interface. Useful for
+                        creating files as test inputs during development.<br />
+                        <br />
+                        <strong>Tested:</strong> Mac OS X, PM5, RowErg, SkiErg</br />
+                        <strong>Requires:</strong> Desktop, Google Chrome, Bluetooth</dd>
+                </div>
             </dl>
 
             <hr />
             <h2 id="visualisations">Visualisations</h2>
             <dl>
-                <dt><a href="https://ergarcade.github.io/WebGL-Fluid-Simulation">WebGL Fluid Simulation</a></dt>
-                <dd>Based on the original work by <a href="https://github.com/PavelDoGreat/WebGL-Fluid-Simulation">Pavel Dobryakov</a>,
-                    this fluid simulation responds to strokes made on a rower or SkiErg.<br />
-                    <br />
-                    <strong>Tested:</strong> Mac OS X, PM5, RowErg, SkiErg</br />
-                    <strong>Requires:</strong> Desktop, Google Chrome, Bluetooth</dd>
+                <div class="app filter_mac_os_x filter_pm5 filter_rowerg filter_skierg filter_desktop filter_chrome filter_bluetooth">
+                    <dt><a href="https://ergarcade.github.io/WebGL-Fluid-Simulation">WebGL Fluid Simulation</a></dt>
+                    <dd>Based on the original work by <a href="https://github.com/PavelDoGreat/WebGL-Fluid-Simulation">Pavel Dobryakov</a>,
+                        this fluid simulation responds to strokes made on a rower or SkiErg.<br />
+                        <br />
+                        <strong>Tested:</strong> Mac OS X, PM5, RowErg, SkiErg</br />
+                        <strong>Requires:</strong> Desktop, Google Chrome, Bluetooth</dd>
+                </div>
 
-                <dt><a href="https://ergarcade.github.io/mrdoob-clouds">Mr.doob Clouds</a></dt>
-                <dd>Based on the original work by <a href="https://github.com/mrdoob">Mr.doob</a>,
-                    enjoy a relaxing or speedy travel through the clouds based on your pace.<br />
-                    <br />
-                    <strong>Tested:</strong> Mac OS X, PM5, RowErg, SkiErg</br />
-                    <strong>Requires:</strong> Desktop, Google Chrome, Bluetooth</dd>
+                <div class="app filter_mac_os_x filter_pm5 filter_rowerg filter_skierg filter_desktop filter_chrome filter_bluetooth">
+                    <dt><a href="https://ergarcade.github.io/mrdoob-clouds">Mr.doob Clouds</a></dt>
+                    <dd>Based on the original work by <a href="https://github.com/mrdoob">Mr.doob</a>,
+                        enjoy a relaxing or speedy travel through the clouds based on your pace.<br />
+                        <br />
+                        <strong>Tested:</strong> Mac OS X, PM5, RowErg, SkiErg</br />
+                        <strong>Requires:</strong> Desktop, Google Chrome, Bluetooth</dd>
+                </div>
             </dl>
 
             <hr />
