@@ -22,7 +22,6 @@ body {
     color: #212121;
 }
 a {
-    /* color: #c3423f; */
     color: #0057a9;
 }
 
@@ -55,7 +54,7 @@ dt {
         color: white;
     }
     a {
-        color: #c3423f;
+        color: #99ccff;
     }
     .ergarcade-logo {
         display: none;
