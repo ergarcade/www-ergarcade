@@ -16,7 +16,7 @@ const paceDerivatives = () => {
     const pace = {          // in seconds
         low: 180,
         high: 60,
-        step: 2,
+        step: 1,
     };
     for (let p = pace.low; p >= pace.high; p -= pace.step) {
         const Power = Math.trunc(2.8 / Math.pow(p / 500, 3));
