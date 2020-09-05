@@ -16,7 +16,7 @@ const paceDerivatives = () => {
     const pace = {          // in seconds
         low: 180,
         high: 60,
-        step: 2,
+        step: 1,
     };
     for (let p = pace.low; p >= pace.high; p -= pace.step) {
         const Power = Math.trunc(2.8 / Math.pow(p / 500, 3));
@@ -27,7 +27,8 @@ const paceDerivatives = () => {
 
         data.push({
             Pace: p,
-            Speed: 3600 / p,
+            'Speed (BikeErg)': 3600 / p,            // bike split distance = 1000m
+            'Speed (Rower, Ski)': 3600 / p / 2,     // rower, skierg split distance = 500m 
             Power,
             E: Math.trunc(E),
         });
@@ -36,6 +37,8 @@ const paceDerivatives = () => {
     const dimLabel = (k, v, shorten = false) => {
         switch (k) {
             case 'Speed': return (shorten ? v.toFixed() : v.toFixed(1)) + 'km/h';
+            case 'Speed (BikeErg)': return (shorten ? v.toFixed() : v.toFixed(1)) + 'km/h';
+            case 'Speed (Rower, Ski)': return (shorten ? v.toFixed() : v.toFixed(1)) + 'km/h';
             case 'Pace': return dateTime.secs2mmss(v);
             case 'Power': return v + 'W';
             case 'E': return shorten ? v/1000 + 'kc/hour' : v + 'cals/hour';
@@ -115,10 +118,21 @@ const paceDerivatives = () => {
     });
     series.push({
         type: 'line',
-        name: 'Speed',
+        name: 'Speed (BikeErg)',
         encode: {
             x: 'Pace',
-            y: 'Speed',
+            y: 'Speed (BikeErg)',
+        },
+        animation: false,
+        yAxisIndex: yAxis.length-1,
+        showSymbol: false,
+    });
+    series.push({
+        type: 'line',
+        name: 'Speed (Rower, Ski)',
+        encode: {
+            x: 'Pace',
+            y: 'Speed (Rower, Ski)',
         },
         animation: false,
         yAxisIndex: yAxis.length-1,
