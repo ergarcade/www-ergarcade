@@ -16,8 +16,9 @@ const original_data = [
         link: 'https://log.concept2.com/profile/1063564/log/46728182',
         strokeData: [
             //{ "d": 122, "p": 0, "hr": 0, "spm": 46, "t": 25 },
-            { "d": 204, "p": 1908, "hr": 0, "spm": 42, "t": 40 },
-            { "d": 287, "p": 1908, "hr": 0, "spm": 42, "t": 55 },
+            //{ "d": 204, "p": 1908, "hr": 0, "spm": 42, "t": 40 },
+            //{ "d": 287, "p": 1908, "hr": 0, "spm": 42, "t": 55 },
+
             { "d": 372, "p": 1799, "hr": 0, "spm": 38, "t": 70 },
             { "d": 462, "p": 1799, "hr": 0, "spm": 38, "t": 85 },
             { "d": 556, "p": 1691, "hr": 0, "spm": 42, "t": 100 },
@@ -147,8 +148,9 @@ const original_data = [
         link: 'https://log.concept2.com/profile/1063564/log/46728181',
         strokeData: [
             //{ "d": 145, "p": 0, "hr": 0, "spm": 33, "t": 33 },
-            { "d": 246, "p": 2135, "hr": 0, "spm": 34, "t": 53 },
-            { "d": 330, "p": 2135, "hr": 0, "spm": 34, "t": 68 },
+            //{ "d": 246, "p": 2135, "hr": 0, "spm": 34, "t": 53 },
+            //{ "d": 330, "p": 2135, "hr": 0, "spm": 34, "t": 68 },
+
             { "d": 391, "p": 1866, "hr": 0, "spm": 41, "t": 78 },
             { "d": 487, "p": 1866, "hr": 0, "spm": 41, "t": 93 },
             { "d": 583, "p": 1590, "hr": 0, "spm": 46, "t": 108 },
@@ -265,10 +267,11 @@ const original_data = [
             { "d": 9855, "p": 810, "hr": 0, "spm": 87, "t": 1098 },
             { "d": 9960, "p": 862, "hr": 0, "spm": 76, "t": 1108 },
             { "d": 10054, "p": 862, "hr": 0, "spm": 76, "t": 1118 },
-            { "d": 10142, "p": 1035, "hr": 0, "spm": 64, "t": 1128 },
-            { "d": 10217, "p": 1035, "hr": 0, "spm": 64, "t": 1138 },
-            { "d": 10313, "p": 1261, "hr": 0, "spm": 50, "t": 1153 },
-            { "d": 10392, "p": 1261, "hr": 0, "spm": 50, "t": 1168 }
+
+            //{ "d": 10142, "p": 1035, "hr": 0, "spm": 64, "t": 1128 },
+            //{ "d": 10217, "p": 1035, "hr": 0, "spm": 64, "t": 1138 },
+            //{ "d": 10313, "p": 1261, "hr": 0, "spm": 50, "t": 1153 },
+            //{ "d": 10392, "p": 1261, "hr": 0, "spm": 50, "t": 1168 }
         ]
     },
     {
@@ -286,17 +289,18 @@ const original_data = [
         link: 'https://log.concept2.com/profile/1063564/log/46728180',
         strokeData: [
             //{ "d": 146, "p": 1844674407370953096, "hr": 0, "spm": 16, "t": 50 },
-            { "d": 146, "p": 1844, "hr": 0, "spm": 16, "t": 50 },
+            //{ "d": 146, "p": 1844, "hr": 0, "spm": 16, "t": 50 },
+            //{ "d": 247, "p": 1886, "hr": 0, "spm": 53, "t": 65 },
+            //{ "d": 323, "p": 1886, "hr": 0, "spm": 53, "t": 75 },
+            //{ "d": 403, "p": 1886, "hr": 0, "spm": 53, "t": 85 },
 
-            { "d": 247, "p": 1886, "hr": 0, "spm": 53, "t": 65 },
-            { "d": 323, "p": 1886, "hr": 0, "spm": 53, "t": 75 },
-            { "d": 403, "p": 1886, "hr": 0, "spm": 53, "t": 85 },
             { "d": 486, "p": 1277, "hr": 0, "spm": 59, "t": 95 },
             { "d": 565, "p": 1277, "hr": 0, "spm": 59, "t": 105 },
-            { "d": 639, "p": 1247, "hr": 0, "spm": 54, "t": 115 },
-            { "d": 709, "p": 1247, "hr": 0, "spm": 54, "t": 125 },
-            { "d": 813, "p": 1412, "hr": 0, "spm": 50, "t": 140 },
-            { "d": 881, "p": 1412, "hr": 0, "spm": 50, "t": 150 },
+
+            //{ "d": 639, "p": 1247, "hr": 0, "spm": 54, "t": 115 },
+            //{ "d": 709, "p": 1247, "hr": 0, "spm": 54, "t": 125 },
+            //{ "d": 813, "p": 1412, "hr": 0, "spm": 50, "t": 140 },
+            //{ "d": 881, "p": 1412, "hr": 0, "spm": 50, "t": 150 },
             { "d": 990, "p": 1447, "hr": 0, "spm": 52, "t": 165 },
             { "d": 1064, "p": 1447, "hr": 0, "spm": 52, "t": 175 },
             { "d": 1138, "p": 1375, "hr": 0, "spm": 54, "t": 185 },
@@ -397,13 +401,15 @@ const original_data = [
             { "d": 8976, "p": 906, "hr": 0, "spm": 79, "t": 1070 },
             { "d": 9077, "p": 937, "hr": 0, "spm": 75, "t": 1080 },
             { "d": 9124, "p": 937, "hr": 0, "spm": 75, "t": 1085 },
-            { "d": 9208, "p": 1050, "hr": 0, "spm": 63, "t": 1095 },
-            { "d": 9315, "p": 1050, "hr": 0, "spm": 63, "t": 1110 },
-            { "d": 9377, "p": 1351, "hr": 0, "spm": 48, "t": 1120 },
-            { "d": 9468, "p": 1351, "hr": 0, "spm": 48, "t": 1135 },
-            { "d": 9550, "p": 1661, "hr": 0, "spm": 42, "t": 1150 },
-            { "d": 9650, "p": 1661, "hr": 0, "spm": 42, "t": 1169 },
-            { "d": 9719, "p": 1937, "hr": 0, "spm": 35, "t": 1185 }
+
+            //{ "d": 9208, "p": 1050, "hr": 0, "spm": 63, "t": 1095 },
+            //{ "d": 9315, "p": 1050, "hr": 0, "spm": 63, "t": 1110 },
+
+            //{ "d": 9377, "p": 1351, "hr": 0, "spm": 48, "t": 1120 },
+            //{ "d": 9468, "p": 1351, "hr": 0, "spm": 48, "t": 1135 },
+            //{ "d": 9550, "p": 1661, "hr": 0, "spm": 42, "t": 1150 },
+            //{ "d": 9650, "p": 1661, "hr": 0, "spm": 42, "t": 1169 },
+            //{ "d": 9719, "p": 1937, "hr": 0, "spm": 35, "t": 1185 }
         ]
     },
     {
@@ -421,8 +427,9 @@ const original_data = [
         link: 'https://log.concept2.com/profile/1063564/log/46728179',
         strokeData: [
             //{ "d": 144, "p": 0, "hr": 0, "spm": 46, "t": 26 },
-            { "d": 217, "p": 1519, "hr": 0, "spm": 54, "t": 36 },
-            { "d": 295, "p": 1519, "hr": 0, "spm": 54, "t": 46 },
+            //{ "d": 217, "p": 1519, "hr": 0, "spm": 54, "t": 36 },
+            //{ "d": 295, "p": 1519, "hr": 0, "spm": 54, "t": 46 },
+
             { "d": 377, "p": 1305, "hr": 0, "spm": 61, "t": 56 },
             { "d": 461, "p": 1305, "hr": 0, "spm": 61, "t": 66 },
             { "d": 548, "p": 1201, "hr": 0, "spm": 64, "t": 76 },
@@ -545,13 +552,14 @@ const original_data = [
             { "d": 9858, "p": 1136, "hr": 0, "spm": 65, "t": 1051 },
             { "d": 9941, "p": 1160, "hr": 0, "spm": 63, "t": 1061 },
             { "d": 10020, "p": 1160, "hr": 0, "spm": 63, "t": 1071 },
-            { "d": 10097, "p": 1256, "hr": 0, "spm": 58, "t": 1081 },
-            { "d": 10173, "p": 1256, "hr": 0, "spm": 58, "t": 1091 },
-            { "d": 10250, "p": 1310, "hr": 0, "spm": 57, "t": 1101 },
-            { "d": 10359, "p": 1310, "hr": 0, "spm": 57, "t": 1116 },
-            { "d": 10422, "p": 1358, "hr": 0, "spm": 51, "t": 1126 },
-            { "d": 10502, "p": 1358, "hr": 0, "spm": 51, "t": 1140 },
-            { "d": 10592, "p": 1784, "hr": 0, "spm": 36, "t": 1160 }
+
+            //{ "d": 10097, "p": 1256, "hr": 0, "spm": 58, "t": 1081 },
+            //{ "d": 10173, "p": 1256, "hr": 0, "spm": 58, "t": 1091 },
+            //{ "d": 10250, "p": 1310, "hr": 0, "spm": 57, "t": 1101 },
+            //{ "d": 10359, "p": 1310, "hr": 0, "spm": 57, "t": 1116 },
+            //{ "d": 10422, "p": 1358, "hr": 0, "spm": 51, "t": 1126 },
+            //{ "d": 10502, "p": 1358, "hr": 0, "spm": 51, "t": 1140 },
+            //{ "d": 10592, "p": 1784, "hr": 0, "spm": 36, "t": 1160 }
         ]
     },
     {
@@ -569,20 +577,25 @@ const original_data = [
         link: 'https://log.concept2.com/profile/1063564/log/46728178',
         strokeData: [
             //{ "d": 136, "p": 0, "hr": 0, "spm": 42, "t": 27 },
-            { "d": 228, "p": 1826, "hr": 0, "spm": 47, "t": 42 },
-            { "d": 291, "p": 1826, "hr": 0, "spm": 47, "t": 53 },
+            //{ "d": 228, "p": 1826, "hr": 0, "spm": 47, "t": 42 },
+            //{ "d": 291, "p": 1826, "hr": 0, "spm": 47, "t": 53 },
+
             { "d": 353, "p": 1618, "hr": 0, "spm": 48, "t": 63 },
             { "d": 444, "p": 1618, "hr": 0, "spm": 48, "t": 77 },
             { "d": 506, "p": 1622, "hr": 0, "spm": 48, "t": 88 },
             { "d": 596, "p": 1622, "hr": 0, "spm": 48, "t": 102 },
-            { "d": 656, "p": 1657, "hr": 0, "spm": 47, "t": 112 },
-            { "d": 745, "p": 1657, "hr": 0, "spm": 47, "t": 127 },
-            { "d": 807, "p": 1677, "hr": 0, "spm": 47, "t": 138 },
-            { "d": 899, "p": 1677, "hr": 0, "spm": 47, "t": 152 },
+
+            //{ "d": 656, "p": 1657, "hr": 0, "spm": 47, "t": 112 },
+            //{ "d": 745, "p": 1657, "hr": 0, "spm": 47, "t": 127 },
+            //{ "d": 807, "p": 1677, "hr": 0, "spm": 47, "t": 138 },
+            //{ "d": 899, "p": 1677, "hr": 0, "spm": 47, "t": 152 },
+
             { "d": 960, "p": 1636, "hr": 0, "spm": 49, "t": 162 },
             { "d": 1052, "p": 1636, "hr": 0, "spm": 49, "t": 177 },
-            { "d": 1112, "p": 1638, "hr": 0, "spm": 47, "t": 187 },
-            { "d": 1207, "p": 1638, "hr": 0, "spm": 47, "t": 203 },
+
+            //{ "d": 1112, "p": 1638, "hr": 0, "spm": 47, "t": 187 },
+            //{ "d": 1207, "p": 1638, "hr": 0, "spm": 47, "t": 203 },
+
             { "d": 1272, "p": 1618, "hr": 0, "spm": 51, "t": 212 },
             { "d": 1343, "p": 1618, "hr": 0, "spm": 51, "t": 223 },
             { "d": 1414, "p": 1458, "hr": 0, "spm": 56, "t": 233 },
@@ -681,8 +694,8 @@ const original_data = [
             { "d": 8505, "p": 911, "hr": 0, "spm": 87, "t": 1083 },
             { "d": 8553, "p": 943, "hr": 0, "spm": 78, "t": 1088 },
             { "d": 8635, "p": 943, "hr": 0, "spm": 78, "t": 1097 },
-            { "d": 8708, "p": 1174, "hr": 0, "spm": 59, "t": 1107 },
-            { "d": 8800, "p": 1174, "hr": 0, "spm": 59, "t": 1122 }
+            //{ "d": 8708, "p": 1174, "hr": 0, "spm": 59, "t": 1107 },
+            //{ "d": 8800, "p": 1174, "hr": 0, "spm": 59, "t": 1122 }
         ]
     },
     {
@@ -832,8 +845,10 @@ const original_data = [
             { "d": 9379, "p": 1266, "hr": 0, "spm": 66, "t": 1121 },
             { "d": 9458, "p": 1274, "hr": 0, "spm": 66, "t": 1131 },
             { "d": 9535, "p": 1274, "hr": 0, "spm": 66, "t": 1141 },
-            { "d": 9605, "p": 1304, "hr": 0, "spm": 61, "t": 1151 },
-            { "d": 9695, "p": 1304, "hr": 0, "spm": 61, "t": 1166 },
+
+            //{ "d": 9605, "p": 1304, "hr": 0, "spm": 61, "t": 1151 },
+            //{ "d": 9695, "p": 1304, "hr": 0, "spm": 61, "t": 1166 },
+
             { "d": 9749, "p": 1588, "hr": 0, "spm": 48, "t": 1176 },
             { "d": 9822, "p": 1588, "hr": 0, "spm": 48, "t": 1191 }
         ]
@@ -1340,10 +1355,12 @@ const original_data = [
             //{ "d": 96, "p": 0, "hr": 0, "spm": 33, "t": 36 },
             { "d": 154, "p": 3002, "hr": 0, "spm": 42, "t": 51 },
             { "d": 194, "p": 3002, "hr": 0, "spm": 42, "t": 61 },
-            { "d": 256, "p": 2540, "hr": 0, "spm": 47, "t": 76 },
-            { "d": 301, "p": 2540, "hr": 0, "spm": 47, "t": 86 },
-            { "d": 346, "p": 2337, "hr": 0, "spm": 51, "t": 96 },
-            { "d": 415, "p": 2337, "hr": 0, "spm": 51, "t": 111 },
+
+            //{ "d": 256, "p": 2540, "hr": 0, "spm": 47, "t": 76 },
+            //{ "d": 301, "p": 2540, "hr": 0, "spm": 47, "t": 86 },
+            //{ "d": 346, "p": 2337, "hr": 0, "spm": 51, "t": 96 },
+            //{ "d": 415, "p": 2337, "hr": 0, "spm": 51, "t": 111 },
+
             { "d": 462, "p": 2179, "hr": 0, "spm": 53, "t": 121 },
             { "d": 508, "p": 2179, "hr": 0, "spm": 53, "t": 131 },
             { "d": 554, "p": 2150, "hr": 0, "spm": 53, "t": 141 },
@@ -1434,11 +1451,11 @@ const original_data = [
             { "d": 5011, "p": 990, "hr": 0, "spm": 112, "t": 736 },
             { "d": 5054, "p": 1084, "hr": 0, "spm": 102, "t": 741 },
             { "d": 5097, "p": 1084, "hr": 0, "spm": 102, "t": 746 },
-            { "d": 5167, "p": 1187, "hr": 0, "spm": 77, "t": 782 },
-            { "d": 5200, "p": 1187, "hr": 0, "spm": 77, "t": 787 },
 
+            //{ "d": 5167, "p": 1187, "hr": 0, "spm": 77, "t": 782 },
+            //{ "d": 5200, "p": 1187, "hr": 0, "spm": 77, "t": 787 },
             //{ "d": 5265, "p": 1844674407370952561, "hr": 0, "spm": 75, "t": 797 },
-            { "d": 5265, "p": 1187, "hr": 0, "spm": 75, "t": 797 },
+            //{ "d": 5265, "p": 1187, "hr": 0, "spm": 75, "t": 797 },
 
             { "d": 5330, "p": 1549, "hr": 0, "spm": 72, "t": 807 },
             { "d": 5361, "p": 1549, "hr": 0, "spm": 72, "t": 812 },
@@ -1476,125 +1493,31 @@ const original_data = [
     },
 ];
 
-const bikeerg_stableNumbers = [
-    {
-        damper: 10,
-        dragFactor: 177,
-        numbers: [
-            { spm: 42, p: 1691 },
-            { spm: 51, p: 1348 },
-            { spm: 60, p: 1150 },
-            { spm: 70, p: 1010 },
-            { spm: 80, p: 874 },
-        ],
-    },
-    {
-        damper: 9,
-        dragFactor: 201,
-        numbers: [
-            { spm: 41, p: 1866 },
-            { spm: 49, p: 1501 },
-            { spm: 60, p: 1196 },
-            { spm: 70, p: 1025 },
-            { spm: 82, p: 865 },
-            { spm: 90, p: 804 },
-        ],
-    },
-    {
-        damper: 8,
-        dragFactor: 191,
-        numbers: [
-            { spm: 42, p: 1661 },
-            { spm: 56, p: 1295 },
-            { spm: 60, p: 1244 },
-            { spm: 71, p: 1038 },
-            { spm: 80, p: 920 },
-        ],
-    },
-    {
-        damper: 7,
-        dragFactor: 172,
-        numbers: [
-            { spm: 51, p: 1358 },
-            { spm: 64, p: 1164 },
-            { spm: 71, p: 1065 },
-            { spm: 83, p: 937 },
-            { spm: 94, p: 812 },
-        ],
-    },
-    {
-        damper: 6,
-        dragFactor: 149,
-        numbers: [
-            { spm: 48, p: 1622 },
-            { spm: 56, p: 1458 },
-            { spm: 61, p: 1326 },
-            { spm: 70, p: 1123 },
-            { spm: 85, p: 984 },
-        ],
-    },
-    {
-        damper: 5,
-        dragFactor: 123,
-        numbers: [
-            { spm: 52, p: 1627 },
-            { spm: 61, p: 1389 },
-            { spm: 71, p: 1189 },
-            { spm: 91, p: 932 },
-            { spm: 110, p: 787 },
-        ],
-    },
-    {
-        damper: 4,
-        dragFactor: 94,
-        numbers: [
-            { spm: 55, p: 1707 },
-            { spm: 61, p: 1528 },
-            { spm: 70, p: 1333 },
-            { spm: 87, p: 1108 },
-            { spm: 91, p: 1020 },
-            { spm: 102, p: 907 },
-        ],
-    },
-    {
-        damper: 3,
-        dragFactor: 71,
-        numbers: [
-            { spm: 57, p: 1819 },
-            { spm: 68, p: 1468 },
-            { spm: 78, p: 1303 },
-            { spm: 88, p: 1151 },
-            { spm: 96, p: 1066 },
-            { spm: 106, p: 959 },
-        ],
-    },
-    {
-        damper: 2,
-        dragFactor: 60,
-        numbers: [
-            { spm: 66, p: 1666 },
-            { spm: 79, p: 1393 },
-            { spm: 89, p: 1248 },
-            { spm: 96, p: 1170 },
-            { spm: 103, p: 1062 },
-        ],
-    },
-    {
-        damper: 1,
-        dragFactor: 48,
-        numbers: [
-            { spm: 53, p: 2150 },
-            { spm: 63, p: 1845 },
-            { spm: 74, p: 1579 },
-            { spm: 85, p: 1363 },
-            { spm: 96, p: 1213 },
-            { spm: 117, p: 1007 },
-            { spm: 150, p: 776 },
-        ],
-    },
-];
+const averagePace = (original) => {
+    const data = original.reduce((acc, val) => {
+        const idx = acc.findIndex((a) => a.spm == val.spm);
+        if (idx === -1) {
+            acc.push({
+                spm: val.spm,
+                p: val.p,
+                num: 1,
+            });
+        } else {
+            acc[idx].p += val.p;
+            acc[idx].num++;
+        }
 
-const spmPace = () => {
+        return acc;
+    }, []);
+
+    return data.map((d) => {
+        d.p = Math.trunc(d.p / d.num);
+        delete d.num;
+        return d;
+    }).sort((a, b) => a.spm < b.spm ? -1 : a.spm > b.spm ? 1 : 0);
+};
+
+const spmPaceRecorded = () => {
     const xAxis = [];
     const yAxis = [];
     const dataset = [];
@@ -1604,14 +1527,27 @@ const spmPace = () => {
     const dataZoom = [];
 
     legend.push({
-        top: '10%',
+        top: '5%',
         type: 'scroll',
+        selected: {
+            'damper 10': true,
+            'damper 9': true,
+            'damper 8': true,
+            'damper 7': true,
+            'damper 6': true,
+            'damper 5': true,
+            'damper 4': true,
+            'damper 3': true,
+            'damper 2': true,
+            'damper 1': true,
+        },
     });
     tooltip.push({
         trigger: 'axis',
         formatter: (params) => {
             return params[0].value.spm + '<br />' + params.reduce((acc, val) => {
-                return acc + `${val.marker} ${dateTime.ds2mmss(val.value.p)}<br />`;
+                return acc + `${val.marker}
+                    ${dateTime.ds2mmss(val.value.p)} (${val.value.p})<br />`;
             }, '');
         },
     });
@@ -1631,21 +1567,40 @@ const spmPace = () => {
     });
 
     original_data.forEach((od) => {
+        const data = averagePace(od.strokeData);
+
         dataset.push({
             dimensions: [ 'spm', 'p' ],
-            source: od.strokeData,
+            source: data,
         });
 
         series.push({
-            name: od.damper,
+            name: `damper ${od.damper}`,
             type: 'scatter',
             encode: {
                 x: 'spm',
                 y: 'p',
             },
+            tooltip: {
+                formatter: (params) => `${params.value.spm}<br />${params.marker}
+                    ${dateTime.ds2mmss(params.value.p)} (${params.value.p})`,
+            },
             datasetIndex: dataset.length-1,
             symbolSize: 4,
         });
+
+        /*
+         * For sending to wolfram alpha
+         */
+        if (0) {
+        let out = 'least squares { ';
+        out += data.reduce((acc, val, i) => {
+            return (i > 0 && (i % 4) === 0) ?  acc + `{ ${val.spm}, ${val.p} },` : acc;
+        }, '');
+        out = out.replace(/,$/, '') + ' }';
+        console.log(`damper ${od.damper}`);
+        console.log(out);
+        }
     });
 
     return {
@@ -1659,6 +1614,321 @@ const spmPace = () => {
     };
 };
 
+const spmPaceDerived = () => {
+    const xAxis = [];
+    const yAxis = [];
+    const series = [];
+    const dataset = [];
+    const legend = [];
+    const tooltip = [];
+
+    const spmPace = [
+        {
+            damper: 10,
+            func: (x) => 0.29 * Math.pow(x, 2) - 54.28 * x + 3370.2, // (quadratic)
+        },
+        {
+            damper: 9,
+            func: (x) =>  0.218498 * Math.pow(x, 2) - 45.9425 * x + 3174.01, // (quadratic)
+        },
+        {
+            damper: 8,
+			func: (x) => 0.358354 * Math.pow(x, 2) - 65.8881 * x + 3900.09, // (quadratic)
+        },
+        {
+            damper: 7,
+			func: (x) => 0.216037 * Math.pow(x, 2) - 45.0093 * x + 3167.17, // (quadratic)
+        },
+        {
+            damper: 6,
+			func: (x) => 0.405534 * Math.pow(x, 2) - 75.3514 * x + 4398.43, // (quadratic)
+        },
+        {
+            damper: 5,
+			func: (x) => 0.327139 * Math.pow(x, 2) - 66.6989 * x + 4278.59, // (quadratic)
+        },
+        {
+            damper: 4,
+			func: (x) => 0.408395 * Math.pow(x, 2) - 82.39 * x + 5080.4, // (quadratic)
+        },
+        {
+            damper: 3,
+			func: (x) => 0.234248 * Math.pow(x, 2) - 53.4162 * x + 4028.75, // (quadratic)
+        },
+        {
+            damper: 2,
+			func: (x) => 0.258862 * Math.pow(x, 2) - 59.6611 * x + 4482.28, // (quadratic)
+        },
+        {
+            damper: 1,
+			func: (x) => 0.16877 * Math.pow(x, 2) - 47.3627 * x + 4180.98, // (quadratic)
+        },
+    ];
+
+    legend.push({
+        top: '5%',
+        type: 'scroll',
+        selected: {
+            'damper 10': true,
+            'damper 9': true,
+            'damper 8': true,
+            'damper 7': true,
+            'damper 6': true,
+            'damper 5': true,
+            'damper 4': true,
+            'damper 3': true,
+            'damper 2': true,
+            'damper 1': true,
+        },
+    });
+    tooltip.push({
+        trigger: 'axis',
+        formatter: (params) => {
+            return params[0].value.spm + '<br />' + params.reduce((acc, val) => {
+                return acc + `${val.marker}
+                    ${dateTime.ds2mmss(val.value.p)} (${val.value.p})<br />`;
+            }, '');
+        },
+    });
+
+
+    xAxis.push({
+        type: 'value',
+        min: 'dataMin',
+        max: 'dataMax',
+    });
+    yAxis.push({
+        type: 'value',
+        axisLabel: {
+            formatter: (value) => dateTime.ds2mmss(value),
+        },
+        min: 'dataMin',
+        max: 'dataMax',
+    });
+
+    spmPace.forEach((f) => {
+        const data = [];
+
+        for (let spm = 50; spm <= 90; spm++) {
+            data.push({
+                spm: spm,
+                p: Math.trunc(f.func(spm)),
+            });
+        }
+
+        dataset.push({
+            dimensions: [ 'spm', 'p' ],
+            source: data,
+        });
+
+        series.push({
+            type: 'line',
+            name: `damper ${f.damper}`,
+            encode: {
+                x: 'spm',
+                y: 'p',
+            },
+            datasetIndex: dataset.length-1,
+        });
+    });
+
+    return {
+        xAxis,
+        yAxis,
+        series,
+        dataset,
+        legend,
+        tooltip,
+    };
+};
+
+const spmPaceChosen = () => {
+    const xAxis = [];
+    const yAxis = [];
+    const series = [];
+    const dataset = [];
+    const legend = [];
+    const tooltip = [];
+
+    const chosen = [
+        {
+            damper: 10,
+            values: [
+                { spm: 50, p: 1385 },
+                { spm: 60, p: 1146 },
+                { spm: 70, p: 1003 },
+                { spm: 80, p: 880 },
+            ],
+        },
+        {
+            damper: 9,
+            values: [
+                { spm: 51, p: 1404 },   /* was 1384 */
+                { spm: 60, p: 1196 },
+                { spm: 70, p: 1026 },
+                { spm: 80, p: 908 },
+                { spm: 90, p: 804 },
+            ],
+        },
+        {
+            damper: 8,
+            values: [
+                { spm: 52, p: 1447 },
+                { spm: 60, p: 1227 },
+                { spm: 67, p: 1094 },
+                { spm: 71, p: 1038 },
+                { spm: 80, p: 919 },
+            ],
+        },
+        {
+            damper: 7,
+            values: [
+                { spm: 61, p: 1230 },   /* was 1305 */
+                { spm: 65, p: 1149 },
+                { spm: 75, p: 1003 },
+                { spm: 83, p: 927 },
+                { spm: 92, p: 852 },
+            ],
+        },
+        {
+            damper: 6,
+            values: [
+                { spm: 51, p: 1618 },
+                { spm: 60, p: 1318 },
+                { spm: 70, p: 1125 },
+                { spm: 85, p: 924 },    /* was 984 */
+                { spm: 88, p: 905 },
+            ],
+        },
+        {
+            damper: 5,
+            values: [
+                { spm: 50, p: 1788 },
+                { spm: 60, p: 1410 },
+                { spm: 70, p: 1206 },
+                { spm: 81, p: 1048 },
+                { spm: 91, p: 936 },
+                { spm: 100, p: 861 },
+            ],
+        },
+        {
+            damper: 4,
+            values: [
+                { spm: 51, p: 1971 },
+                { spm: 60, p: 1558 },
+                { spm: 70, p: 1314 },
+                { spm: 80, p: 1112 },
+                { spm: 90, p: 1001 },   /* was 1041 */
+                { spm: 102, p: 908 },
+            ],
+        },
+        {
+            damper: 3,
+            values: [
+                { spm: 59, p: 1700 },   /* was 1650 */
+                { spm: 70, p: 1419 },
+                { spm: 80, p: 1263 },
+                { spm: 90, p: 1127 },
+                { spm: 100, p: 1024 },
+            ],
+        },
+        {
+            damper: 2,
+            values: [
+                //{ spm: 52, p: 2476 },
+                { spm: 60, p: 1840 },
+                { spm: 70, p: 1563 },
+                { spm: 83, p: 1316 },
+                { spm: 90, p: 1218 },
+                { spm: 100, p: 1100 },
+            ],
+        },
+        {
+            damper: 1,
+            values: [
+                { spm: 60, p: 1958 },
+                { spm: 80, p: 1439 },
+                { spm: 100, p: 1164 },
+                { spm: 122, p: 905 },
+            ],
+        },
+    ];
+
+    legend.push({
+        top: '5%',
+        type: 'scroll',
+        selected: {
+            'damper 10': true,
+            'damper 9': true,
+            'damper 8': true,
+            'damper 7': true,
+            'damper 6': true,
+            'damper 5': true,
+            'damper 4': true,
+            'damper 3': true,
+            'damper 2': true,
+            'damper 1': true,
+        },
+    });
+    tooltip.push({
+        trigger: 'axis',
+        formatter: (params) => {
+            return params[0].value.spm + '<br />' + params.reduce((acc, val) => {
+                return acc + `${val.marker}
+                    ${dateTime.ds2mmss(val.value.p)} (${val.value.p}) ${val.seriesName}<br />`;
+            }, '');
+        },
+    });
+
+    xAxis.push({
+        type: 'value',
+        min: 'dataMin',
+        max: 'dataMax',
+    });
+    yAxis.push({
+        type: 'value',
+        axisLabel: {
+            formatter: (value) => dateTime.ds2mmss(value),
+        },
+        min: 'dataMin',
+        max: 'dataMax',
+    });
+
+    chosen.forEach((c) => {
+        dataset.push({
+            dimensions: [ 'spm', 'p' ],
+            source: c.values,
+        });
+
+        series.push({
+            type: 'line',
+            name: `damper ${c.damper}`,
+            encode: {
+                x: 'spm',
+                y: 'p',
+            },
+            datasetIndex: dataset.length-1,
+        });
+
+        console.log(series[series.length-1].name);
+        console.log('least squares {' + c.values.reduce((acc, val) => {
+            return acc + `{ ${val.spm}, ${val.p} },`;
+        }, '').replace(/,$/, '}'));
+    });
+
+
+    return {
+        xAxis,
+        yAxis,
+        series,
+        dataset,
+        legend,
+        tooltip,
+    };
+};
+
 export const bikeerg = {
-    spmPace,
+    spmPaceRecorded,
+    spmPaceDerived,
+    spmPaceChosen,
 };

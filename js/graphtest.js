@@ -2,10 +2,11 @@
 
 import { bikeerg } from '/js/charts/bikeerg-damper-tests.js';
 
-const defaultGraphHeight = 250;
+const defaultGraphHeight = 350;
 
 const graphs = [
-    { div: 'bikerg-spm-pace', options: bikeerg.spmPace, },
+    { div: 'bikeerg-spm-pace-derived', options: bikeerg.spmPaceDerived, },
+    { div: 'bikeerg-spm-pace-recorded', options: bikeerg.spmPaceRecorded, },
 ];
 
 document.addEventListener('DOMContentLoaded', () => {
