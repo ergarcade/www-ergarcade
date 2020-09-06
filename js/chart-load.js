@@ -1,13 +1,11 @@
 'use strict';
 
 import { c2 } from '/js/charts/c2.js';
-import { bikeErg } from '/js/charts/bikeerg-damper.js';
 
 const defaultGraphHeight = 250;
 
 const graphs = [ 
     { div: 'graph-c2-pace-derivatives', options: c2.paceDerivatives },
-    { div: 'graph-bikeerg-damper', options: bikeErg.damper },
 ];
 
 document.addEventListener('DOMContentLoaded', () => {

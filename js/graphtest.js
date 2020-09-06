@@ -9,7 +9,7 @@ const graphs = [
     { div: 'bikeerg-spm-pace-cleaned', options: bikeerg.spmPaceCleaned, },
     { div: 'bikeerg-spm-pace-connected', options: bikeerg.spmPaceConnected, },
     { div: 'bikeerg-spm-pace-moving-average', options: bikeerg.spmPaceMovingAverage, },
-    //{ div: 'bikeerg-spm-pace-cumulative-average', options: bikeerg.spmPaceCumulativeAverage, },
+    { div: 'bikeerg-spm-pace-cumulative-average', options: bikeerg.spmPaceCumulativeAverage, },
 ];
 
 document.addEventListener('DOMContentLoaded', () => {
