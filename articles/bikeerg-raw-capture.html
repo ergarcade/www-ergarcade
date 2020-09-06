@@ -1,0 +1,218 @@
+<!doctype html>
+
+<!--
+vim:textwidth=80
+-->
+
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <link href="/style.css" rel="stylesheet" />
+
+        <style>
+        math {
+            display: block;
+            padding-top: 1em;
+            padding-bottom: 1em;
+        }
+        div[id^='graph'] {
+            height: 200px;
+            border: 1px solid #aaa;
+            margin-top: 1em;
+        }
+        </style>
+
+        <title>Erg Arcade! Concept2 BikeErg Raw Data</title>
+
+        <script src="/js/lib/echarts-en.min.js"></script>
+        <script src="/js/lib/echarts-themes/dark.js"></script>
+        <script src="/js/lib/luxon.min.js"></script>
+        <script type="module" src="/js/chart-load.js"></script>
+    </head>
+
+    <body>
+        <div id="header">
+            <div class="centre">
+                <a href="/" title="Back to the Erg Arcade!">
+                    <img
+                        src="/images/ergarcade-64x64.png"
+                        class="ergarcade-logo" alt="ergarcade.com" />
+                    <img
+                        src="/images/ergarcade-dark-64x64.png"
+                        class="ergarcade-logo-dark" alt="ergarcade.com" />
+                </a>
+            </div>
+            <h1>Concept2 BikeErg Raw Data</h1>
+
+            <hr />
+
+            <p class="centre">
+            Through the <a href="https://concept2.com/ergdata">ErgData</a>
+            application, it's possible to record and review stroke / revolution data
+            from a Concept2 ergometer. Below we capture and analyse pieces performed on the
+            BikeErg at different damper settings.
+            </p>
+        </div>
+
+        <hr />
+        <h2>Aim</h2>
+        <p>
+        We want to see the effect that damper setting has on pace at a given RPM
+        on the BikeErg. An in-depth discussion of damper setting and drag factor
+        is beyond the scope of this experiment; Concept2 has an excellent <a
+            href="https://www.concept2.com/indoor-rowers/training/tips-and-general-info/damper-setting-101">article
+        describing what damper is, what drag factor is, what they are not, and what damper to use</a>.
+        </p>
+
+        <hr />
+        <h2>Method</h2>
+        <p>
+        Starting at damper 10, 2:00 of work would be completed on the BikeErg
+        and recorded by ErgData.  The athlete would try to get as high an RPM as
+        possible over the 2:00, but not hold any particular RPM. This allows us
+        to accumulate data mapping RPM to pace over a range at a given damper.
+        </p>
+        <p>
+        This would be done 10 times; the first at damper 10, the second at
+        damper 9 and so on until damper 1.
+        </p>
+
+        <hr />
+        <h2>Setup</h2>
+        <ul>
+            <li>The BikeErg used was less than a year old.</li>
+            <li>The flywheel cage was clean before starting the experiment.</li>
+            <li>At damper 10, the BikeErg Performance Monitor (PM) showed a drag
+                factor of 220.</li>
+            <li>At damper 1, the PM showed a drag factor of 49.</li>
+            <li>Data recorded at 13m above sea level.</li>
+            <li>Two athletes alternated between work pieces.</li>
+            <li>Each work piece was recorded by ErgData and uploaded to the <a
+                    href="https://log.concept2.com">Concept2 logbook</a>.</li>
+        </ul>
+
+        <hr />
+        <h2>Results</h2>
+        <p>
+        Each work piece was pulled from the Concept2 logbook, along with
+        per-stroke (per-revolution) data. Raw data is available <a
+            href="/js/charts/bikeerg-damper-tests.js">here</a>. Erroneously
+        recorded values (value too high, recorded pace invalid with associated
+        RPM etc) are commented out of the dataset.
+        </p>
+        <p>
+        Each damper setting graph series in each graph below is labeled
+        <i>D&lt;num&gt;</i>, where <i>&lt;num&gt;</i> is the number the damper
+        was set on.
+        </p>
+        <p>
+        Tap each series label in each graph's legend to disable / enable the
+        series on the graph.  Mouse-over or tap the graph to see values of pace
+        for each damper at a given RPM.
+        </p>
+
+        <hr />
+        <h3>Raw data, cleaned</h3>
+        <p>
+        The raw data was cleaned, with repeated pace/RPM values aggregated to a
+        single data point to remove noise. At this point, it is possible to
+        infer the trajectories of RPM-pace pairs resembling curves.
+        </p>
+        <div id="graph-bikeerg-damper-tests-cleaned"></div>
+
+        <hr />
+        <h3>Joining the dots</h3>
+        <p>
+        By plotting each series as a line, we can see a non-linear relationship
+        between pace and RPM. We can also see that a higher damper setting
+        yields a faster pace at the same RPM for all recorded RPM.
+        </p>
+        <p>
+        For example: at damper 1, an RPM of 80 gives a pace of 2:23.9. At damper
+        10, an RPM of 80 gives a pace of 1:28.0.
+        </p>
+        <div id="graph-bikeerg-damper-tests-connected"></div>
+
+        <hr />
+        <h3>Averaging out</h3>
+        <p>
+        Passing a cumulative average function across each dataset helps reduce
+        bumps, at the cost of reducing accuracy. However, this reinforces our
+        previous observation relating pace, RPM and damper.
+        </p>
+        <div id="graph-bikeerg-damper-tests-cumulative-average"></div>
+
+        <hr />
+        <h2>Summary</h2>
+        <p>
+        While our observation that a higher damper setting at a particular RPM
+        yields a faster pace is not revolutionary (no pun intended), it is
+        interesting to see the effect that damper has, particularly across a
+        range of damper settings.
+        </p>
+        <p>
+        Using the graphs above, we can compare damper settings and note the pace
+        changes between them, instead of going by feel during a workout. Note
+        that a dusty flywheel and air pressure changes due to altitude will
+        generate different values to the ones documented above.
+        </p>
+
+        <hr />
+        <h2>Flaws</h2>
+        <h3>Collection method</h3>
+        <p>
+        The methodology of having the athlete cover a range of RPM for 2:00 was
+        flawed. Naturally, the athletes increased from idle to a
+        &ldquo;comfortable&rdquo; RPM over a short period of time, stayed at
+        that RPM, and then increased RPM nearing the end of the 2:00.
+        </p>
+        <p>
+        This gave a larger variance of pace at low and high RPM, which may skew
+        the results.
+        </p>
+        <p>
+        A better approach would be to select a set of RPM values (perhaps 30, 40,
+        50, 60, 70, 80) and have the athlete hold that RPM for a set amount of
+        time before moving to the next. This way we collect a greater number of
+        points at each known RPM, reducing jitter.
+        </p>
+
+        <h3>Incorrect Drag Factor?</h3>
+        <p>
+        Drag factor should follow damper setting to some degree; a lower damper
+        setting is a lower drag factor, higher damper setting is a higher drag
+        factor. However, the test for damper 10 showed a drag factor lower
+        than damper 9, 8, and 7:
+        </p>
+        <div id="graph-bikeerg-damper-tests-drag-factors"></div>
+        <p>
+        Unsure what happened here.
+        </p>
+
+        <hr />
+        <h2>Future work</h2>
+        <p>
+        It would be nice to re-run this and generate some more accurate data.
+        This would also allow creation of higher-accuracy curves that may
+        allow better comparisons between RPM and pace.
+        </p>
+
+        <hr />
+        <h2>Thanks</h2>
+        <p>
+        Special thanks to <a
+            target="_blank"
+            href="https://instagram.com/be.like.scott">@be.like.scott</a>
+        and <a
+            target="_blank"
+            href="https://instagram.com/ktna89">@ktna89</a> for the loan of
+        their BikeErg and help in running the tests.
+        </p>
+
+        <hr />
+        <a href="https://reddit.com/u/angrytongan">Find me here.</a>
+
+    </body>
+</html>

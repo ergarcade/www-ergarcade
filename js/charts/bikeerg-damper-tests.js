@@ -1539,7 +1539,7 @@ const spmPace = (o) => {
     });
 
     legend.push({
-        top: '8%',
+        top: '10%',
         type: 'scroll',
     });
     tooltip.push({
@@ -1555,7 +1555,7 @@ const spmPace = (o) => {
 
     xAxis.push({
         type: 'value',
-        name: 'SPM',
+        name: 'RPM',
         nameGap: 33,
         nameLocation: 'center',
         min: 40,
@@ -1622,7 +1622,70 @@ const spmPace = (o) => {
     };
 };
 
-export const bikeerg = {
+const dragFactors = () => {
+    const xAxis = [];
+    const yAxis = [];
+    const series = [];
+    const dataset = [];
+    const tooltip = [];
+    const legend = [];
+
+    tooltip.push({
+        trigger: 'item',
+    });
+    legend.push({
+        top: '10%',
+        selectedMode: false,
+    });
+
+    xAxis.push({
+        type: 'category',
+        name: 'Damper',
+        nameLocation: 'middle',
+    });
+    yAxis.push({
+        type: 'value',
+        name: 'Drag Factor',
+        nameGap: 35,
+        nameLocation: 'middle',
+    });
+    dataset.push({
+        dimensions: [ 'damper', 'dragFactor' ],
+        source: original_data,
+    });
+    series.push({
+        type: 'bar',
+        name: 'Drag factor per damper setting',
+        encode: {
+            x: 'damper',
+            y: 'dragFactor',
+        },
+        markPoint: {
+            data: [{
+                coord: [ '10', 177 ],
+            }],
+            symbol: 'arrow',
+            symbolSize: [ 40, 40 ],
+            symbolRotate: 135,
+            symbolOffset: [ 5, -10 ],
+            itemStyle: {
+                color: '#fc0',
+                borderColor: '#960',
+            },
+        },
+    });
+
+    return {
+        legend,
+        xAxis,
+        yAxis,
+        series,
+        dataset,
+        tooltip,
+    };
+};
+
+export const bikeergDamperTests = {
     spmPaceRaw: () => spmPace({
         title: 'raw',
         dataFilter: undefined,
@@ -1677,4 +1740,6 @@ export const bikeerg = {
             smooth: true,
         },
     }),
+
+    dragFactors,
 };
