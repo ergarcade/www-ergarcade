@@ -5,8 +5,11 @@ import { bikeerg } from '/js/charts/bikeerg-damper-tests.js';
 const defaultGraphHeight = 350;
 
 const graphs = [
-    { div: 'bikeerg-spm-pace-derived', options: bikeerg.spmPaceDerived, },
-    { div: 'bikeerg-spm-pace-recorded', options: bikeerg.spmPaceRecorded, },
+    { div: 'bikeerg-spm-pace-raw', options: bikeerg.spmPaceRaw, },
+    { div: 'bikeerg-spm-pace-cleaned', options: bikeerg.spmPaceCleaned, },
+    { div: 'bikeerg-spm-pace-connected', options: bikeerg.spmPaceConnected, },
+    { div: 'bikeerg-spm-pace-moving-average', options: bikeerg.spmPaceMovingAverage, },
+    //{ div: 'bikeerg-spm-pace-cumulative-average', options: bikeerg.spmPaceCumulativeAverage, },
 ];
 
 document.addEventListener('DOMContentLoaded', () => {

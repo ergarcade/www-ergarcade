@@ -1,5 +1,12 @@
-import { dateTime } from '/js/utils/datetime.js';
+'use strict';
 
+import { dateTime } from '/js/utils/datetime.js';
+import { averaging } from '/js/utils/averaging.js';
+
+/*
+ * Original data as recorded by ErgData. Way-out values have been commented
+ * out.
+ */
 const original_data = [
     {
         damper: 10,
@@ -1491,9 +1498,12 @@ const original_data = [
             { "d": 6937, "p": 3046, "hr": 0, "spm": 36, "t": 1167 }
         ],
     },
-];
+].sort((a, b) => a.damper < b.damper ? -1 : a.damper > b.damper ? 1 : 0);
 
-const averagePace = (original) => {
+const clean = (original) => {
+    /*
+     * group by spm
+     */
     const data = original.reduce((acc, val) => {
         const idx = acc.findIndex((a) => a.spm == val.spm);
         if (idx === -1) {
@@ -1510,6 +1520,9 @@ const averagePace = (original) => {
         return acc;
     }, []);
 
+    /*
+     * average out repeated spms
+     */
     return data.map((d) => {
         d.p = Math.trunc(d.p / d.num);
         delete d.num;
@@ -1517,48 +1530,58 @@ const averagePace = (original) => {
     }).sort((a, b) => a.spm < b.spm ? -1 : a.spm > b.spm ? 1 : 0);
 };
 
-const spmPaceRecorded = () => {
+const movingAverage = (original) => {
+    const data = clean(original);
+    return averaging.MVArotate(data, 5, 'p');
+};
+
+const cumulativeAverage = (original) => {
+    const data = clean(original);
+    return averaging.CMAappend(data, 5, 'p');
+};
+
+const spmPace = (o) => {
     const xAxis = [];
     const yAxis = [];
     const dataset = [];
     const series = [];
     const tooltip = [];
     const legend = [];
-    const dataZoom = [];
+    const title = [];
+
+    title.push({
+        text: 'BikeErg 2:00 capture at dampers 1 to 10 - ' + o.title,
+        textAlign: 'center',
+        left: 'middle',
+    });
 
     legend.push({
-        top: '5%',
+        top: '8%',
         type: 'scroll',
-        selected: {
-            'damper 10': true,
-            'damper 9': true,
-            'damper 8': true,
-            'damper 7': true,
-            'damper 6': true,
-            'damper 5': true,
-            'damper 4': true,
-            'damper 3': true,
-            'damper 2': true,
-            'damper 1': true,
-        },
     });
     tooltip.push({
         trigger: 'axis',
         formatter: (params) => {
-            return params[0].value.spm + '<br />' + params.reduce((acc, val) => {
+            return params[0].value.spm + 'spm<br />' + params.reduce((acc, val) => {
                 return acc + `${val.marker}
-                    ${dateTime.ds2mmss(val.value.p)} (${val.value.p})<br />`;
+                    ${val.seriesName} ${dateTime.ds2mmss(val.value.p)}<br />`;
             }, '');
         },
+        ...o.tooltip,
     });
 
     xAxis.push({
         type: 'value',
+        name: 'SPM',
+        nameLocation: 'center',
         min: 'dataMin',
         max: 'dataMax',
     });
     yAxis.push({
         type: 'value',
+        name: 'Pace',
+        nameLocation: 'center',
+        nameGap: 50,
         axisLabel: {
             formatter: (value) => dateTime.ds2mmss(value),
         },
@@ -1567,7 +1590,7 @@ const spmPaceRecorded = () => {
     });
 
     original_data.forEach((od) => {
-        const data = averagePace(od.strokeData);
+        const data = o.dataFilter ? o.dataFilter(od.strokeData) : od.strokeData;
 
         dataset.push({
             dimensions: [ 'spm', 'p' ],
@@ -1575,360 +1598,85 @@ const spmPaceRecorded = () => {
         });
 
         series.push({
-            name: `damper ${od.damper}`,
+            name: `D${od.damper}`,
             type: 'scatter',
             encode: {
                 x: 'spm',
                 y: 'p',
             },
             tooltip: {
-                formatter: (params) => `${params.value.spm}<br />${params.marker}
-                    ${dateTime.ds2mmss(params.value.p)} (${params.value.p})`,
+                formatter: (params) => `${params.value.spm}spm<br />
+                ${params.marker} ${params.seriesName} ${dateTime.ds2mmss(params.value.p)}`,
             },
             datasetIndex: dataset.length-1,
             symbolSize: 4,
-        });
 
-        /*
-         * For sending to wolfram alpha
-         */
-        if (0) {
-        let out = 'least squares { ';
-        out += data.reduce((acc, val, i) => {
-            return (i > 0 && (i % 4) === 0) ?  acc + `{ ${val.spm}, ${val.p} },` : acc;
-        }, '');
-        out = out.replace(/,$/, '') + ' }';
-        console.log(`damper ${od.damper}`);
-        console.log(out);
-        }
+            ...o.series,
+        });
     });
 
     return {
+        title,
         xAxis,
         yAxis,
         dataset,
         series,
         tooltip,
         legend,
-        //dataZoom,
-    };
-};
-
-const spmPaceDerived = () => {
-    const xAxis = [];
-    const yAxis = [];
-    const series = [];
-    const dataset = [];
-    const legend = [];
-    const tooltip = [];
-
-    const spmPace = [
-        {
-            damper: 10,
-            func: (x) => 0.29 * Math.pow(x, 2) - 54.28 * x + 3370.2, // (quadratic)
-        },
-        {
-            damper: 9,
-            func: (x) =>  0.218498 * Math.pow(x, 2) - 45.9425 * x + 3174.01, // (quadratic)
-        },
-        {
-            damper: 8,
-			func: (x) => 0.358354 * Math.pow(x, 2) - 65.8881 * x + 3900.09, // (quadratic)
-        },
-        {
-            damper: 7,
-			func: (x) => 0.216037 * Math.pow(x, 2) - 45.0093 * x + 3167.17, // (quadratic)
-        },
-        {
-            damper: 6,
-			func: (x) => 0.405534 * Math.pow(x, 2) - 75.3514 * x + 4398.43, // (quadratic)
-        },
-        {
-            damper: 5,
-			func: (x) => 0.327139 * Math.pow(x, 2) - 66.6989 * x + 4278.59, // (quadratic)
-        },
-        {
-            damper: 4,
-			func: (x) => 0.408395 * Math.pow(x, 2) - 82.39 * x + 5080.4, // (quadratic)
-        },
-        {
-            damper: 3,
-			func: (x) => 0.234248 * Math.pow(x, 2) - 53.4162 * x + 4028.75, // (quadratic)
-        },
-        {
-            damper: 2,
-			func: (x) => 0.258862 * Math.pow(x, 2) - 59.6611 * x + 4482.28, // (quadratic)
-        },
-        {
-            damper: 1,
-			func: (x) => 0.16877 * Math.pow(x, 2) - 47.3627 * x + 4180.98, // (quadratic)
-        },
-    ];
-
-    legend.push({
-        top: '5%',
-        type: 'scroll',
-        selected: {
-            'damper 10': true,
-            'damper 9': true,
-            'damper 8': true,
-            'damper 7': true,
-            'damper 6': true,
-            'damper 5': true,
-            'damper 4': true,
-            'damper 3': true,
-            'damper 2': true,
-            'damper 1': true,
-        },
-    });
-    tooltip.push({
-        trigger: 'axis',
-        formatter: (params) => {
-            return params[0].value.spm + '<br />' + params.reduce((acc, val) => {
-                return acc + `${val.marker}
-                    ${dateTime.ds2mmss(val.value.p)} (${val.value.p})<br />`;
-            }, '');
-        },
-    });
-
-
-    xAxis.push({
-        type: 'value',
-        min: 'dataMin',
-        max: 'dataMax',
-    });
-    yAxis.push({
-        type: 'value',
-        axisLabel: {
-            formatter: (value) => dateTime.ds2mmss(value),
-        },
-        min: 'dataMin',
-        max: 'dataMax',
-    });
-
-    spmPace.forEach((f) => {
-        const data = [];
-
-        for (let spm = 50; spm <= 90; spm++) {
-            data.push({
-                spm: spm,
-                p: Math.trunc(f.func(spm)),
-            });
-        }
-
-        dataset.push({
-            dimensions: [ 'spm', 'p' ],
-            source: data,
-        });
-
-        series.push({
-            type: 'line',
-            name: `damper ${f.damper}`,
-            encode: {
-                x: 'spm',
-                y: 'p',
-            },
-            datasetIndex: dataset.length-1,
-        });
-    });
-
-    return {
-        xAxis,
-        yAxis,
-        series,
-        dataset,
-        legend,
-        tooltip,
-    };
-};
-
-const spmPaceChosen = () => {
-    const xAxis = [];
-    const yAxis = [];
-    const series = [];
-    const dataset = [];
-    const legend = [];
-    const tooltip = [];
-
-    const chosen = [
-        {
-            damper: 10,
-            values: [
-                { spm: 50, p: 1385 },
-                { spm: 60, p: 1146 },
-                { spm: 70, p: 1003 },
-                { spm: 80, p: 880 },
-            ],
-        },
-        {
-            damper: 9,
-            values: [
-                { spm: 51, p: 1404 },   /* was 1384 */
-                { spm: 60, p: 1196 },
-                { spm: 70, p: 1026 },
-                { spm: 80, p: 908 },
-                { spm: 90, p: 804 },
-            ],
-        },
-        {
-            damper: 8,
-            values: [
-                { spm: 52, p: 1447 },
-                { spm: 60, p: 1227 },
-                { spm: 67, p: 1094 },
-                { spm: 71, p: 1038 },
-                { spm: 80, p: 919 },
-            ],
-        },
-        {
-            damper: 7,
-            values: [
-                { spm: 61, p: 1230 },   /* was 1305 */
-                { spm: 65, p: 1149 },
-                { spm: 75, p: 1003 },
-                { spm: 83, p: 927 },
-                { spm: 92, p: 852 },
-            ],
-        },
-        {
-            damper: 6,
-            values: [
-                { spm: 51, p: 1618 },
-                { spm: 60, p: 1318 },
-                { spm: 70, p: 1125 },
-                { spm: 85, p: 924 },    /* was 984 */
-                { spm: 88, p: 905 },
-            ],
-        },
-        {
-            damper: 5,
-            values: [
-                { spm: 50, p: 1788 },
-                { spm: 60, p: 1410 },
-                { spm: 70, p: 1206 },
-                { spm: 81, p: 1048 },
-                { spm: 91, p: 936 },
-                { spm: 100, p: 861 },
-            ],
-        },
-        {
-            damper: 4,
-            values: [
-                { spm: 51, p: 1971 },
-                { spm: 60, p: 1558 },
-                { spm: 70, p: 1314 },
-                { spm: 80, p: 1112 },
-                { spm: 90, p: 1001 },   /* was 1041 */
-                { spm: 102, p: 908 },
-            ],
-        },
-        {
-            damper: 3,
-            values: [
-                { spm: 59, p: 1700 },   /* was 1650 */
-                { spm: 70, p: 1419 },
-                { spm: 80, p: 1263 },
-                { spm: 90, p: 1127 },
-                { spm: 100, p: 1024 },
-            ],
-        },
-        {
-            damper: 2,
-            values: [
-                //{ spm: 52, p: 2476 },
-                { spm: 60, p: 1840 },
-                { spm: 70, p: 1563 },
-                { spm: 83, p: 1316 },
-                { spm: 90, p: 1218 },
-                { spm: 100, p: 1100 },
-            ],
-        },
-        {
-            damper: 1,
-            values: [
-                { spm: 60, p: 1958 },
-                { spm: 80, p: 1439 },
-                { spm: 100, p: 1164 },
-                { spm: 122, p: 905 },
-            ],
-        },
-    ];
-
-    legend.push({
-        top: '5%',
-        type: 'scroll',
-        selected: {
-            'damper 10': true,
-            'damper 9': true,
-            'damper 8': true,
-            'damper 7': true,
-            'damper 6': true,
-            'damper 5': true,
-            'damper 4': true,
-            'damper 3': true,
-            'damper 2': true,
-            'damper 1': true,
-        },
-    });
-    tooltip.push({
-        trigger: 'axis',
-        formatter: (params) => {
-            return params[0].value.spm + '<br />' + params.reduce((acc, val) => {
-                return acc + `${val.marker}
-                    ${dateTime.ds2mmss(val.value.p)} (${val.value.p}) ${val.seriesName}<br />`;
-            }, '');
-        },
-    });
-
-    xAxis.push({
-        type: 'value',
-        min: 'dataMin',
-        max: 'dataMax',
-    });
-    yAxis.push({
-        type: 'value',
-        axisLabel: {
-            formatter: (value) => dateTime.ds2mmss(value),
-        },
-        min: 'dataMin',
-        max: 'dataMax',
-    });
-
-    chosen.forEach((c) => {
-        dataset.push({
-            dimensions: [ 'spm', 'p' ],
-            source: c.values,
-        });
-
-        series.push({
-            type: 'line',
-            name: `damper ${c.damper}`,
-            encode: {
-                x: 'spm',
-                y: 'p',
-            },
-            datasetIndex: dataset.length-1,
-        });
-
-        console.log(series[series.length-1].name);
-        console.log('least squares {' + c.values.reduce((acc, val) => {
-            return acc + `{ ${val.spm}, ${val.p} },`;
-        }, '').replace(/,$/, '}'));
-    });
-
-
-    return {
-        xAxis,
-        yAxis,
-        series,
-        dataset,
-        legend,
-        tooltip,
     };
 };
 
 export const bikeerg = {
-    spmPaceRecorded,
-    spmPaceDerived,
-    spmPaceChosen,
+    spmPaceRaw: () => spmPace({
+        title: 'raw',
+        dataFilter: undefined,
+        tooltip: {
+            trigger: 'item',
+        },
+    }),
+
+    spmPaceCleaned: () => spmPace({
+        title: 'cleaned',
+        dataFilter: clean,
+        tooltip: {
+            trigger: 'axis',
+        },
+    }),
+
+    spmPaceConnected: () => spmPace({
+        title: 'connected',
+        dataFilter: clean,
+        tooltip: {
+            trigger: 'axis',
+        },
+        series: {
+            type: 'line',
+            showSymbol: false,
+            smooth: true,
+        },
+    }),
+
+    spmPaceMovingAverage: () => spmPace({
+        title: 'moving average',
+        dataFilter: movingAverage,
+        tooltip: {
+            trigger: 'axis',
+        },
+        series: {
+            type: 'line',
+            smooth: true,
+        },
+    }),
+
+    spmPaceCumulativeAverage: () => spmPace({
+        title: 'cumulative average',
+        dataFilter: cumulativeAverage,
+        tooltip: {
+            trigger: 'axis',
+        },
+        series: {
+            type: 'line',
+            smooth: true,
+        },
+    }),
 };
