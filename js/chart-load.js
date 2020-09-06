@@ -1,11 +1,16 @@
 'use strict';
 
 import { c2 } from '/js/charts/c2.js';
+import { bikeergDamperTests } from '/js/charts/bikeerg-damper-tests.js';
 
-const defaultGraphHeight = 200;
+const defaultGraphHeight = 250;
 
 const graphs = [ 
-    { div: 'graph-c2-pace-derivatives', options: c2.paceDerivatives, height: 250 },
+    { div: 'graph-c2-pace-derivatives', options: c2.paceDerivatives },
+    { div: 'graph-bikeerg-damper-tests-cleaned', options: bikeergDamperTests.spmPaceCleaned },
+    { div: 'graph-bikeerg-damper-tests-connected', options: bikeergDamperTests.spmPaceConnected },
+    { div: 'graph-bikeerg-damper-tests-cumulative-average', options: bikeergDamperTests.spmPaceCumulativeAverage },
+    { div: 'graph-bikeerg-damper-tests-drag-factors', options: bikeergDamperTests.dragFactors, height: 200 },
 ];
 
 document.addEventListener('DOMContentLoaded', () => {
