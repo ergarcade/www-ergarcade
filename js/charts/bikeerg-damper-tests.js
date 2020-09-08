@@ -2,6 +2,7 @@
 
 import { dateTime } from '/js/utils/datetime.js';
 import { averaging } from '/js/utils/averaging.js';
+import { graphLoader } from '/js/chart-load.js';
 
 /*
  * Original data as recorded by ErgData. Way-out values have been commented
@@ -1685,7 +1686,7 @@ const dragFactors = () => {
     };
 };
 
-export const bikeergDamperTests = {
+const bikeergDamperTests = {
     spmPaceRaw: () => spmPace({
         title: 'raw',
         dataFilter: undefined,
@@ -1743,3 +1744,14 @@ export const bikeergDamperTests = {
 
     dragFactors,
 };
+
+export const graphs = [
+    { div: 'graph-bikeerg-damper-tests-cleaned', options: bikeergDamperTests.spmPaceCleaned },
+    { div: 'graph-bikeerg-damper-tests-connected', options: bikeergDamperTests.spmPaceConnected },
+    { div: 'graph-bikeerg-damper-tests-cumulative-average', options: bikeergDamperTests.spmPaceCumulativeAverage },
+    { div: 'graph-bikeerg-damper-tests-drag-factors', options: bikeergDamperTests.dragFactors, height: 200 },
+];
+
+document.addEventListener('DOMContentLoaded', () => {
+    graphLoader(graphs);
+});
