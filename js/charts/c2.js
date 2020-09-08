@@ -1,6 +1,7 @@
 'use strict';
 
 import { dateTime } from '/js/utils/datetime.js';
+import { graphLoader } from '/js/chart-load.js';
 
 const paceDerivatives = () => {
     const xAxis = [];
@@ -173,6 +174,10 @@ const paceDerivatives = () => {
     };
 };
 
-export const c2 = {
-    paceDerivatives,
-};
+export const graphs = [
+    { div: 'graph-c2-pace-derivatives', options: paceDerivatives },
+];
+
+document.addEventListener('DOMContentLoaded', () => {
+    graphLoader(graphs);
+});
