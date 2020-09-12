@@ -57,9 +57,8 @@ export const graphLoader = (graphs, createAllGraphs = false) => {
 
     window.addEventListener('resize', () => {
         setTimeout(() => {
-            const w = document.body.offsetWidth;
             graphs.forEach((g) => {
-                g.chart && g.chart.resize({ width: w });
+                g.chart && g.chart.resize({ width: g.element.clientWidth });
             });
         }, 500);
     });

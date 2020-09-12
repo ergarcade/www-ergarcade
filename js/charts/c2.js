@@ -52,6 +52,7 @@ const paceDerivatives = () => {
 
     legend.push({
         top: '10%',
+        type: 'scroll',
     });
 
     title.push({
@@ -102,9 +103,7 @@ const paceDerivatives = () => {
             x: 'Pace',
             y: 'Power',
         },
-        animation: false,
         yAxisIndex: yAxis.length-1,
-        showSymbol: false,
     });
 
     yAxis.push({
@@ -124,9 +123,7 @@ const paceDerivatives = () => {
             x: 'Pace',
             y: 'Speed (BikeErg)',
         },
-        animation: false,
         yAxisIndex: yAxis.length-1,
-        showSymbol: false,
     });
     series.push({
         type: 'line',
@@ -135,9 +132,7 @@ const paceDerivatives = () => {
             x: 'Pace',
             y: 'Speed (Rower, Ski)',
         },
-        animation: false,
         yAxisIndex: yAxis.length-1,
-        showSymbol: false,
     });
 
     yAxis.push({
@@ -155,11 +150,15 @@ const paceDerivatives = () => {
             x: 'Pace',
             y: 'E',
         },
-        animation: false,
         xAxisIndex: 0,
         yAxisIndex: 2,
         datasetIndex: 0,
-        showSymbol: false,
+    });
+
+    series.forEach((s) => {
+        s.symbolSize = 2;
+        s.sampling = 'average';
+        s.smooth = true;
     });
 
     return {
