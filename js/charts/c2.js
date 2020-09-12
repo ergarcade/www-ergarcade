@@ -52,6 +52,7 @@ const paceDerivatives = () => {
 
     legend.push({
         top: '10%',
+        type: 'scroll',
     });
 
     title.push({
