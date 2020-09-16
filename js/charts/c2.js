@@ -3,22 +3,9 @@
 import { dateTime } from '/js/utils/datetime.js';
 import { graphLoader } from '/js/chart-load.js';
 
-const paceDerivatives = () => {
-    const xAxis = [];
-    const yAxis = [];
-    const dataset = [];
-    const series = [];
-    const tooltip = [];
-    const title = [];
-    const legend = [];
-    const grid = [];
-
+const paceData = (pace = { low: 180, high: 60, step: 1 }) => {
     const data = [];
-    const pace = {          // in seconds
-        low: 180,
-        high: 60,
-        step: 1,
-    };
+
     for (let p = pace.low; p >= pace.high; p -= pace.step) {
         const Power = Math.trunc(2.8 / Math.pow(p / 500, 3));
         const dt = 1;
@@ -35,6 +22,19 @@ const paceDerivatives = () => {
         });
     }
 
+    return data;
+};
+
+const paceDerivatives = (curves = [], options = {}) => {
+    const xAxis = [];
+    const yAxis = [];
+    const dataset = [];
+    const series = [];
+    const tooltip = [];
+    const title = [];
+    const legend = [];
+    const grid = [];
+
     const dimLabel = (k, v, shorten = false) => {
         switch (k) {
             case 'Speed': return (shorten ? v.toFixed() : v.toFixed(1)) + 'km/h';
@@ -46,8 +46,9 @@ const paceDerivatives = () => {
         }
     };
 
+    /* XXX ugh */
     grid.push({
-        right: '20%',
+        right: curves.length == 0 ? '20%' : '5%',
     });
 
     legend.push({
@@ -59,6 +60,8 @@ const paceDerivatives = () => {
         text: 'Concept2 pace derivatives',
         textAlign: 'center',
         left: 'middle',
+
+        ...options.title
     });
 
     tooltip.push({
@@ -72,7 +75,7 @@ const paceDerivatives = () => {
     });
 
     dataset.push({
-        source: data,
+        source: paceData(),
     });
 
     xAxis.push({
@@ -88,72 +91,80 @@ const paceDerivatives = () => {
         max: 'dataMax',
     });
 
-    yAxis.push({
-        name: 'Power',
-        nameLocation: 'middle',
-        nameGap: 50,
-        axisLabel: {
-            formatter: (value) => dimLabel('Power', value),
-        },
-    });
-    series.push({
-        type: 'line',
-        name: 'Power',
-        encode: {
-            x: 'Pace',
-            y: 'Power',
-        },
-        yAxisIndex: yAxis.length-1,
-    });
+    if (curves.length == 0 || curves.includes('Power')) {
+        yAxis.push({
+            name: 'Power',
+            nameLocation: 'middle',
+            nameGap: 50,
+            axisLabel: {
+                formatter: (value) => dimLabel('Power', value),
+            },
+        });
+        series.push({
+            type: 'line',
+            name: 'Power',
+            encode: {
+                x: 'Pace',
+                y: 'Power',
+            },
+            yAxisIndex: yAxis.length-1,
+        });
+    }
 
-    yAxis.push({
-        position: 'right',
-        splitLine: {
-            show: false,
-        },
-        axisLabel: {
-            formatter: (value) => dimLabel('Speed', value, true),
-        },
-        offset: 60,
-    });
-    series.push({
-        type: 'line',
-        name: 'Speed (BikeErg)',
-        encode: {
-            x: 'Pace',
-            y: 'Speed (BikeErg)',
-        },
-        yAxisIndex: yAxis.length-1,
-    });
-    series.push({
-        type: 'line',
-        name: 'Speed (Rower, Ski)',
-        encode: {
-            x: 'Pace',
-            y: 'Speed (Rower, Ski)',
-        },
-        yAxisIndex: yAxis.length-1,
-    });
+    if (curves.length == 0 ||
+            curves.includes('Speed (BikeErg)') ||
+            curves.includes('Speed (Rower, Ski)')) {
+        yAxis.push({
+            position: 'right',
+            splitLine: {
+                show: false,
+            },
+            axisLabel: {
+                formatter: (value) => dimLabel('Speed', value, true),
+            },
+            offset: 60,
+        });
+        series.push({
+            type: 'line',
+            name: 'Speed (BikeErg)',
+            encode: {
+                x: 'Pace',
+                y: 'Speed (BikeErg)',
+            },
+            yAxisIndex: yAxis.length-1,
+        });
+        series.push({
+            type: 'line',
+            name: 'Speed (Rower, Ski)',
+            encode: {
+                x: 'Pace',
+                y: 'Speed (Rower, Ski)',
+            },
+            yAxisIndex: yAxis.length-1,
+        });
+    }
 
-    yAxis.push({
-        splitLine: {
-            show: false,
-        },
-        axisLabel: {
-            formatter: (value) => dimLabel('E', value, true),
-        },
-    });
-    series.push({
-        type: 'line',
-        name: 'E',
-        encode: {
-            x: 'Pace',
-            y: 'E',
-        },
-        xAxisIndex: 0,
-        yAxisIndex: 2,
-        datasetIndex: 0,
-    });
+    if (curves.length == 0 || curves.includes('E')) {
+        yAxis.push({
+            splitLine: {
+                show: false,
+            },
+            axisLabel: {
+                formatter: (value) => dimLabel('E', value, true),
+            },
+        });
+        series.push({
+            type: 'line',
+            name: 'E',
+            encode: {
+                x: 'Pace',
+                y: 'E',
+            },
+            xAxisIndex: 0,
+            yAxisIndex: 2,
+            datasetIndex: 0,
+        });
+    }
 
     series.forEach((s) => {
         s.symbolSize = 2;
@@ -175,6 +186,14 @@ const paceDerivatives = () => {
 
 export const graphs = [
     { div: 'graph-c2-pace-derivatives', options: paceDerivatives },
+    { div: 'graph-c2-power-curve', options: () => paceDerivatives(
+        [ 'Power' ],
+        {
+            title: {
+                text: 'Concept2 - derived power curve',
+            },
+        },
+    )},
 ];
 
 document.addEventListener('DOMContentLoaded', () => {

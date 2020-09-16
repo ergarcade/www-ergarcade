@@ -1,0 +1,340 @@
+<!doctype html>
+
+<!--
+vim:textwidth=80
+-->
+
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <link href="/style.css" rel="stylesheet" />
+
+        <style>
+        math {
+            display: block;
+            padding-top: 1em;
+            padding-bottom: 1em;
+        }
+        td {
+            text-align: right;
+        }
+        div[id^='graph'] {
+            height: 200px;
+            border: 1px solid #aaa;
+            margin-top: 1em;
+        }
+        </style>
+
+        <title>Erg Arcade! Comparing Ergometer Metrics</title>
+
+        <script src="/js/lib/echarts-en.min.js"></script>
+        <script src="/js/lib/echarts-themes/dark.js"></script>
+        <script src="/js/lib/luxon.min.js"></script>
+        <script type="module" src="/js/charts/c2.js"></script>
+        <script type="module" src="/js/charts/cmp-metrics.js"></script>
+    </head>
+
+    <body>
+        <div id="header">
+            <div class="centre">
+                <a href="/" title="Back to the Erg Arcade!">
+                    <img
+                        src="/images/ergarcade-64x64.png"
+                        class="ergarcade-logo" alt="ergarcade.com" />
+                    <img
+                        src="/images/ergarcade-dark-64x64.png"
+                        class="ergarcade-logo-dark" alt="ergarcade.com" />
+                </a>
+            </div>
+            <h1>Comparing Ergometer Metrics</h1>
+
+            <hr />
+
+            <p class="centre">
+            Comparing performance metrics like pace and distance across
+            ergometers is difficult. In this article we examine using power as
+            the base from which to equate other metrics.
+            </p>
+        </div>
+
+        <hr />
+        <h2>The problem</h2>
+        <p>
+        There is no standard construction for an ergometer. Manufacturers choose
+        their own design, materials, build and assembly processes. This lack of
+        standardisation extends to the values displayed on the ergometer
+        monitor: one manufacturer will show different values to another for the
+        same input from the user.
+        </p>
+
+        <p>
+        Here, we propose power to equate ergometers, and why this is closer than
+        any other metric.
+        </p>
+
+        <hr />
+        <h2>A possible solution</h2>
+        <p>
+        <i><a target="_blank" href="https://en.wikipedia.org/wiki/Power_(physics)">Power</a></i>
+        is the amount of work that has occurred over a period of time. We are
+        going to assume that <i>if one ergometer records the same amount of work
+        as another ergometer, over the same period of time, they are
+        equivalent measures, irrespective of how that work was completed or
+        calculated</i>.
+        </p>
+        <p>
+        For example, if one bike ergometer takes 1 pedal rotation to generate 1
+        watt of power, and another takes 2 pedal rotations to generate 1 watt of
+        power, we say they are doing the same amount of work over the same
+        amount of time even though the mechanical action is different. This
+        yields a naive formula of:
+        </p>
+        <blockquote>
+            <p>
+            Erg<sub>A</sub> 1RPM = Erg<sub>B</sub> 2RPM = 1W
+            </p>
+        </blockquote>
+
+        <p>
+        This assumption removes any dependency on specific hardware or software
+        characteristics. We equate a watt recorded on one machine as the same as
+        on another machine.
+        </p>
+
+        <p>
+        Before we delve further into the methods for comparing ergometers using
+        power, let's examine the links between displayed metrics on a single
+        ergometer first.
+        </p>
+
+        <hr />
+        <h2>Relationships between metrics</h2>
+        <p>
+        Ergometers may have a non-linear relationship between a physical action
+        and a metric displayed on the monitor. For example, air-resistance
+        ergometers that use a flywheel have a
+        <a
+            target="_blank"
+            href="http://eodg.atm.ox.ac.uk/user/dudhia/rowing/physics/ergometer.html#section3">cubic
+            relationship between power and velocity</a>. Some relationships
+        are linear, such as RPM and distance.
+        </p>
+
+        <p>
+        The exact method of how to generate the relationship between action and
+        displayed metric are beyond the scope of this proposal, as the number of
+        variables involved is substantial and their relationships may be
+        complex. Rather than attempt to discern the exact mathematics used by
+        each manufacturer, we will base our calculations by the simpler method
+        of collecting metrics for various user inputs.
+        </p>
+
+        <hr />
+        <h2>Metric collection</h2>
+        <p>
+        We collect these metrics through two methods: derivation and observation.
+        </p>
+
+        <h3>Derived metrics</h3>
+        <p>
+        Some manufacturers, such as <a href="https://www.concept2.com">Concept2</a>,
+        publish their math for calculating metrics. These can be in the
+        form of <a
+                target="_blank"
+                href="https://www.concept2.com/indoor-rowers/training/calculators/pace-calculator">calculators</a>,
+        <a
+            target="_blank"
+            href="https://www.concept2.com/files/pdf/us/training/Training_PaceChart.pdf">tables</a>
+        and <a
+            target="_blank"
+            href="https://www.concept2.com/indoor-rowers/training/calculators/watts-calculator">formulas</a>.
+            For example, Concept2 calculate power as:
+        </p>
+        <blockquote>
+            Power<sub>watts</sub> = 2.8 / (split/500)<sup>3</sup>
+        </blockquote>
+        <p>
+        where <i>split</i> is pace over a set distance.
+        </p>
+
+        <p>
+        So, using this formula, for any given pace, we are able to derive the
+        value of power and place those values on a graph:
+        </p>
+        <div id="graph-c2-power-curve"></div>
+
+        <p>
+        Not all manufacturers provide such information. We need another method.
+        </p>
+
+        <h3>Observed metrics</h3>
+        <p>
+        We consider an observed metric to be the value of a metric displayed on
+        an ergometers' monitor for discrete input values. For example, on the
+        Assault Air Bike, we can sample the value of power at particular speeds:
+        </p>
+        <table style="margin: 0 auto;">
+            <tr>
+                <th>Speed on monitor (kph)</th>
+                <th>Power on monitor (W)</th>
+            </tr>
+            <tr><td>12.3</td><td>21</td>
+            <tr><td>24.6</td><td>99</td>
+            <tr><td>37.0</td><td>288</td>
+            <tr><td>47.5</td><td>579</td>
+        </table>
+
+        <p>
+        Converting speed to pace, we now have pace versus power:
+        </p>
+
+        <table style="margin: 0 auto;">
+            <tr>
+                <th>Calculated Pace (/1000m)</th>
+                <th>Power on monitor (W)</th>
+            </tr>
+            <tr><td>4:52</td><td>21</td>
+            <tr><td>2:26</td><td>99</td>
+            <tr><td>1:37</td><td>288</td>
+            <tr><td>1:15</td><td>579</td>
+        </table>
+
+        <p>
+        We can then plot pace versus power:
+        </p>
+        <div id="graph-aab-power-observed"></div>
+
+        <p>
+        From these raw points, we can generate a <a
+            target="_blank"
+            href="https://en.wikipedia.org/wiki/Curve_fitting">best-fit
+            curve</a> from which we can use to derive values of power for all
+        our values of pace:
+        </p>
+        <div id="graph-aab-power-derived"></div>
+
+        <hr />
+        <h2>Comparing ergometers</h2>
+        <p>
+        Overlaying different plots of different ergometers' metrics gives us a
+        quick and dirty way to compare using the common base of power:
+        </p>
+        <div id="graph-cmp-aab-c2-pace-power"></div>
+        <p>
+        <strong>Q</strong>: An athlete completes 1000m on the Concept2 BikeErg
+        in 1:40.0. What would the equivalent pace be on the Assault Air Bike to
+        equate it to the BikeErg?
+        </p>
+        <p>
+        <strong>A</strong>: We need to look up the work done on the BikeErg at
+        1:40, and apply it to the Assault Air Bike curve to determine equivalent
+        pace.  1:40 on the Concept2 curve of the graph is 349W. We can now look
+        along the curve for the Assault Air Bike for 349W; the nearest value is
+        346W, at a pace of 1:31. So, the equivalent pace on the Assault Air Bike
+        is between 1:30 and 1:31.
+        </p>
+
+        <hr />
+        <h2>A lot of data collection</h2>
+        <p>
+        Lacking sufficient derived metric formulas and math provided by
+        manufacturers, observed metrics would be the easiest way to collect all
+        required values in order to provide a means to compare many ergometers.
+        This method is time intensive, as accurate and repeatable measurements
+        must be made for a range of user inputs on the device.
+        </p>
+        <p>
+        However, performing the collection would allow us to determine
+        relationships between:
+        </p>
+        <ul>
+            <li>Rotations per minute / strokes per minute;</li>
+            <li>Distance;</li>
+            <li>Power;</li>
+            <li>Speed / pace;</li>
+            <li>Calories per hour;</li>
+        </ul>
+        <p>
+        and so on, not only on one ergometer type, but across ergometers from
+        different manufacturers.
+        </p>
+
+        <p>
+        By equating metrics between ergometers, workout providers would be able
+        to more easily provide scalings based on device metrics rather than just
+        feel. For example, calories as a target on two different ergometers will
+        be different, but given the right amount of data, these targets could
+        now be calculated more accurately than by feel.
+        </p>
+
+        <hr />
+        <h2>Accuracy concerns</h2>
+        <p>
+        Derived metrics are mathematically correct, so on paper our values would
+        be highly accurate. However, in the real world these values may vary
+        significantly. Similarly, observed metrics have their own issues and
+        deficiences.
+        </p>
+
+        <h3>Manufacturing tolerances</h3>
+        <p>
+        Mass producing any machine requires balancing accuracy and precision
+        against budget and marketability. Decisions made during design may
+        lower tolerances during construction, yielding machines that differ from
+        each other even though they may be built in the same location or even in
+        the same batch. These differences may manifest as slightly different
+        metrics for the same inputs.
+        </p>
+
+        <h3>Dampers</h3>
+        <p>
+        Some machines include a <i>damper</i>, which is used to adjust the
+        measured rate of deceleration after an act of exertion by the athlete on
+        the ergometer. The mechanism for damping could be adjustable air intake,
+        friction or magnetic brake.
+        </p>
+        <p>
+        Adjustable dampers won't affect relationships based on power, but will
+        affect metrics like RPM and speed. For these metrics, curves for each
+        damper setting will need to be generated.
+        </p>
+
+        <h3>Wear</h3>
+        <p>
+        Product wear may impact operation and reporting of accurate figures. For
+        example, air-based ergometers accumulate dust in the flywheel cage, and
+        change the amount of air entering, altering the amount of drag the vanes
+        experience. This will affect damper-based metrics.
+        </p>
+
+        <h3>Sample points</h3>
+        <p>
+        For observed metrics, a small number of samples will not generate highly
+        accurate curves. For example, 4 points were used in the above graph for
+        the Assault Air Bike over a small range of pace. The curve that resulted 
+        varies significantly to the original points at higher paces.
+        </p>
+
+        <h3>Environmental issues</h3>
+        <p>
+        The environment that an ergometer is used in could drastically change
+        the metrics it reports. For example, ergometers that use air for
+        resistance will operate differently at higher altitudes than at sea
+        level, due to the change in air pressure.
+        </p>
+
+        <hr />
+        <h2>Summary</h2>
+        <p>
+        If we consider power to be equal across ergometers, it's possible to
+        obtain, either through derivation or observation, metrics from different
+        erogmeters that we can compare to equate different types of machines.
+        </p>
+
+        <hr />
+        <a href="https://reddit.com/u/angrytongan">Find me here.</a>
+
+    </body>
+</html>

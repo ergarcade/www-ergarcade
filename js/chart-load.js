@@ -11,7 +11,7 @@ const defaultGraphHeight = 250;
  *          [height: height of div]
  *      },
  */
-export const graphLoader = (graphs, createAllGraphs = false) => {
+export const graphLoader = (graphs, createAllGraphs = false, debug = false) => {
     let theme = '';
     if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
         theme = 'dark';
@@ -39,9 +39,14 @@ export const graphLoader = (graphs, createAllGraphs = false) => {
                 g.chart.dispose();
             }
 
+            const options = g.options();
+            if (debug) {
+                console.log(options);
+            }
+
             g.chart = echarts.init(g.element, theme);
             g.chart.showLoading();
-            g.chart.setOption(g.options());
+            g.chart.setOption(options);
             g.chart.hideLoading();
 
             if (g.height === undefined) {

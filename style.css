@@ -48,6 +48,14 @@ dt {
     display: none;
 }
 
+table, th, td {
+    border: 1px solid #111;
+    border-collapse: collapse;
+}
+th, td {
+    padding: 0.5em;
+}
+
 @media (prefers-color-scheme: dark) {
     body {
         background-color: #111;
@@ -61,6 +69,11 @@ dt {
     }
     .ergarcade-logo-dark {
         display: block;
+    }
+
+    table, th, td {
+        border: 1px solid white;
+        border-collapse: collapse;
     }
 }
 
