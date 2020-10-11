@@ -1,0 +1,171 @@
+<!doctype html>
+
+<!--
+vim:textwidth=80
+-->
+
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <link href="/style.css" rel="stylesheet" />
+
+        <style>
+        math {
+            display: block;
+            padding-top: 1em;
+            padding-bottom: 1em;
+        }
+        div[id^='graph'] {
+            height: 200px;
+            border: 1px solid #aaa;
+            margin-top: 1em;
+        }
+        table, td, th {
+            border-collapse: collapse;
+            border: 1px solid #fff;
+        }
+        table {
+            margin: 0 auto;
+        }
+        td, th {
+            padding: 0.5em;
+        }
+        </style>
+
+        <title>Erg Arcade! Concept2 BikeErg Damper and Pace Derivatives charts</title>
+
+        <script src="/js/lib/echarts-en.min.js"></script>
+        <script src="/js/lib/echarts-themes/dark.js"></script>
+        <script src="/js/lib/luxon.min.js"></script>
+        <script type="module" src="/js/charts/bikeerg-damper-pace-derivatives.js"></script>
+    </head>
+
+    <body>
+        <div id="header">
+            <div class="centre">
+                <a href="/" title="Back to the Erg Arcade!">
+                    <img
+                        src="/images/ergarcade-64x64.png"
+                        class="ergarcade-logo" alt="ergarcade.com" />
+                    <img
+                        src="/images/ergarcade-dark-64x64.png"
+                        class="ergarcade-logo-dark" alt="ergarcade.com" />
+                </a>
+            </div>
+            <h1>BikeErg Damper and Pace Derivatives charts</h1>
+
+            <hr />
+
+            <p class="centre">
+            On the BikeErg, the same RPM at different damper settings alters
+            pace, power and calories per hour reported on the PM5. In this
+            article we provide charts showing these relationships at
+            damper settings 10, 8, 6, 4 and 2.
+            </p>
+        </div>
+
+        <hr />
+        <p>
+        Hover over or tap the graphs to see the values for each metric at damper
+        10, 8, 6, 4 and 2, at a certain RPM. Click or tap the legend markers to
+        hide or show different damper settings.
+        </p>
+
+
+        <hr />
+        <div id="graph-rpm-vs-speed"></div>
+        <div id="graph-rpm-vs-power"></div>
+        <div id="graph-rpm-vs-calhour"></div>
+
+        <p>
+        Below is a description of how the data for these charts was assembled.
+        Reading this is not necessary.
+        </p>
+
+        <hr />
+        <h2>Method</h2>
+        <p>
+        Starting at damper 10, 2:00 of work was completed on the BikeErg with
+        the athlete holding as close as possible to 30RPM. This was repeated for
+        40RPM, 50RPM and 60RPM.
+        </p>
+        <p>
+        This set of workouts was repeated at damper 8 and 6. It was also
+        repeated for dampers 4 and 2, but using 40RPM, 50RPM, 60RPM and 70RPM,
+        as 30RPM did not yield accurate paces.
+        </p>
+
+        <hr />
+        <h2>Setup</h2>
+        <ul>
+            <li>The BikeErg used in testing was brand new.</li>
+            <li>The BikeErg was calibrated prior to starting the workouts.</li>
+            <li>The flywheel cage was clean before starting the workouts.</li>
+            <li>At damper 10, the PM5 showed a drag factor of 215.</li>
+            <li>At damper 1, the PM5 showed a drag factor of 37.</li>
+            <li>Data recorded at 15m above sea level.</li>
+            <li>Each work piece was recorded by ErgData and uploaded to the <a
+                    href="https://log.concept2.com">Concept2 logbook</a>.</li>
+        </ul>
+
+        <hr />
+        <h2>Collation</h2>
+        <p>
+        Each damper-rpm workout combination (eg. damper 10 RPM 30, damper 10 RPM
+        40 etc) was pulled from the Concept2 logbook, along with per stroke
+        (per-revolution) data. For each combination, any revolution not matching
+        the target RPM was removed, leaving only revolutions that matched our
+        target RPM. The average pace for each target RPM was calculated, giving a
+        damper-rpm-pace tuple.
+        </p>
+        <p>
+        Power and calories per hour were calculated based on the formulas for
+        <a target="_blank"
+            href="https://www.concept2.com/indoor-rowers/training/calculators/watts-calculator">power
+            from Concept2</a> and
+        <a
+            target="_blank"
+            href="http://eodg.atm.ox.ac.uk/user/dudhia/rowing/physics/ergometer.html#section11">indicated
+            calories from the Physics of Ergometers</a> (these derivations were
+        <a href="/articles/c2-pace-derivatives.html">previously discussed
+            here</a>):
+        </p>
+        <table>
+            <tr><th>Damper</th><th>RPM</th><th>Pace</th><th>Power</th><th>Cal/hour</th></tr>
+            <tr><td>10</td><td>30</td><td>3:43.7</td><td>31</td><td>406</td></tr>
+            <tr><td>10</td><td>40</td><td>2:50.4</td><td>70</td><td>540</td></tr>
+            <tr><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td></tr>
+        </table>
+
+        <p>
+        The <a target="_blank"
+            href="https://en.wikipedia.org/wiki/Least_squares">least-squares</a>
+        regression method was applied to each damper setting group of RPM-pace,
+        RPM-power and RPM-calories per hour combination to yield functions for
+        each, which are plotted in the charts at the top of this page.
+        </p>
+
+        <hr />
+        <h2>Caveats</h2>
+        <p>
+        The graphs presented above are based on results recorded on a single
+        machine (<i>n</i> = 1). Your may see different results on your own
+        BikeErg due to:
+        </p>
+        <ul>
+            <li>Different amount of flywheel dust or debris which alters drag
+                factor;</li>
+            <li>Air pressure differences, notably from differing altitudes,
+                again impacting drag factor;</li>
+            <li>Differing amounts of wear on machines; or</li>
+            <li><a href="https://www.concept2.com/service/bikeerg/maintenance">Differing
+                calibration</a>.</li>
+        </ul>
+
+        <hr />
+        <a href="https://reddit.com/u/angrytongan">Find me here.</a>
+
+    </body>
+</html>
