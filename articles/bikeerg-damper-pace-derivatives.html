@@ -65,14 +65,22 @@ vim:textwidth=80
             damper settings 10, 8, 6, 4 and 2.
             </p>
         </div>
-        
+
+        <hr />
+        <p>
+        Hover over or tap the graphs to see the values for each metric at damper
+        10, 8, 6, 4 and 2, at a certain RPM. Click or tap the legend markers to
+        hide or show different damper settings.
+        </p>
+
+
         <hr />
         <div id="graph-rpm-vs-speed"></div>
         <div id="graph-rpm-vs-power"></div>
         <div id="graph-rpm-vs-calhour"></div>
 
         <p>
-        Below is a description of how the data for these charts was collected.
+        Below is a description of how the data for these charts was assembled.
         Reading this is not necessary.
         </p>
 
@@ -96,8 +104,7 @@ vim:textwidth=80
             <li>The BikeErg was calibrated prior to starting the workouts.</li>
             <li>The flywheel cage was clean before starting the workouts.</li>
             <li>At damper 10, the PM5 showed a drag factor of 215.</li>
-            <li>At damper 1, the PM5 showed a drag factor of <strong>GET
-                    THIS</strong>.</li>
+            <li>At damper 1, the PM5 showed a drag factor of 37.</li>
             <li>Data recorded at 15m above sea level.</li>
             <li>Each work piece was recorded by ErgData and uploaded to the <a
                     href="https://log.concept2.com">Concept2 logbook</a>.</li>
@@ -106,11 +113,12 @@ vim:textwidth=80
         <hr />
         <h2>Collation</h2>
         <p>
-        Each damper-rpm workout combination was pulled from the Concept2
-        logbook, along with per stroke (per-revolution) data. For each
-        combination, any revolution not matching the target RPM was removed,
-        leaving only revolutions that matched our target RPM. The average pace
-        for each of these was calculated, giving a damper-rpm-pace tuple.
+        Each damper-rpm workout combination (eg. damper 10 RPM 30, damper 10 RPM
+        40 etc) was pulled from the Concept2 logbook, along with per stroke
+        (per-revolution) data. For each combination, any revolution not matching
+        the target RPM was removed, leaving only revolutions that matched our
+        target RPM. The average pace for each target RPM was calculated, giving a
+        damper-rpm-pace tuple.
         </p>
         <p>
         Power and calories per hour were calculated based on the formulas for
@@ -126,8 +134,8 @@ vim:textwidth=80
         </p>
         <table>
             <tr><th>Damper</th><th>RPM</th><th>Pace</th><th>Power</th><th>Cal/hour</th></tr>
-            <tr><td>10</td><td>30</td><td>3:43.7/1000m</td><td>31W</td><td>406cal/hour</td></tr>
-            <tr><td>10</td><td>40</td><td>2:50.4/1000m</td><td>70W</td><td>540cal/hour</td></tr>
+            <tr><td>10</td><td>30</td><td>3:43.7</td><td>31</td><td>406</td></tr>
+            <tr><td>10</td><td>40</td><td>2:50.4</td><td>70</td><td>540</td></tr>
             <tr><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td></tr>
         </table>
 
@@ -135,9 +143,8 @@ vim:textwidth=80
         The <a target="_blank"
             href="https://en.wikipedia.org/wiki/Least_squares">least-squares</a>
         regression method was applied to each damper setting group of RPM-pace,
-        RPM-power and RPM-calories per hour combination to yield
-        functions for each, which are plotted in the three charts at the top of
-        this page.
+        RPM-power and RPM-calories per hour combination to yield functions for
+        each, which are plotted in the charts at the top of this page.
         </p>
 
         <hr />
