@@ -1,0 +1,136 @@
+<!doctype html>
+
+<!--
+vim:textwidth=80
+-->
+
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <link href="/style.css" rel="stylesheet" />
+
+        <style>
+        math {
+            display: block;
+            padding-top: 1em;
+            padding-bottom: 1em;
+        }
+        div[id^='graph'] {
+            height: 200px;
+            border: 1px solid #aaa;
+            margin-top: 1em;
+        }
+        table, td, th {
+            border-collapse: collapse;
+            border: 1px solid #fff;
+        }
+        table {
+            margin: 0 auto;
+        }
+        td, th {
+            padding: 0.5em;
+        }
+        </style>
+
+        <title>Erg Arcade! RPM, Speed and Power - BikeErg vs AirDyne6 vs Assault
+            bike</title>
+
+        <script src="/js/lib/echarts-en.min.js"></script>
+        <script src="/js/lib/echarts-themes/dark.js"></script>
+        <script src="/js/lib/luxon.min.js"></script>
+        <script type="module" src="/js/charts/rpm-speed-power.js"></script>
+    </head>
+
+    <body>
+        <div id="header">
+            <div class="centre">
+                <a href="/" title="Back to the Erg Arcade!">
+                    <img
+                        src="/images/ergarcade-64x64.png"
+                        class="ergarcade-logo" alt="ergarcade.com" />
+                    <img
+                        src="/images/ergarcade-dark-64x64.png"
+                        class="ergarcade-logo-dark" alt="ergarcade.com" />
+                </a>
+            </div>
+            <h1>RPM, Speed and Power - BikeErg vs AirDyne6 vs Assault bike</h1>
+
+            <hr />
+
+            <p class="centre">
+            There is no standard between ergometer manufacturers for how they
+            build their machines, nor how they calculate the metrics that appear
+            on their monitors. In this article we provide charts of the
+            relationship between RPM, speed and power for the Concept2 BikeErg,
+            Schwinn AirDyne6 and Assault bike.
+            </p>
+        </div>
+
+        <hr />
+        <p>
+        Hover over or tap the graphs to see the values for each metric.  Click
+        or tap the legend markers to hide or show each seriees.
+        </p>
+
+        <hr />
+        <div id="graph-rpm-vs-speed"></div>
+        <div id="graph-rpm-vs-power"></div>
+        <div id="graph-rpm-vs-calhour"></div>
+
+        <p>
+        Below is a description of how the data for these charts was assembled.
+        Reading this is not necessary.
+        </p>
+
+        <hr />
+        <h2>Method</h2>
+        <p>
+        Data for the Concept2 BikeErg was collected in the same manner as
+        <a href="/articles/bikeerg-damper-pace-derivatives.html">described in
+            this article</a>. The Schwinn AirDyne6 and Assault bike data were
+        collected by video recording the respective manufacturers' monitors
+        at increasing RPM.
+        </p>
+
+        <hr />
+        <h2>Setup</h2>
+        <ul>
+            <li>The BikeErg used in testing was brand new.</li>
+            <li>The Schwinn AirDyne6 was quite a few years old. However,
+                it has had regular maintenance, including belts being
+                replaced prior to testing.</li>
+            <li>The Assault bike was less than 6 months old.</li>
+            <li>Flywheel cages had dust and debris brushed out.</li>
+        </ul>
+
+        <hr />
+        <h2>Collation</h2>
+        <p>
+        Data was collated in the same manner as <a
+            href="/articles/bikeerg-damper-pace-derivatives.html">described
+            previously</a>.
+        </p>
+
+        <hr />
+        <h2>Caveats</h2>
+        <p>
+        The graphs presented above are based on results recorded on a single
+        machine. Your may see different results on your own devices due to:
+        </p>
+        <ul>
+            <li>Different amount of flywheel dust or debris which alters drag
+                factor;</li>
+            <li>Air pressure differences, notably from differing altitudes,
+                again impacting drag factor;</li>
+            <li>Differing amounts of wear on machines.</li>
+        </ul>
+
+        <hr />
+        <a href="https://reddit.com/u/angrytongan">Find me here.</a>
+
+        <script data-goatcounter="https://ergarcade.goatcounter.com/count"
+        async src="//gc.zgo.at/count.js"></script>
+    </body>
+</html>
