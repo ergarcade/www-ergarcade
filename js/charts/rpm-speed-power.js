@@ -27,6 +27,16 @@ const generators = {
         },
     },
 
+    echo: {
+        rpm: {
+            speed: (x) => 0.6 * x,
+            power: (x) => 0.000989583 * Math.pow(x, 3) + 0.00232143 * Math.pow(x, 2) + 0.268452 * x - 0.0428571, // (cubic)
+        },
+        speed: {
+            power: (x) => 0.0045814 * Math.pow(x, 3) + 0.00644841 * Math.pow(x, 2) + 0.447421 * x - 0.0428571, // (cubic)
+        },
+    },
+
     bikeergDamper10: {
         rpm: {
             speed: (x) => 0.516636 * x - 0.304003,
