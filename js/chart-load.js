@@ -62,19 +62,32 @@ const renderGraphs = (graphs, createAllGraphs) => {
  *      },
  */
 export const graphLoader = (graphs, createAllGraphs = false) => {
-    renderGraphs(graphs, createAllGraphs);
+    const start = () => {
+        renderGraphs(graphs, createAllGraphs);
 
-    window.addEventListener('resize', () => {
-        setTimeout(() => {
-            graphs.forEach((g) => {
-                g.chart && g.chart.resize({ width: g.element.clientWidth });
-            });
-        }, 500);
-    });
+        window.addEventListener('resize', () => {
+            setTimeout(() => {
+                graphs.forEach((g) => {
+                    g.chart && g.chart.resize({ width: g.element.clientWidth });
+                });
+            }, 500);
+        });
+
+        /*
+         * Re-render with the new theme when the light/dark toggle fires, since
+         * ECharts themes are baked in at echarts.init() time.
+         */
+        document.addEventListener('themechange', () => renderGraphs(graphs, createAllGraphs));
+    };
 
     /*
-     * Re-render with the new theme when the light/dark toggle fires, since
-     * ECharts themes are baked in at echarts.init() time.
+     * type="module" scripts run deferred, which should mean DOMContentLoaded
+     * hasn't fired yet -- but don't rely solely on the event, in case the
+     * module finishes executing after it already has.
      */
-    document.addEventListener('themechange', () => renderGraphs(graphs, createAllGraphs));
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', start);
+    } else {
+        start();
+    }
 };

@@ -22,19 +22,6 @@ vim: textwidth=80
         <meta name="theme-color" content="#ededed" media="(prefers-color-scheme: light)">
         <meta name="theme-color" content="#111111" media="(prefers-color-scheme: dark)">
 
-        <style>
-        math {
-            display: block;
-            padding-top: 1em;
-            padding-bottom: 1em;
-        }
-        div[id^='graph'] {
-            height: 200px;
-            border: 1px solid var(--color-border);
-            margin-top: 1em;
-        }
-        </style>
-
         <title>Erg Arcade! Concept2 Pace Derivatives</title>
 
         <script src="https://cdn.jsdelivr.net/npm/echarts@6.1.0/dist/echarts.min.js"
@@ -48,285 +35,101 @@ vim: textwidth=80
 
     <body>
         <header id="header">
-            <div class="centre">
-                <a href="/" title="Back to the Erg Arcade!">
-                    <img
-                        src="/images/ergarcade-64x64.png"
-                        class="ergarcade-logo" alt="ergarcade.com" />
-                    <img
-                        src="/images/ergarcade-dark-64x64.png"
-                        class="ergarcade-logo-dark" alt="ergarcade.com" />
-                </a>
-            </div>
-            <h1>Concept2 Pace Derivatives Chart</h1>
-
+            <a class="brand" href="/">
+                <img src="/images/ergarcade-64x64.png" class="ergarcade-logo" alt="ergarcade.com" />
+                <img src="/images/ergarcade-dark-64x64.png" class="ergarcade-logo-dark" alt="ergarcade.com" />
+                <span class="brand-name">Erg Arcade</span>
+            </a>
+            <nav class="navlinks">
+                <a class="navlink" href="/tools.html">Tools</a>
+                <a class="navlink" href="/visualisations.html">Visualisations</a>
+                <a class="navlink" href="/articles.html">Articles</a>
+                <a class="navlink" href="https://www.github.com/ergarcade">GitHub</a>
+            </nav>
             <button type="button" class="theme-toggle" aria-label="Toggle dark mode" title="Toggle dark mode">&#9788;</button>
-
-            <hr />
-
-            <p class="centre">
-            An easy way to compare pace, watts, speed and calories per hour on <a
-                href="https://www.concept2.com">Concept2</a> ergometers.
-            </p>
-
-            <hr />
         </header>
 
-        <p>
-        Concept2 ergometers display pace, watts, and calories per hour on the
-        performance monitor (PM) during a workout. Below is an interactive chart
-        that displays each of these, as well as speed, to help in planning and
-        performing your workouts. Mouse over or tap to see metrics at a given
-        pace.
-        </p>
+        <section class="article-hero">
+            <h1>Concept2 Pace Derivatives Chart</h1>
+            <p>An easy way to compare pace, watts, speed and calories per hour on Concept2 ergometers.</p>
+        </section>
 
-        <hr />
-        <div id="graph-c2-pace-derivatives"></div>
+        <section class="article-section">
+            <p>
+            Concept2 ergometers display pace, watts, and calories per hour on the
+            performance monitor during a workout. The charts below display each of
+            these, as well as speed, to help in planning and performing your
+            workouts. Mouse over or tap to see metrics at a given pace.
+            </p>
 
-        <p>
-        Below are descriptions of the terms and math involved in calculating the
-        verious metrics in the above graph. Reading these is not necessary.
-        </p>
+            <div class="chart-card">
+                <h3>Power</h3>
+                <p class="sub">Watts at a given pace.</p>
+                <div id="graph-power" class="chart-box"></div>
+            </div>
+            <div class="chart-card">
+                <h3>Speed</h3>
+                <p class="sub">Equivalent speed for BikeErg (1000m split) vs. RowErg/SkiErg (500m split).</p>
+                <div id="graph-speed" class="chart-box"></div>
+            </div>
+            <div class="chart-card">
+                <h3>Calories per hour</h3>
+                <p class="sub">Estimated cal/hour for a 79.5kg individual at a given pace.</p>
+                <div id="graph-calories" class="chart-box"></div>
+            </div>
+        </section>
 
-        <p>
-        Note: formulas are presented in <a
-            href="https://developer.mozilla.org/en-US/docs/Web/MathML">MathML</a>,
-        currently unsupported in the Google Chrome browser.
-        </p>
+        <section class="article-section prose">
+            <p>
+            Below are descriptions of the terms and math involved in calculating
+            the various metrics in the charts above. Reading these is not necessary.
+            </p>
 
-        <hr />
-        <h2>Split</h2>
-        <p>
-        <i>Pace</i> is the length of time in <i>seconds</i> to cover a set
-        distance.  In the chart above, it is shown on the X axis, starting at
-        3:00 and going down to 1:00.
-        </p>
-        <p>
-        The PM shows <i>split</i>, which is pace over 500m for RowErg and
-        SkiErg, and 1000m for BikeErg. It is the basis for other metrics in the
-        chart above.
-        </p>
+            <h2>Split</h2>
+            <p><i>Pace</i> is the time in seconds to cover a set distance &mdash; 500m for RowErg and SkiErg, 1000m for BikeErg. It is the basis for every other metric above.</p>
+            <div class="formula">split<sub>seconds</sub> = split distance<sub>metres</sub> &times; (work time<sub>seconds</sub> / work distance<sub>metres</sub>)</div>
 
-        <math>
-            <msub>
-                <mi>split</mi>
-                <mi>seconds</mi>
-            </msub>
-            <mo>=</mo>
-            <msub>
-                <mi>split distance</mi>
-                <mi>metres</mi>
-            </msub>
-            <mo>&times;</mo>
-            <mfenced>
-                <mfrac>
-                    <mrow>
-                        <msub>
-                            <mi>work time</mi>
-                            <mi>seconds</mi>
-                        </msub>
-                    </mrow>
-                    <msub>
-                        <mi>work distance</mi>
-                        <mi>metres</mi>
-                    </msub>
-                </mfrac>
-            </mfenced>
-        </math>
+            <h2>Power</h2>
+            <p>The monitor shows power (<i>P</i>) each stroke, measured in watts.</p>
+            <div class="formula">P<sub>watts</sub> = 2.8 / (split<sub>seconds</sub> / 500)<sup>3</sup></div>
 
-        </p>
-        </p>
+            <h2>Calories per hour</h2>
+            <p>Roughly how many calories a 79.5kg individual would &ldquo;burn&rdquo; over an hour, based on power (<i>P</i>) and time (<i>t</i>). First, mechanical work (<i>W</i>) in kilojoules:</p>
+            <div class="formula">W<sub>kJ</sub> = (P<sub>watts</sub> &times; t<sub>seconds</sub>) / 1000</div>
+            <p>Then calories per hour (<i>E</i>):</p>
+            <div class="formula">E<sub>cal/hour</sub> = (4 &times; W<sub>kJ</sub> + 0.35 &times; t<sub>seconds</sub>) / 4.2</div>
+            <p>(See <a href="http://eodg.atm.ox.ac.uk/user/dudhia/rowing/physics/ergometer.html#section11">The Physics of Ergometers, section 11</a> for information on the constants.)</p>
 
-        <hr />
-        <h2>Power</h2>
-        <p>
-        The PM shows power (<i>P</i>) each stroke, measured in <i>watts</i>.
-        </p>
+            <h2>Speed</h2>
+            <p>Speed is not shown by the monitor. It is calculated by scaling the pace across an entire hour, and is measured in kilometres per hour.</p>
+            <div class="formula">Speed<sub>kph</sub> = (split distance<sub>metres</sub> / pace<sub>seconds</sub>) &times; (3600 / 1000)</div>
+            <p>Note: speed is calculated and shown here to provide rough equivalency between Concept2 ergometers and other machines in terms of distance and time. This does not equate to <i>effort</i> or <i>energy expenditure</i>.</p>
 
-        <math>
-            <msub>
-                <mn>P</mn>
-                <mn>watts</mn>
-            </msub>
-            <mo>=</mo>
-            <mfrac>
-                <mrow>
-                    <mn>2.8</mn>
-                </mrow>
-                <mrow>
-                    <msup>
-                        <mfenced>
-                            <mfrac>
-                                <mrow>
-                                    <msub>
-                                        <mi>split</mi>
-                                        <mi>seconds</mi>
-                                    </msub>
-                                </mrow>
-                                <msub>
-                                    <mi>500</mi>
-                                    <mi>metres</mi>
-                                </msub>
-                            </mfrac>
-                        </mfenced>
-                        <mn>3</mn>
-                    </msup>
-                </mrow>
-            </mfrac>
-        </math>
+            <h2>Source</h2>
+            <p>
+            The above formulas and notes are summarised from original works by
+            Concept2 and Anu Dudhia. More detailed information can be found by
+            following the links below.
+            </p>
+            <ul>
+                <li><a href="http://eodg.atm.ox.ac.uk/user/dudhia/rowing/physics/ergometer.html">The
+                        Physics of Ergometers</a></li>
+                <li><a
+                    href="https://www.concept2.com/indoor-rowers/training/calculators/pace-calculator">Concept2
+                    pace calculator</a></li>
+                <li><a
+                    href="https://www.concept2.com/indoor-rowers/training/calculators/calorie-calculator">Concept2
+                    calorie calculator</a></li>
+                <li><a
+                    href="https://www.concept2.com/files/pdf/us/training/Training_PaceChart.pdf">Concept2
+                    Indoor Rower Pace Chart</a></li>
+            </ul>
+        </section>
 
-        <hr />
-        <h2>Calories per hour</h2>
-        <p>
-        The PM shows <i>calories per hour</i>. This is roughly how many calories
-        a 79.5kg individual would &ldquo;burn&rdquo; over an hour based on the
-        last recorded stroke variables of power (<i>P</i>) and time (<i>t</i>).
-        </p>
-        <p>
-        First we calculate the mechanical work (<i>W</i>) in kilojoules:
-        </p>
-        <math>
-            <msub>
-                <mi>W</mi>
-                <mi>kJ</mi>
-            </msub>
-            <mo>=</mo>
-            <mfrac>
-                <mrow>
-                    <mfenced>
-                        <mrow>
-                            <msub>
-                                <mi>P</mi>
-                                <mi>watts</mi>
-                            </msub>
-                            <mo>&times;</mo>
-                            <msub>
-                                <mi>t</mi>
-                                <mi>seconds</mi>
-                            </msub>
-                        </mrow>
-                    </mfenced>
-                </mrow>
-                <mn>1000</mn>
-            </mfrac>
-        </math>
-
-        <p>
-        Then we determine calories per hour (<i>E</i>) based on this mechanical
-        work <i>W</i> and time <i>t</i> of the stroke:
-        </p>
-        <math>
-            <msub>
-                <mi>E</mi>
-                <mi>calories per hour</mi>
-            </msub>
-            <mo>=</mo>
-            <mfrac>
-                <mrow>
-                    <mfenced>
-                        <mrow>
-                            <mn>4</mn>
-                            <mo>&times;</mo>
-                            <msub>
-                                <mi>W</mi>
-                                <mi>kJ</mi>
-                            </msub>
-                            <mo>&plus;</mo>
-                            <mn>0.35</mn>
-                            <mo>&times;</mo>
-                            <msub>
-                                <mi>t</mi>
-                                <mi>seconds</mi>
-                            </msub>
-                        </mrow>
-                    </mfenced>
-                </mrow>
-                <mn>4.2</mn>
-            </mfrac>
-        </math>
-        </p>
-        (See <a href="http://eodg.atm.ox.ac.uk/user/dudhia/rowing/physics/ergometer.html#section11">The
-                Physics of Ergometers section 11</a> for information on the
-            constants)
-        </p>
-
-        <hr />
-        <h2>Speed</h2>
-        <p>
-        Speed is not displayed by the PM. It is calculated by scaling the pace
-        across an entire hour, and is measured in kilometres per hour
-        (<i>kph</i>).
-        </p>
-        <math>
-            <msub>
-                <mi>Speed</mi>
-                <mi>kph</mi>
-            </msub>
-            <mo>=</mo>
-            <mfenced>
-                <mfrac>
-                    <mrow>
-                        <msub>
-                            <mi>split distance</mi>
-                            <mi>metres</mi>
-                        </msub>
-                    </mrow>
-                    <msub>
-                        <mi>Pace</mi>
-                        <mi>seconds</mi>
-                    </msub>
-                </mfrac>
-            </mfenced>
-            <mo>&times;</mo>
-            <mfenced>
-                <mfrac>
-                    <mrow>
-                        <msub>
-                            <mn>60</mn>
-                            <mi>minutes</mi>
-                        </msub>
-                        <mo>&times;</mo>
-                        <msub>
-                            <mn>60</mn>
-                            <mi>seconds</mi>
-                        </msub>
-                    </mrow>
-                    <msub>
-                        <mi>1000</mi>
-                        <mi>metres</mi>
-                    </msub>
-                </mfrac>
-            </mfenced>
-        </math>
-        <p>
-        Note: speed is calculated and shown here to provide rough equivalency
-        between Concept2 ergometers and other machines in terms of distance and
-        time. This does not equate <i>effort</i> nor <i>energy expenditure</i>.
-        </p>
-
-        <hr />
-        <h2>Source</h2>
-        <p>
-        The above formulas and notes are summarised from original works by
-        Concept2 and Anu Dudhia. More detailed information can be found by
-        following the links below.
-        </p>
-        <ul>
-            <li><a href="http://eodg.atm.ox.ac.uk/user/dudhia/rowing/physics/ergometer.html">The
-                    Physics of Ergometers</a></li>
-            <li><a
-                href="https://www.concept2.com/indoor-rowers/training/calculators/pace-calculator">Concept2
-                pace calculator</a></li>
-            <li><a
-                href="https://www.concept2.com/indoor-rowers/training/calculators/calorie-calculator">Concept2
-                calorie calculator</a></li>
-            <li><a
-                href="https://www.concept2.com/files/pdf/us/training/Training_PaceChart.pdf">Concept2
-                Indoor Rower Pace Chart</a></li>
-        </ul>
-
-        <hr />
-        <a href="https://reddit.com/u/angrytongan">Find me here.</a>
+        <footer class="site-footer">
+            <p>All applications on the Erg Arcade are open source &mdash; <a href="https://www.github.com/ergarcade">GitHub</a></p>
+            <p><a href="https://reddit.com/u/angrytongan">Find me here</a></p>
+        </footer>
 
         <script src="/js/theme-toggle.js" defer></script>
         <script data-goatcounter="https://ergarcade.goatcounter.com/count"

@@ -30,12 +30,12 @@ vim:textwidth=80
         }
         div[id^='graph'] {
             height: 200px;
-            border: 1px solid var(--color-border);
+            border: 1px solid var(--border);
             margin-top: 1em;
         }
         table, td, th {
             border-collapse: collapse;
-            border: 1px solid var(--color-border);
+            border: 1px solid var(--border);
         }
         table {
             margin: 0 auto;
@@ -59,32 +59,31 @@ vim:textwidth=80
 
     <body>
         <header id="header">
-            <div class="centre">
-                <a href="/" title="Back to the Erg Arcade!">
-                    <img
-                        src="/images/ergarcade-64x64.png"
-                        class="ergarcade-logo" alt="ergarcade.com" />
-                    <img
-                        src="/images/ergarcade-dark-64x64.png"
-                        class="ergarcade-logo-dark" alt="ergarcade.com" />
-                </a>
-            </div>
+            <a class="brand" href="/">
+                <img src="/images/ergarcade-64x64.png" class="ergarcade-logo" alt="ergarcade.com" />
+                <img src="/images/ergarcade-dark-64x64.png" class="ergarcade-logo-dark" alt="ergarcade.com" />
+                <span class="brand-name">Erg Arcade</span>
+            </a>
+            <nav class="navlinks">
+                <a class="navlink" href="/tools.html">Tools</a>
+                <a class="navlink" href="/visualisations.html">Visualisations</a>
+                <a class="navlink" href="/articles.html">Articles</a>
+                <a class="navlink" href="https://www.github.com/ergarcade">GitHub</a>
+            </nav>
+            <button type="button" class="theme-toggle" aria-label="Toggle dark mode" title="Toggle dark mode">&#9788;</button>
+        </header>
+
+        <section class="article-hero">
             <h1>RPM, Speed and Power - BikeErg vs AirDyne6 vs Assault bike vs
                 Echo</h1>
-
-            <button type="button" class="theme-toggle" aria-label="Toggle dark mode" title="Toggle dark mode">&#9788;</button>
-
-            <hr />
-
-            <p class="centre">
-            There is no standard between ergometer manufacturers for how they
+            <p>There is no standard between ergometer manufacturers for how they
             build their machines, nor how they calculate the metrics that appear
             on their monitors. In this article we provide charts of the
             relationship between RPM, speed and power for the Concept2 BikeErg,
-            Schwinn AirDyne6, Assault bike and Rogue Echo bike.
-            </p>
-        </header>
+            Schwinn AirDyne6, Assault bike and Rogue Echo bike.</p>
+        </section>
 
+        <section class="article-section">
         <hr />
         <p>
         Hover over or tap the graphs to see the values for each metric.  Click
@@ -144,9 +143,12 @@ vim:textwidth=80
                 again impacting drag factor;</li>
             <li>Differing amounts of wear on machines.</li>
         </ul>
+        </section>
 
-        <hr />
-        <a href="https://reddit.com/u/angrytongan">Find me here.</a>
+        <footer class="site-footer">
+            <p>All applications on the Erg Arcade are open source &mdash; <a href="https://www.github.com/ergarcade">GitHub</a></p>
+            <p><a href="https://reddit.com/u/angrytongan">Find me here</a></p>
+        </footer>
 
         <script src="/js/theme-toggle.js" defer></script>
         <script data-goatcounter="https://ergarcade.goatcounter.com/count"

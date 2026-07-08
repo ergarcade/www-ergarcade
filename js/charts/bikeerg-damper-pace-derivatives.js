@@ -283,6 +283,4 @@ export const graphs = [
     { div: 'graph-rpm-vs-calhour', options: airbike.RPMVsCalHour },
 ];
 
-document.addEventListener('DOMContentLoaded', () => {
-    graphLoader(graphs);
-});
+graphLoader(graphs);

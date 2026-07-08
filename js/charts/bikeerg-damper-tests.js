@@ -1753,6 +1753,4 @@ export const graphs = [
     { div: 'graph-bikeerg-damper-tests-drag-factors', options: bikeergDamperTests.dragFactors, height: 200 },
 ];
 
-document.addEventListener('DOMContentLoaded', () => {
-    graphLoader(graphs);
-});
+graphLoader(graphs);

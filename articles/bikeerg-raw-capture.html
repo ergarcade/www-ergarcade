@@ -30,7 +30,7 @@ vim:textwidth=80
         }
         div[id^='graph'] {
             height: 200px;
-            border: 1px solid var(--color-border);
+            border: 1px solid var(--border);
             margin-top: 1em;
         }
         </style>
@@ -48,30 +48,29 @@ vim:textwidth=80
 
     <body>
         <header id="header">
-            <div class="centre">
-                <a href="/" title="Back to the Erg Arcade!">
-                    <img
-                        src="/images/ergarcade-64x64.png"
-                        class="ergarcade-logo" alt="ergarcade.com" />
-                    <img
-                        src="/images/ergarcade-dark-64x64.png"
-                        class="ergarcade-logo-dark" alt="ergarcade.com" />
-                </a>
-            </div>
-            <h1>Concept2 BikeErg Raw Data</h1>
-
+            <a class="brand" href="/">
+                <img src="/images/ergarcade-64x64.png" class="ergarcade-logo" alt="ergarcade.com" />
+                <img src="/images/ergarcade-dark-64x64.png" class="ergarcade-logo-dark" alt="ergarcade.com" />
+                <span class="brand-name">Erg Arcade</span>
+            </a>
+            <nav class="navlinks">
+                <a class="navlink" href="/tools.html">Tools</a>
+                <a class="navlink" href="/visualisations.html">Visualisations</a>
+                <a class="navlink" href="/articles.html">Articles</a>
+                <a class="navlink" href="https://www.github.com/ergarcade">GitHub</a>
+            </nav>
             <button type="button" class="theme-toggle" aria-label="Toggle dark mode" title="Toggle dark mode">&#9788;</button>
-
-            <hr />
-
-            <p class="centre">
-            Through the <a href="https://concept2.com/ergdata">ErgData</a>
-            application, it's possible to record and review stroke / revolution data
-            from a Concept2 ergometer. Below we capture and analyse pieces performed on the
-            BikeErg at different damper settings.
-            </p>
         </header>
 
+        <section class="article-hero">
+            <h1>Concept2 BikeErg Raw Data</h1>
+            <p>Through the <a href="https://concept2.com/ergdata">ErgData</a>
+            application, it's possible to record and review stroke / revolution data
+            from a Concept2 ergometer. Below we capture and analyse pieces performed on the
+            BikeErg at different damper settings.</p>
+        </section>
+
+        <section class="article-section">
         <hr />
         <h2>Aim</h2>
         <p>
@@ -221,9 +220,12 @@ vim:textwidth=80
             href="https://instagram.com/ktna89">@ktna89</a> for the loan of
         their BikeErg and help in running the tests.
         </p>
+        </section>
 
-        <hr />
-        <a href="https://reddit.com/u/angrytongan">Find me here.</a>
+        <footer class="site-footer">
+            <p>All applications on the Erg Arcade are open source &mdash; <a href="https://www.github.com/ergarcade">GitHub</a></p>
+            <p><a href="https://reddit.com/u/angrytongan">Find me here</a></p>
+        </footer>
 
         <script src="/js/theme-toggle.js" defer></script>
         <script data-goatcounter="https://ergarcade.goatcounter.com/count"

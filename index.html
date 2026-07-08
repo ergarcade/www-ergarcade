@@ -27,156 +27,133 @@ vim: textwidth=80
 
     <body>
         <header id="header">
-            <div class="centre">
+            <div class="brand">
                 <img src="images/ergarcade-64x64.png" class="ergarcade-logo" alt="ergarcade.com" />
                 <img src="images/ergarcade-dark-64x64.png" class="ergarcade-logo-dark" alt="ergarcade.com" />
+                <span class="brand-name">Erg Arcade</span>
             </div>
-            <h1>Welcome to the Erg&nbsp;Arcade!</h1>
-
+            <nav class="navlinks">
+                <a class="navlink" href="#tools">Tools</a>
+                <a class="navlink" href="#visualisations">Visualisations</a>
+                <a class="navlink" href="#articles">Articles</a>
+                <a class="navlink" href="https://www.github.com/ergarcade">GitHub</a>
+            </nav>
             <button type="button" class="theme-toggle" aria-label="Toggle dark mode" title="Toggle dark mode">&#9788;</button>
-
-            <hr />
-
-            <p class="centre">
-            The Erg Arcade is a collection of tools, utilities and games that use
-            the <a href="https://www.concept2.com">Concept2</a> range of ergometers.
-            </p>
-
-            <hr />
         </header>
 
-        <div class="layout">
-        <nav id="sidebar">
-            <ul>
-                <li><a href="#user-tools">User Tools</a></li>
-                <li><a href="#programmer-tools">Programmer Tools</a></li>
-                <li><a href="#visualisations">Visualisations</a></li>
-                <li><a href="#games">Games</a></li>
-                <li><a href="#articles">Articles</a></li>
-                <li><a href="#source">Source code</a></li>
-            </ul>
+        <section class="hero">
+            <h1 class="hero-title">Tools and data for Concept2 ergometers</h1>
+            <p class="hero-sub">BLE utilities, visual experiments, and pace &amp; power data analysis for the RowErg, SkiErg and BikeErg.</p>
+        </section>
 
-            <hr />
-        </nav>
+        <section id="tools" class="section">
+            <div class="section-head">
+                <h2>Tools</h2>
+                <p>BLE utilities for the PM5 &mdash; for use at your erg, or for building your own applications.</p>
+            </div>
+            <div class="grid">
+                <a class="entry-card" href="https://ergarcade.github.io/pm5-detail/">
+                    <div class="entry-thumb entry-thumb-compact"></div>
+                    <div class="entry-body">
+                        <div class="row">
+                            <span class="entry-title">pm5-detail</span>
+                            <span class="tag">User</span>
+                        </div>
+                        <p class="entry-desc clamp-1">Display every variable exposed by the PM5 over Bluetooth &mdash; more detail than the monitor shows.</p>
+                    </div>
+                </a>
+                <a class="entry-card" href="https://ergarcade.github.io/pm5-overlay">
+                    <div class="entry-thumb entry-thumb-compact"></div>
+                    <div class="entry-body">
+                        <div class="row">
+                            <span class="entry-title">pm5-overlay</span>
+                            <span class="tag">User</span>
+                        </div>
+                        <p class="entry-desc clamp-1">Record a session with a live overlay of pace, stroke rate and more &mdash; built for coaching video.</p>
+                    </div>
+                </a>
+                <a class="entry-card" href="https://ergarcade.github.io/c2log-overlay">
+                    <div class="entry-thumb entry-thumb-compact"></div>
+                    <div class="entry-body">
+                        <div class="row">
+                            <span class="entry-title">c2log-overlay</span>
+                            <span class="tag">User</span>
+                        </div>
+                        <p class="entry-desc clamp-1">Turn a Concept2 logbook session into a video overlay of pace, SPM, distance, watts and cal/hr.</p>
+                    </div>
+                </a>
+            </div>
+            <a class="navlink view-all" href="/tools.html">View all 5 tools &rarr;</a>
+        </section>
 
-        <main id="main">
-            <h2 id="user-tools">User Tools</h2>
-            <dl>
-                <dt><a href="https://ergarcade.github.io/pm5-detail/">pm5-detail</a></dt>
-                <dd>Display all variables exposed by the <a href="https://www.concept2.com">Concept2</a>
-                    <a href="https://www.concept2.com/service/monitors/pm5">Performance Monitor 5 (PM5)</a>
-                    over it's Bluetooth Low Energy (BLE) interface. Useful to see all the interesting
-                    data provided by the PM5, over and above what you see on the monitor.<br />
-                    <br />
-                    <strong>Tested:</strong> Mac OS X, PM5, RowErg, SkiErg</br />
-                    <strong>Requires:</strong> Desktop, Google Chrome, Bluetooth</dd>
+        <section id="visualisations" class="section">
+            <div class="section-head">
+                <h2>Visualisations</h2>
+                <p>Visual experiments that respond to your pace, live from the PM5.</p>
+            </div>
+            <div class="grid">
+                <a class="entry-card" href="https://ergarcade.github.io/WebGL-Fluid-Simulation">
+                    <div class="entry-thumb entry-thumb-compact"></div>
+                    <div class="entry-body">
+                        <div class="row">
+                            <span class="entry-title">WebGL Fluid Simulation</span>
+                        </div>
+                        <p class="entry-desc clamp-1">Based on Pavel Dobryakov's fluid sim &mdash; responds to every stroke on a rower or SkiErg.</p>
+                    </div>
+                </a>
+                <a class="entry-card" href="https://ergarcade.github.io/mrdoob-clouds">
+                    <div class="entry-thumb entry-thumb-compact"></div>
+                    <div class="entry-body">
+                        <div class="row">
+                            <span class="entry-title">Mr.doob Clouds</span>
+                        </div>
+                        <p class="entry-desc clamp-1">Based on Mr.doob's cloudscape &mdash; drift slow or fast through the clouds based on your pace.</p>
+                    </div>
+                </a>
+            </div>
+        </section>
 
-                <dt><a href="https://ergarcade.github.io/pm5-overlay">pm5-overlay</a></dt>
-                <dd>Record a video of a rower / SkiErg / BikeErg session with an overlay of stats
-                    provided from the PM5! Very useful for coaches to create videos showing
-                    their technique against pace, stroke rate and more. Data provided over the
-                    <a href="https://www.concept2.com/service/monitors/pm5">Performance Monitor 5 (PM5)</a>
-                    Bluetooth Low Energy (BLE) interface.<br />
-                    <br />
-                    <strong>Tested:</strong> Mac OS X, PM5, RowErg, SkiErg</br />
-                    <strong>Requires:</strong> Desktop / laptop, camera, Google Chrome, Bluetooth</dd>
+        <section id="articles" class="section">
+            <div class="section-head">
+                <h2>Articles</h2>
+                <p>Data analysis on pace, power and RPM across Concept2 and third-party ergometers.</p>
+            </div>
+            <div class="grid">
+                <a class="entry-card" href="/articles/c2-pace-derivatives.html">
+                    <div class="entry-thumb entry-thumb-compact"></div>
+                    <div class="entry-body">
+                        <div class="row">
+                            <span class="entry-title">Concept2 Pace Derivatives Chart</span>
+                        </div>
+                        <p class="entry-desc clamp-1">How pace, watts, speed and calories per hour relate on the RowErg, SkiErg and BikeErg.</p>
+                    </div>
+                </a>
+                <a class="entry-card" href="/articles/bikeerg-raw-capture.html">
+                    <div class="entry-thumb entry-thumb-compact"></div>
+                    <div class="entry-body">
+                        <div class="row">
+                            <span class="entry-title">BikeErg Raw Data Capture</span>
+                        </div>
+                        <p class="entry-desc clamp-1">Capturing and analysing raw ErgData stroke data across BikeErg damper settings.</p>
+                    </div>
+                </a>
+                <a class="entry-card" href="/articles/bikeerg-damper-pace-derivatives.html">
+                    <div class="entry-thumb entry-thumb-compact"></div>
+                    <div class="entry-body">
+                        <div class="row">
+                            <span class="entry-title">BikeErg Damper and Pace Derivatives Charts</span>
+                        </div>
+                        <p class="entry-desc clamp-1">How the same RPM at different damper settings changes pace, power and cal/hr.</p>
+                    </div>
+                </a>
+            </div>
+            <a class="navlink view-all" href="/articles.html">View all 4 articles &rarr;</a>
+        </section>
 
-                <dt><a href="https://ergarcade.github.io/c2log-overlay">c2log-overlay</a></dt>
-                <dd>Create a movie showing pace, strokes per minute, elapsed time, distance,
-                    watts and cals per hour from a <a href="https://log.concept2.com">Concept2 Online logbook session</a>.
-                    Useful for overlaying a technique video.<br />
-                    <br />
-                    <strong>Tested:</strong> Mac OS X</br />
-                    <strong>Requires:</strong> Desktop, Google Chrome</dd>
-            </dl>
-
-            <hr />
-            <h2 id="programmer-tools">Programmer tools</h2>
-            <dl>
-                <dt><a href="https://ergarcade.github.io/pm5-base">pm5-base</a></dt>
-                <dd>Show all variables provided by the <a href="https://www.concept2.com/service/monitors/pm5">Performance Monitor 5 (PM5)</a>
-                    over it's Bluetooth Low Energy (BLE) interface. Same as <strong>pm5-detail</strong>
-                    above but without some of the interface stuff. Use this if you want to write
-                    your own applications.<br />
-                    <br />
-                    <strong>Tested:</strong> Mac OS X, PM5, RowErg, SkiErg</br />
-                    <strong>Requires:</strong> Desktop, Google Chrome, Bluetooth</dd>
-
-                <dt><a href="https://ergarcade.github.io/pm5-dump">pm5-dump</a></dt>
-                <dd>Generate a JSON dump of all <a href="https://www.concept2.com/service/monitors/pm5">Performance Monitor 5 (PM5)</a>
-                    variables over it's Bluetooth Low Energy (BLE) interface. Useful for
-                    creating files as test inputs during development.<br />
-                    <br />
-                    <strong>Tested:</strong> Mac OS X, PM5, RowErg, SkiErg</br />
-                    <strong>Requires:</strong> Desktop, Google Chrome, Bluetooth</dd>
-            </dl>
-
-            <hr />
-            <h2 id="visualisations">Visualisations</h2>
-            <dl>
-                <dt><a href="https://ergarcade.github.io/WebGL-Fluid-Simulation">WebGL Fluid Simulation</a></dt>
-                <dd>Based on the original work by <a href="https://github.com/PavelDoGreat/WebGL-Fluid-Simulation">Pavel Dobryakov</a>,
-                    this fluid simulation responds to strokes made on a rower or SkiErg.<br />
-                    <br />
-                    <strong>Tested:</strong> Mac OS X, PM5, RowErg, SkiErg</br />
-                    <strong>Requires:</strong> Desktop, Google Chrome, Bluetooth</dd>
-
-                <dt><a href="https://ergarcade.github.io/mrdoob-clouds">Mr.doob Clouds</a></dt>
-                <dd>Based on the original work by <a href="https://github.com/mrdoob">Mr.doob</a>,
-                    enjoy a relaxing or speedy travel through the clouds based on your pace.<br />
-                    <br />
-                    <strong>Tested:</strong> Mac OS X, PM5, RowErg, SkiErg</br />
-                    <strong>Requires:</strong> Desktop, Google Chrome, Bluetooth</dd>
-            </dl>
-
-            <hr />
-            <h2 id="games">Games</h2>
-            <p>Coming soon!</p>
-
-            <hr />
-            <h2 id="articles">Articles</h2>
-            <dl>
-                <dt><a href="/articles/c2-pace-derivatives.html">Concept2 Pace
-                    Derivatives Chart</a></dt>
-                <dd>A simple chart that shows the relationship between pace, watts and calories per hour
-                    as measured by the Concept2 RowErg, SkiErg and BikeErg.</dd>
-
-                <dt><a href="/articles/bikeerg-raw-capture.html">BikeErg Raw
-                    Data Capture</a></dt>
-                <dd>Through the <a href="https://concept2.com/ergdata">ErgData</a>
-                    application, it's possible to record and review stroke (revolution) data
-                    from a Concept2 ergometer. In this article we capture and
-                    analyse pieces performed on the BikeErg at different damper
-                    settings.</dd>
-
-                <dt><a href="/articles/bikeerg-damper-pace-derivatives.html">BikeErg
-                    Damper and Pace Derivatives Charts</a></dt>
-                <dd>On the BikeErg, the same RPM at different damper settings
-                    alters pace, power and calories per hour reported on the PM5.
-                    In this article we provide three charts showing these
-                    relationships at damper settings 10, 8, 6, 4 and 2.</dd>
-
-                <dt><a href="/articles/airbike-rpm-speed-power.html">RPM,
-                    Speed and Power - BikeErg vs AirDyne6 vs Assault bike vs
-                    Echo</a></dt>
-                <dd>Three charts showing the relationships in measuremnet of RPM,
-                    speed and power across the Concept2 BikeErg, Schwinn
-                    AirDyne6, Assault Bike and Rogue Echo.</dd>
-            </dl>
-
-            <hr />
-            <h2 id="source">Source Code</h2>
-            <p>
-            All applications on the Erg Arcade are <a
-                href="https://en.wikipedia.org/wiki/Open_source">Open
-                Source</a> and available from <a
-            href="https://www.github.com/ergarcade">GitHub</a>.
-            </p>
-        </main>
-        </div>
-
-        <hr />
-        <a href="https://reddit.com/u/angrytongan">Find me here.</a>
+        <footer class="site-footer">
+            <p>All applications on the Erg Arcade are open source &mdash; <a href="https://www.github.com/ergarcade">GitHub</a></p>
+            <p><a href="https://reddit.com/u/angrytongan">Find me here</a></p>
+        </footer>
 
         <script src="/js/theme-toggle.js" defer></script>
         <script data-goatcounter="https://ergarcade.goatcounter.com/count"
