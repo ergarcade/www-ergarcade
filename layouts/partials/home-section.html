@@ -1,0 +1,17 @@
+{{ $sec := .section }}
+{{ $id := .id }}
+{{ $count := len $sec.Pages }}
+<section id="{{ $id }}" class="section">
+    <div class="section-head">
+        <h2>{{ $sec.Title }}</h2>
+        <p>{{ $sec.Description }}</p>
+    </div>
+    <div class="grid">
+        {{ range first 3 $sec.Pages }}
+            {{ partial "entry-card.html" (dict "page" . "compact" true) }}
+        {{ end }}
+    </div>
+    {{ if gt $count 3 }}
+        <a class="navlink view-all" href="{{ $sec.RelPermalink }}">View all {{ $count }} {{ lower $sec.Title }} &rarr;</a>
+    {{ end }}
+</section>

@@ -1,0 +1,14 @@
+{{ define "main" }}
+<section class="article-hero">
+    <h1>{{ .Title }}</h1>
+    <p>{{ .Description }}</p>
+</section>
+
+<section class="section">
+    <div class="grid">
+        {{ range .Pages }}
+            {{ partial "entry-card.html" (dict "page" . "compact" false) }}
+        {{ end }}
+    </div>
+</section>
+{{ end }}

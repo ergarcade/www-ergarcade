@@ -1,0 +1,10 @@
+{{ define "main" }}
+<section class="hero">
+    <h1 class="hero-title">{{ .Title }}</h1>
+    <p class="hero-sub">{{ .Description }}</p>
+</section>
+
+{{ partial "home-section.html" (dict "section" (site.GetPage "/tools") "id" "tools") }}
+{{ partial "home-section.html" (dict "section" (site.GetPage "/visualisations") "id" "visualisations") }}
+{{ partial "home-section.html" (dict "section" (site.GetPage "/articles") "id" "articles") }}
+{{ end }}
