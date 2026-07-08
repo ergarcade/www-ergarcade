@@ -1,6 +1,6 @@
 ---
 title: "pm5-base"
-description: "Same PM5 variables as pm5-detail, stripped of interface — a starting point for your own app."
+description: "Baseline example of connecting to a Concept2 PM5 monitor."
 link: "https://ergarcade.github.io/pm5-base"
 tag: "Dev"
 requires: "Desktop, Chrome, Bluetooth"
