@@ -1,20 +1,40 @@
 'use strict';
 
+const pad2 = (n) => String(n).padStart(2, '0');
+
+/*
+ * Only the largest unit present in the output is left unwrapped (it
+ * absorbs everything above it); every subordinate unit wraps modulo the
+ * unit above it. Matches how Luxon's toFormat expresses a duration in
+ * exactly the units named in the format string.
+ */
+const formatWholeSeconds = (total, { hours = false, days = false } = {}) => {
+    if (days && total >= 86400) {
+        const d = Math.floor(total / 86400);
+        const h = Math.floor((total % 86400) / 3600);
+        const m = Math.floor((total % 3600) / 60);
+        const s = total % 60;
+        return `${d} day${d === 1 ? '' : 's'}, ${h}:${pad2(m)}:${pad2(s)}`;
+    }
+    if (hours) {
+        const h = Math.floor(total / 3600);
+        const m = Math.floor((total % 3600) / 60);
+        const s = total % 60;
+        return `${h}:${pad2(m)}:${pad2(s)}`;
+    }
+    const m = Math.floor(total / 60);
+    const s = total % 60;
+    return `${m}:${pad2(s)}`;
+};
+
 export const dateTime = {
-    thisYear: () => luxon.DateTime.local().year,
-
     secs2mmss: (secs, add_ms = false) => {
-        let format = 'm:ss';
-
-        if (secs >= 86400) {
-            format = 'd \'days,\' h:mm:ss';
-        } else if (secs >= 3600) {
-            format = 'h:mm:ss';
-        }
+        const whole = Math.floor(secs);
+        let out = formatWholeSeconds(whole, { hours: whole >= 3600, days: true });
         if (add_ms) {
-            format += '.S';
+            out += `.${Math.floor((secs - whole) * 10 + 1e-9)}`;
         }
-        return luxon.Duration.fromObject({ seconds: secs }).toFormat(format).replace(/\.([0-9]).*$/, '.$1');
+        return out;
     },
 
     mmss2secs: (mmss) => {
@@ -22,10 +42,12 @@ export const dateTime = {
         return +m * 60 + +s;
     },
 
-    ds2mmss: (ds, add_ms = true, truncMs = true) => {
-        const format = (ds > 36000 ? 'h:mm:ss' : 'm:ss') + (add_ms ? '.S' : '');
-        const out = luxon.Duration.fromObject({ seconds: ds / 10 }).toFormat(format);
-
-        return truncMs ? out.replace(/\.([0-9]).*$/, '.$1') : out;
+    ds2mmss: (ds, add_ms = true) => {
+        const wholeSecs = Math.trunc(ds / 10);
+        let out = formatWholeSeconds(wholeSecs, { hours: ds > 36000, days: false });
+        if (add_ms) {
+            out += `.${Math.abs(ds % 10)}`;
+        }
+        return out;
     },
 };

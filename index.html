@@ -11,25 +11,29 @@ vim: textwidth=80
 
         <title>Erg Arcade!</title>
 
+        <script>
+        (function () {
+            var t = localStorage.getItem('theme');
+            if (t === 'light' || t === 'dark') document.documentElement.setAttribute('data-theme', t);
+        })();
+        </script>
+
         <link rel="stylesheet" type="text/css" href="style.css">
 
-        <!-- generated from realfavicongenerator.net -->
-        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-        <link rel="manifest" href="/site.webmanifest">
-        <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
-        <meta name="msapplication-TileColor" content="#da532c">
-        <meta name="theme-color" content="#ffffff">
+        <link rel="icon" type="image/png" href="/images/ergarcade-64x64.png">
+        <meta name="theme-color" content="#ededed" media="(prefers-color-scheme: light)">
+        <meta name="theme-color" content="#111111" media="(prefers-color-scheme: dark)">
     </head>
 
     <body>
-        <div id="header">
+        <header id="header">
             <div class="centre">
                 <img src="images/ergarcade-64x64.png" class="ergarcade-logo" alt="ergarcade.com" />
                 <img src="images/ergarcade-dark-64x64.png" class="ergarcade-logo-dark" alt="ergarcade.com" />
             </div>
             <h1>Welcome to the Erg&nbsp;Arcade!</h1>
+
+            <button type="button" class="theme-toggle" aria-label="Toggle dark mode" title="Toggle dark mode">&#9788;</button>
 
             <hr />
 
@@ -39,9 +43,10 @@ vim: textwidth=80
             </p>
 
             <hr />
-        </div>
+        </header>
 
-        <div id="sidebar">
+        <div class="layout">
+        <nav id="sidebar">
             <ul>
                 <li><a href="#user-tools">User Tools</a></li>
                 <li><a href="#programmer-tools">Programmer Tools</a></li>
@@ -52,9 +57,9 @@ vim: textwidth=80
             </ul>
 
             <hr />
-        </div>
+        </nav>
 
-        <div id="main">
+        <main id="main">
             <h2 id="user-tools">User Tools</h2>
             <dl>
                 <dt><a href="https://ergarcade.github.io/pm5-detail/">pm5-detail</a></dt>
@@ -167,11 +172,13 @@ vim: textwidth=80
                 Source</a> and available from <a
             href="https://www.github.com/ergarcade">GitHub</a>.
             </p>
+        </main>
         </div>
 
         <hr />
         <a href="https://reddit.com/u/angrytongan">Find me here.</a>
 
+        <script src="/js/theme-toggle.js" defer></script>
         <script data-goatcounter="https://ergarcade.goatcounter.com/count"
         async src="//gc.zgo.at/count.js"></script>
     </body>

@@ -9,7 +9,18 @@ vim: textwidth=80
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+        <script>
+        (function () {
+            var t = localStorage.getItem('theme');
+            if (t === 'light' || t === 'dark') document.documentElement.setAttribute('data-theme', t);
+        })();
+        </script>
+
         <link href="/style.css" rel="stylesheet" />
+
+        <link rel="icon" type="image/png" href="/images/ergarcade-64x64.png">
+        <meta name="theme-color" content="#ededed" media="(prefers-color-scheme: light)">
+        <meta name="theme-color" content="#111111" media="(prefers-color-scheme: dark)">
 
         <style>
         math {
@@ -19,21 +30,24 @@ vim: textwidth=80
         }
         div[id^='graph'] {
             height: 200px;
-            border: 1px solid #aaa;
+            border: 1px solid var(--color-border);
             margin-top: 1em;
         }
         </style>
 
         <title>Erg Arcade! Concept2 Pace Derivatives</title>
 
-        <script src="/js/lib/echarts-en.min.js"></script>
-        <script src="/js/lib/echarts-themes/dark.js"></script>
-        <script src="/js/lib/luxon.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/echarts@6.1.0/dist/echarts.min.js"
+            integrity="sha256-tmslrrTfhOMxmdwhaUAU0zbSIsvZ3rDlp8FL1qoND9A="
+            crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/echarts@6.1.0/theme/dark.js"
+            integrity="sha256-rmDlY2F8uHUUaQwZRu4gLnjJ8Uh4IEkGFLWJNO0DdFg="
+            crossorigin="anonymous"></script>
         <script type="module" src="/js/charts/c2.js"></script>
     </head>
 
     <body>
-        <div id="header">
+        <header id="header">
             <div class="centre">
                 <a href="/" title="Back to the Erg Arcade!">
                     <img
@@ -46,6 +60,8 @@ vim: textwidth=80
             </div>
             <h1>Concept2 Pace Derivatives Chart</h1>
 
+            <button type="button" class="theme-toggle" aria-label="Toggle dark mode" title="Toggle dark mode">&#9788;</button>
+
             <hr />
 
             <p class="centre">
@@ -54,7 +70,7 @@ vim: textwidth=80
             </p>
 
             <hr />
-        </div>
+        </header>
 
         <p>
         Concept2 ergometers display pace, watts, and calories per hour on the
@@ -312,6 +328,7 @@ vim: textwidth=80
         <hr />
         <a href="https://reddit.com/u/angrytongan">Find me here.</a>
 
+        <script src="/js/theme-toggle.js" defer></script>
         <script data-goatcounter="https://ergarcade.goatcounter.com/count"
         async src="//gc.zgo.at/count.js"></script>
     </body>

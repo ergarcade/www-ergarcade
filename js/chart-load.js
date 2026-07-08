@@ -2,20 +2,16 @@
 
 const defaultGraphHeight = 250;
 
-/*
- * graphs is an array of:
- *
- *      {
- *          div: 'name-of-div-on-page',
- *          options: optionsThatWePassDirectlyToECharts,
- *          [height: height of div]
- *      },
- */
-export const graphLoader = (graphs, createAllGraphs = false) => {
-    let theme = '';
-    if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-        theme = 'dark';
+const getTheme = () => {
+    const explicit = document.documentElement.getAttribute('data-theme');
+    if (explicit === 'dark' || explicit === 'light') {
+        return explicit;
     }
+    return (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) ? 'dark' : '';
+};
+
+const renderGraphs = (graphs, createAllGraphs) => {
+    const theme = getTheme();
 
     graphs.forEach((g) => {
         g.element = document.getElementById(g.div);
@@ -54,6 +50,19 @@ export const graphLoader = (graphs, createAllGraphs = false) => {
             }
         }
     });
+};
+
+/*
+ * graphs is an array of:
+ *
+ *      {
+ *          div: 'name-of-div-on-page',
+ *          options: optionsThatWePassDirectlyToECharts,
+ *          [height: height of div]
+ *      },
+ */
+export const graphLoader = (graphs, createAllGraphs = false) => {
+    renderGraphs(graphs, createAllGraphs);
 
     window.addEventListener('resize', () => {
         setTimeout(() => {
@@ -62,4 +71,10 @@ export const graphLoader = (graphs, createAllGraphs = false) => {
             });
         }, 500);
     });
+
+    /*
+     * Re-render with the new theme when the light/dark toggle fires, since
+     * ECharts themes are baked in at echarts.init() time.
+     */
+    document.addEventListener('themechange', () => renderGraphs(graphs, createAllGraphs));
 };
