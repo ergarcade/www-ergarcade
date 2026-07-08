@@ -23,47 +23,9 @@ push to `master`.
     own page — these two are usually different text, don't collapse them into
     one field), `chartScript` (path to the article's `js/charts/*.js` module),
     `weight` (controls ordering everywhere).
-- `layouts/` — templates.
-  - `_default/baseof.html` + `partials/header.html` + `partials/footer.html`
-    are the single source of truth for shared chrome — this replaced 8 pages
-    that used to hand-duplicate the same header/nav/footer markup (a repeat
-    source of bugs before the Hugo port). Edit them once.
-  - `index.html` — homepage: capped 3-entry preview per section via
-    `partials/home-section.html`, "View all N →" only rendered when a section
-    actually has more than 3 entries (`len $sec.Pages > 3`) — don't add the
-    link pre-emptively.
-  - `_default/list.html` — shared full-listing layout for `/tools/`,
-    `/visualisations/`, `/articles/` — one template for all three, since the
-    only difference between their cards is which optional front-matter fields
-    are present (data-driven, not template branching).
-  - `articles/single.html` — article page: hero, `{{ .Content }}`, plus the
-    ECharts CDN `<script>` tags (version/hashes from `hugo.toml` params) and
-    the article's own `chartScript` module tag.
-  - `shortcodes/chart.html` — `{{< chart "Title" "Sub text" "div-id" >}}`,
-    renders one `.chart-card` block with the `.chart-box` div a
-    `js/charts/*.js` module attaches to.
-  - `shortcodes/formula.html` — `{{< formula >}}...{{< /formula >}}`, wraps
-    inline HTML (`<sub>`/`<sup>`) in a `.formula` block.
+- `layouts/` — templates. See `.claude/rules/layouts.md`.
 - `static/` — copied verbatim to the site root; nothing in here is
-  Hugo-processed. `style.css`, `js/`, `images/`, `CNAME` all keep their
-  existing absolute paths (`/style.css`, `/js/...`) unchanged.
-  - `static/js/charts/*.js` — one module per article, builds ECharts option
-    objects and calls `graphLoader` from `static/js/chart-load.js`. Prefer
-    separate single-axis charts (small multiples) over one chart with
-    multiple y-axes when a page shows several metrics — a dual/multi-axis
-    chart is the easiest way to mislead a reader about scale.
-  - `static/js/utils/datetime.js` — pure-JS pace/duration formatting
-    (`secs2mmss`, `ds2mmss`, `mmss2secs`). No date library dependency — do
-    not reintroduce one; these functions are simple enough to keep
-    dependency-free.
-  - `static/js/theme-toggle.js` — shared light/dark toggle. Sets
-    `data-theme` on `<html>`, persists to `localStorage`, dispatches a
-    `themechange` `CustomEvent` that `chart-load.js` listens for to
-    re-render charts in the new theme.
-  - `static/js/chart-load.js` — `graphLoader()` checks `document.readyState`
-    before wiring up rendering, instead of relying solely on a
-    `DOMContentLoaded` listener — that used to be duplicated (and once
-    broke) in every chart file; it's now handled once, here.
+  Hugo-processed. See `.claude/rules/static.md`.
 
 ## Conventions
 
