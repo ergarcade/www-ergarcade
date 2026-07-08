@@ -157,7 +157,7 @@ const vs = (dims, apparatus, options = {}) => {
     };
 
     legend.push({
-        top: '10%',
+        top: '15%',
         type: 'scroll',
     });
 

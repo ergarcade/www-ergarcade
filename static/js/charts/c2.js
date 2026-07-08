@@ -85,7 +85,7 @@ const powerDerivatives = () => ({
 
 const speedDerivatives = () => ({
     title: [{ text: 'Speed', textAlign: 'center', left: 'middle' }],
-    legend: [{ top: '10%', type: 'scroll' }],
+    legend: [{ top: '15%', type: 'scroll' }],
     tooltip: [singleMetricTooltip()],
     dataset: [{ source: data }],
     xAxis: [paceXAxis()],
