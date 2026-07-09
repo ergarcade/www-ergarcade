@@ -297,6 +297,14 @@ hr {
     height: 64px;
 }
 
+.entry-thumb img {
+    width: 100%;
+    height: 100%;
+    max-width: none;
+    object-fit: cover;
+    display: block;
+}
+
 .entry-body {
     display: flex;
     flex-direction: column;

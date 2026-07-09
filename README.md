@@ -20,5 +20,7 @@ to GitHub Pages via GitHub Actions on every push to `master`
   overridable per-visitor via the toggle button (persisted in `localStorage`).
 - No linter or test framework is configured; verify changes with `hugo server -D`
   and checking pages in a browser, then confirm `hugo --minify` builds clean.
+- To add a thumbnail to a tool/visualisation/article card, see "Adding a card
+  thumbnail" in `CLAUDE.md`.
 
 See `CLAUDE.md` for the full content/template layout.
