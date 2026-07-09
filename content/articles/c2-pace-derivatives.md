@@ -3,6 +3,7 @@ title: "Concept2 Pace Derivatives Chart"
 description: "How pace, watts, speed and calories per hour relate on the RowErg, SkiErg and BikeErg."
 tagline: "An easy way to compare pace, watts, speed and calories per hour on Concept2 ergometers."
 chartScript: "/js/charts/c2.js"
+thumbnail: "/images/articles/c2-pace.png"
 weight: 1
 ---
 

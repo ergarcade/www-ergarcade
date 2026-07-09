@@ -2,7 +2,7 @@
 {{ $compact := .compact }}
 {{ $href := $page.Params.link | default $page.RelPermalink }}
 <a class="entry-card" href="{{ $href }}">
-    <div class="entry-thumb{{ if $compact }} entry-thumb-compact{{ end }}"></div>
+    <div class="entry-thumb{{ if $compact }} entry-thumb-compact{{ end }}">{{ with $page.Params.thumbnail }}<img src="{{ . }}" alt="" loading="lazy">{{ end }}</div>
     <div class="entry-body">
         <div class="row">
             <span class="entry-title">{{ $page.Title }}</span>

@@ -3,6 +3,7 @@ title: "RPM, Speed and Power — BikeErg vs AirDyne6 vs Assault Bike vs Echo"
 description: "Comparing how RPM maps to speed and power across four air/bike ergometers."
 tagline: "There is no standard between ergometer manufacturers for how they build their machines, nor how they calculate the metrics that appear on their monitors. In this article we provide charts of the relationship between RPM, speed and power for the Concept2 BikeErg, Schwinn AirDyne6, Assault bike and Rogue Echo bike."
 chartScript: "/js/charts/rpm-speed-power.js"
+thumbnail: "/images/articles/airbike-rpm.png"
 weight: 4
 ---
 

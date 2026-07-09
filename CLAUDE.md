@@ -22,7 +22,9 @@ push to `master`.
     `tagline` (longer intro paragraph shown under the `<h1>` on the article's
     own page — these two are usually different text, don't collapse them into
     one field), `chartScript` (path to the article's `js/charts/*.js` module),
-    `weight` (controls ordering everywhere).
+    `weight` (controls ordering everywhere), optional `thumbnail` (path to a
+    card image, e.g. `/images/articles/slug.png`; falls back to the
+    `.entry-thumb` placeholder pattern when absent).
 - `layouts/` — templates. See `.claude/rules/layouts.md`.
 - `static/` — copied verbatim to the site root; nothing in here is
   Hugo-processed. See `.claude/rules/static.md`.
@@ -48,13 +50,14 @@ push to `master`.
   order. Colour tokens are `--paper`/`--ink`/`--muted`/`--border`/`--card`/`--accent`.
 - Card grids (`.grid` of `.entry-card`, rendered by `partials/entry-card.html`)
   are the shared pattern for every tool/visualisation/article listing: an
-  `.entry-thumb` placeholder image (a diagonal-stripe CSS pattern — there are
-  no real screenshots yet; swap in real thumbnails when available instead of
-  removing the placeholder), then `.entry-body` with title, optional `.tag`,
-  description, optional `.entry-meta`. The partial's `compact` param selects
-  `entry-thumb-compact` (shorter thumbnail, one-line clamped description, no
-  meta line) for homepage previews vs. full-size cards on the dedicated
-  category pages.
+  `.entry-thumb` — renders the page's `thumbnail` front-matter image
+  (800×450, 16:9, `object-fit: cover`) when set, otherwise falls back to a
+  diagonal-stripe CSS placeholder pattern. Tools/visualisations cards have no
+  `thumbnail` field yet, so they still show the placeholder. Then
+  `.entry-body` with title, optional `.tag`, description, optional
+  `.entry-meta`. The partial's `compact` param selects `entry-thumb-compact`
+  (shorter thumbnail, one-line clamped description, no meta line) for
+  homepage previews vs. full-size cards on the dedicated category pages.
 - Favicon is intentionally minimal: a single `<link rel="icon">` pointing at
   `images/ergarcade-64x64.png`. No manifest, browserconfig, or generated icon
   kit — don't re-add one without a concrete need.
