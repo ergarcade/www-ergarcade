@@ -3,7 +3,7 @@
 {{ $count := len $sec.Pages }}
 <section id="{{ $id }}" class="section">
     <div class="section-head">
-        <h2>{{ $sec.Title }}</h2>
+        <h2><a href="{{ $sec.RelPermalink }}">{{ $sec.Title }}</a></h2>
         <p>{{ $sec.Description }}</p>
     </div>
     <div class="grid">
