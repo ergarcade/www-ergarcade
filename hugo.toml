@@ -1,0 +1,16 @@
+baseURL = "https://ergarcade.com/"
+locale = "en"
+title = "Erg Arcade"
+disableKinds = ["taxonomy", "term"]
+
+[outputs]
+home = ["HTML"]
+section = ["HTML"]
+
+[markup.goldmark.renderer]
+unsafe = true
+
+[params]
+echartsVersion = "6.1.0"
+echartsIntegrity = "sha256-tmslrrTfhOMxmdwhaUAU0zbSIsvZ3rDlp8FL1qoND9A="
+echartsDarkIntegrity = "sha256-rmDlY2F8uHUUaQwZRu4gLnjJ8Uh4IEkGFLWJNO0DdFg="
