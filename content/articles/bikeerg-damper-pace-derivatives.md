@@ -5,6 +5,7 @@ tagline: "On the BikeErg, the same RPM at different damper settings alters pace,
 chartScript: "/js/charts/bikeerg-damper-pace-derivatives.js"
 thumbnail: "/images/articles/bikeerg-damper.png"
 weight: 3
+aliases: ["/articles/bikeerg-damper-pace-derivatives.html"]
 ---
 
 Hover over or tap the graphs to see the values for each metric at damper

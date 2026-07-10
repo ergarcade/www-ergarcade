@@ -33,7 +33,11 @@ push to `master`.
 
 - URLs are Hugo's default "pretty" form (`/tools/`, `/articles/slug/`) — this
   is a change from the pre-Hugo site's flat `.html` URLs, made deliberately
-  during the port.
+  during the port. Old `.html` URLs that may still be linked externally get
+  an `aliases` front-matter entry (e.g. `aliases: ["/articles/slug.html"]`)
+  so Hugo generates a static redirect page — GitHub Pages on a custom domain
+  has no server-side redirect config, so this meta-refresh + canonical page
+  is the mechanism, not a true 301.
 - ECharts is loaded from jsDelivr (`cdn.jsdelivr.net/npm/echarts@<version>`)
   with a pinned exact version and an SRI `integrity` + `crossorigin="anonymous"`
   attribute — never `@latest`, since SRI requires an immutable file. The

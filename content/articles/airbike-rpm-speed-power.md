@@ -5,6 +5,7 @@ tagline: "There is no standard between ergometer manufacturers for how they buil
 chartScript: "/js/charts/rpm-speed-power.js"
 thumbnail: "/images/articles/airbike-rpm.png"
 weight: 4
+aliases: ["/articles/airbike-rpm-speed-power.html"]
 ---
 
 Hover over or tap the graphs to see the values for each metric. Click

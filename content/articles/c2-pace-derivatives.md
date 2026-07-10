@@ -5,6 +5,7 @@ tagline: "An easy way to compare pace, watts, speed and calories per hour on Con
 chartScript: "/js/charts/c2.js"
 thumbnail: "/images/articles/c2-pace.png"
 weight: 1
+aliases: ["/articles/c2-pace-derivatives.html"]
 ---
 
 Concept2 ergometers display pace, watts, and calories per hour on the
