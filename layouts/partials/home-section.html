@@ -7,7 +7,7 @@
         <p>{{ $sec.Description }}</p>
     </div>
     <div class="grid">
-        {{ range first 3 $sec.Pages }}
+        {{ range first 3 $sec.Pages.ByDate.Reverse }}
             {{ partial "entry-card.html" (dict "page" . "compact" true) }}
         {{ end }}
     </div>

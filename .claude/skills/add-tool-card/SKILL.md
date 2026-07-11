@@ -118,9 +118,10 @@ exactly 800×450.
 
 ## 4. Add the card
 
-`content/tools/<slug>.md` — see the template in `CLAUDE.md`. Pick the next
-unused `weight` (check sibling files in `content/tools/` for what's taken;
-lower weight sorts first).
+`content/tools/<slug>.md` — see the template in `CLAUDE.md`. Set `date` to
+now (full ISO timestamp, e.g. `2026-07-11T19:36:16+10:00`) — cards sort
+newest-first by `date` everywhere (listing pages and homepage previews);
+`weight` is no longer read for ordering, don't add it to new cards.
 
 ## 5. Verify
 

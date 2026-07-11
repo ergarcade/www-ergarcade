@@ -5,10 +5,20 @@
 </section>
 
 <section class="section">
-    <div class="grid">
-        {{ range .Pages }}
+    <div class="list-controls">
+        <input type="search" id="card-filter" placeholder="Filter…" aria-label="Filter">
+        <select id="card-sort" aria-label="Sort by">
+            <option value="date" selected>Date (newest first)</option>
+            <option value="name">Name (A–Z)</option>
+        </select>
+    </div>
+    <p id="card-filter-empty" class="card-filter-empty" hidden>No matches.</p>
+    <div class="grid" id="card-grid">
+        {{ range .Pages.ByDate.Reverse }}
             {{ partial "entry-card.html" (dict "page" . "compact" false) }}
         {{ end }}
     </div>
 </section>
+
+<script src="/js/card-list.js" defer></script>
 {{ end }}
