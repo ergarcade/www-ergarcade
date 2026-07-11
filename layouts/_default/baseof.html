@@ -28,6 +28,8 @@
 
         {{ block "main" . }}{{ end }}
 
+        {{ partial "footer.html" . }}
+
         <script src="{{ "js/theme-toggle.js" | absURL }}" defer></script>
         <script src="{{ "js/nav-toggle.js" | absURL }}" defer></script>
         <script data-goatcounter="https://ergarcade.goatcounter.com/count"

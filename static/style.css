@@ -370,12 +370,6 @@ hr {
     margin: 0;
 }
 
-.entry-meta {
-    color: var(--muted);
-    font-size: 0.75em;
-    margin: 0;
-}
-
 .clamp-1 {
     display: -webkit-box;
     -webkit-line-clamp: 1;
@@ -475,5 +469,32 @@ hr {
 .prose a {
     color: var(--accent);
     text-decoration: underline;
+}
+
+/* footer */
+
+.footer {
+    max-width: 1080px;
+    margin: 0 auto;
+    padding: 2em 1.5em;
+    border-top: 1px solid var(--border);
+    text-align: center;
+    font-size: 0.75em;
+    line-height: 1.8;
+    color: var(--muted);
+}
+
+.footer span {
+    margin: 0 0.1em;
+}
+
+.footer a {
+    color: inherit;
+    text-decoration: underline;
+    text-underline-offset: 0.25rem;
+}
+
+.footer a:hover {
+    color: var(--ink);
 }
 

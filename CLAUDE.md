@@ -13,8 +13,9 @@ push to `master`.
 - `content/` — one Markdown file per page.
   - `content/_index.md` — homepage front matter (hero title/description).
   - `content/tools/`, `content/visualisations/` — one file per external
-    tool/visualisation card (`link`, `description`, and for tools only
-    `requires`; optional `thumbnail` on either, see below). These have
+    tool/visualisation card (`link`, `description`; optional `thumbnail`, see
+    below). No `requires` field — every tool defaults to its Mock transport,
+    so nothing's actually required to use one. These have
     `build: {render: false}` in front matter — they're link-out cards, not
     real pages, so Hugo indexes them for listings but doesn't generate a page
     for them. See "Adding a new tool card" below for the full mechanical
@@ -31,6 +32,10 @@ push to `master`.
     and sorting" below. `weight` is no longer read by any template; existing
     files may still carry a stale `weight` field, harmless leftover, don't
     bother stripping it out on sight.
+  - Standalone top-level pages (e.g. `content/about.md`) use
+    `layouts/_default/single.html` — a plain hero (`title`, optional
+    `description`) + `.Content` — and need a `<a class="navlink">` added to
+    `partials/header.html`'s nav manually; nothing auto-discovers them.
 - `layouts/` — templates. See `.claude/rules/layouts.md`.
 - `static/` — copied verbatim to the site root; nothing in here is
   Hugo-processed. See `.claude/rules/static.md`.
@@ -65,11 +70,10 @@ push to `master`.
   diagonal-stripe CSS placeholder pattern. Then `.entry-body` with title,
   optional `.tag` (still rendered by the partial if a page sets one, but no
   current content file does — the tag concept was dropped from tools),
-  description, optional `.entry-meta`. The partial's `compact` param selects
-  `entry-thumb-compact` (shorter thumbnail, one-line clamped description, no
-  meta line) for homepage previews vs. full-size cards on the dedicated
-  category pages. Every card also carries `data-date-unix` for the sort
-  control (see below).
+  description. The partial's `compact` param selects `entry-thumb-compact`
+  (shorter thumbnail, one-line clamped description) for homepage previews vs.
+  full-size cards on the dedicated category pages. Every card also carries
+  `data-date-unix` for the sort control (see below).
 - Favicon is intentionally minimal: a single `<link rel="icon">` pointing at
   `images/ergarcade-64x64.png`. No manifest, browserconfig, or generated icon
   kit — don't re-add one without a concrete need.
@@ -142,7 +146,6 @@ Short version:
    title: "<slug>"
    description: "One line, matches the tool's own README tagline."
    link: "https://ergarcade.github.io/<slug>"
-   requires: "Desktop, Chrome, Bluetooth"
    thumbnail: "/images/tools/<slug>.png"
    date: "<now, full ISO timestamp>"
    build:

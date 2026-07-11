@@ -27,6 +27,10 @@ paths:
 - `articles/single.html` — article page: hero, `{{ .Content }}`, plus the
   ECharts CDN `<script>` tags (version/hashes from `hugo.toml` params) and
   the article's own `chartScript` module tag.
+- `_default/single.html` — generic standalone page (hero + `{{ .Content }}`,
+  no chart machinery), used by top-level pages like `content/about.md`. Add
+  a `<a class="navlink">` to `partials/header.html` by hand for any new one —
+  nothing lists these pages automatically.
 - `shortcodes/chart.html` — `{{< chart "Title" "Sub text" "div-id" >}}`,
   renders one `.chart-card` block with the `.chart-box` div a
   `js/charts/*.js` module attaches to.
