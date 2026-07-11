@@ -26,3 +26,6 @@ all keep their existing absolute paths (`/style.css`, `/js/...`) unchanged.
   before wiring up rendering, instead of relying solely on a
   `DOMContentLoaded` listener — that used to be duplicated (and once
   broke) in every chart file; it's now handled once, here.
+- `static/images/<section>/<slug>.png` (`tools`, `visualisations`, `articles`)
+  — card thumbnails, 800×450 (16:9). See CLAUDE.md's "Adding a card
+  thumbnail" for the front-matter field that wires one in.

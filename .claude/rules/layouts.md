@@ -18,6 +18,12 @@ paths:
   `/visualisations/`, `/articles/` — one template for all three, since the
   only difference between their cards is which optional front-matter fields
   are present (data-driven, not template branching).
+- `partials/entry-card.html` — one card, used by both `list.html` (full-size)
+  and `home-section.html` (`compact`). Renders `.Params.thumbnail` as an
+  `<img>` when set, else falls back to a CSS placeholder; also reads
+  `.Params.tag` if present, though no current content file sets one — the
+  tag concept was dropped from tools. See CLAUDE.md's "Adding a card
+  thumbnail".
 - `articles/single.html` — article page: hero, `{{ .Content }}`, plus the
   ECharts CDN `<script>` tags (version/hashes from `hugo.toml` params) and
   the article's own `chartScript` module tag.
