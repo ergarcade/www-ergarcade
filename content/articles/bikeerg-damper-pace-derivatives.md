@@ -4,7 +4,7 @@ description: "How the same RPM at different damper settings changes pace, power 
 tagline: "On the BikeErg, the same RPM at different damper settings alters pace, power and calories per hour reported on the PM5. In this article we provide charts showing these relationships at damper settings 10, 8, 6, 4 and 2."
 chartScript: "/js/charts/bikeerg-damper-pace-derivatives.js"
 thumbnail: "/images/articles/bikeerg-damper.png"
-weight: 3
+date: "2026-07-08T15:49:44+10:00"
 aliases: ["/articles/bikeerg-damper-pace-derivatives.html"]
 ---
 

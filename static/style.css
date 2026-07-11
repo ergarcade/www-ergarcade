@@ -263,6 +263,39 @@ hr {
     }
 }
 
+.list-controls {
+    display: flex;
+    gap: 0.75em;
+    margin-bottom: 1.5em;
+}
+
+.list-controls input,
+.list-controls select {
+    border: 1px solid var(--border);
+    background: var(--card);
+    color: var(--ink);
+    border-radius: 6px;
+    padding: 0.5em 0.75em;
+    font-size: 0.9em;
+    font-family: inherit;
+}
+
+.list-controls input {
+    flex: 1;
+    min-width: 0;
+}
+
+.list-controls input:focus,
+.list-controls select:focus {
+    outline: none;
+    border-color: var(--accent);
+}
+
+.card-filter-empty {
+    color: var(--muted);
+    margin: 0 0 1.5em;
+}
+
 /* cards */
 
 .entry-card {
@@ -273,6 +306,13 @@ hr {
     background: var(--card);
     overflow: hidden;
     transition: border-color 0.15s ease;
+}
+
+/* [hidden] and .entry-card{display:flex} have equal specificity, and the
+   author rule above wins on source order alone -- this override (higher
+   specificity) is what actually makes card-list.js's filter hide cards. */
+.entry-card[hidden] {
+    display: none;
 }
 
 .entry-card:hover {

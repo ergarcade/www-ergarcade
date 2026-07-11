@@ -1,7 +1,7 @@
 {{ $page := .page }}
 {{ $compact := .compact }}
 {{ $href := $page.Params.link | default $page.RelPermalink }}
-<a class="entry-card" href="{{ $href }}">
+<a class="entry-card" href="{{ $href }}" data-date-unix="{{ $page.Date.Unix }}">
     <div class="entry-thumb{{ if $compact }} entry-thumb-compact{{ end }}">{{ with $page.Params.thumbnail }}<img src="{{ . }}" alt="" loading="lazy">{{ end }}</div>
     <div class="entry-body">
         <div class="row">

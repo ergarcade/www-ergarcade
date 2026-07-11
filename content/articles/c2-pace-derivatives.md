@@ -4,7 +4,7 @@ description: "How pace, watts, speed and calories per hour relate on the RowErg,
 tagline: "An easy way to compare pace, watts, speed and calories per hour on Concept2 ergometers."
 chartScript: "/js/charts/c2.js"
 thumbnail: "/images/articles/c2-pace.png"
-weight: 1
+date: "2026-07-08T15:49:45+10:00"
 aliases: ["/articles/c2-pace-derivatives.html"]
 ---
 

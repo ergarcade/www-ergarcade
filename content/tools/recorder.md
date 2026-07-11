@@ -4,7 +4,7 @@ description: "Record a PM5 ergometer session and export it as a CSV playable bac
 link: "https://ergarcade.github.io/recorder"
 requires: "Desktop, Chrome, Bluetooth"
 thumbnail: "/images/tools/recorder.png"
-weight: 6
+date: "2026-07-11T19:36:16+10:00"
 build:
   render: false
 ---

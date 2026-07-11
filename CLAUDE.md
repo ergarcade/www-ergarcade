@@ -24,9 +24,13 @@ push to `master`.
     `tagline` (longer intro paragraph shown under the `<h1>` on the article's
     own page — these two are usually different text, don't collapse them into
     one field), `chartScript` (path to the article's `js/charts/*.js` module),
-    `weight` (controls ordering everywhere), optional `thumbnail` (path to a
-    card image, e.g. `/images/articles/slug.png`; falls back to the
-    `.entry-thumb` placeholder pattern when absent).
+    optional `thumbnail` (path to a card image, e.g. `/images/articles/slug.png`;
+    falls back to the `.entry-thumb` placeholder pattern when absent).
+  - All three content types set `date` (full timestamp, not just day — needed
+    to order same-day additions correctly) — see "Card ordering, filtering,
+    and sorting" below. `weight` is no longer read by any template; existing
+    files may still carry a stale `weight` field, harmless leftover, don't
+    bother stripping it out on sight.
 - `layouts/` — templates. See `.claude/rules/layouts.md`.
 - `static/` — copied verbatim to the site root; nothing in here is
   Hugo-processed. See `.claude/rules/static.md`.
@@ -64,7 +68,8 @@ push to `master`.
   description, optional `.entry-meta`. The partial's `compact` param selects
   `entry-thumb-compact` (shorter thumbnail, one-line clamped description, no
   meta line) for homepage previews vs. full-size cards on the dedicated
-  category pages.
+  category pages. Every card also carries `data-date-unix` for the sort
+  control (see below).
 - Favicon is intentionally minimal: a single `<link rel="icon">` pointing at
   `images/ergarcade-64x64.png`. No manifest, browserconfig, or generated icon
   kit — don't re-add one without a concrete need.
@@ -72,6 +77,35 @@ push to `master`.
   and checking pages in a browser — console errors, network 404s, and
   visual/theme-toggle/chart-render behavior — then confirm `hugo --minify`
   builds clean before relying on the GitHub Actions deploy.
+
+## Card ordering, filtering, and sorting
+
+Every listing (`/tools/`, `/visualisations/`, `/articles/`, and the homepage's
+capped 3-entry previews) orders cards **newest first** by `date`
+(`.Pages.ByDate.Reverse` in `layouts/_default/list.html` and
+`layouts/partials/home-section.html`) — uniformly across all three sections,
+including articles, which used to be hand-curated by `weight`. There is no
+per-section override; if a card needs to be pinned out of date order again in
+the future, that's a template change, not a front-matter flag to add lightly.
+
+The full-listing pages (not the homepage previews) also get a filter input
+and a sort-by select, wired by `static/js/card-list.js` (vanilla JS, no
+library — plenty at this scale):
+
+- **Filter** (`#card-filter`): case-insensitive substring match against each
+  `.entry-card`'s full rendered text (title, description, "Requires:" line —
+  all included for free via `.textContent`, no per-field indexing). Non-matches
+  get `hidden`; an empty-state message (`#card-filter-empty`) shows when
+  nothing matches.
+- **Sort** (`#card-sort`): `Date (newest first)` (default — matches the
+  server-rendered order, so no re-sort runs on a plain page load) or
+  `Name (A–Z)`, reordering `.entry-card` DOM nodes in place by reading each
+  card's `data-date-unix` or its `.entry-title` text.
+- Both are reflected in the URL (`?q=...`, `?sort=name`; absent/`date` means
+  the default) via `history.replaceState` — not `pushState`, so typing in the
+  filter doesn't spam browser back-history — so a filtered/sorted view is
+  shareable. On load, the script reads these params and applies them
+  immediately, before any user interaction.
 
 ## Adding a card thumbnail
 
@@ -110,7 +144,7 @@ Short version:
    link: "https://ergarcade.github.io/<slug>"
    requires: "Desktop, Chrome, Bluetooth"
    thumbnail: "/images/tools/<slug>.png"
-   weight: <next unused number>
+   date: "<now, full ISO timestamp>"
    build:
      render: false
    ---
