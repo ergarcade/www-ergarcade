@@ -9,6 +9,5 @@
             {{ with $page.Params.tag }}<span class="tag">{{ . }}</span>{{ end }}
         </div>
         <p class="entry-desc{{ if $compact }} clamp-1{{ end }}">{{ $page.Description }}</p>
-        {{ if not $compact }}{{ with $page.Params.requires }}<p class="entry-meta">Requires: {{ . }}</p>{{ end }}{{ end }}
     </div>
 </a>
