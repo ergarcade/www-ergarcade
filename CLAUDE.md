@@ -73,6 +73,17 @@ push to `master`.
   visual/theme-toggle/chart-render behavior — then confirm `hugo --minify`
   builds clean before relying on the GitHub Actions deploy.
 
+## Adding a card thumbnail
+
+Any tool/visualisation/article card can show a real screenshot instead of
+the diagonal-stripe placeholder: drop an **800×450 (16:9)** image under
+`static/images/<section>/<slug>.png` (`<section>` is `tools`, `visualisations`,
+or `articles`) and set `thumbnail: "/images/<section>/<slug>.png"` in that
+page's front matter. `object-fit: cover` handles minor aspect mismatches, but
+match 800×450 exactly where you can — that's what every existing thumbnail
+uses. No other wiring needed; `partials/entry-card.html` already renders it
+when the field is present.
+
 ## Adding a new tool card
 
 Publishing one of the ergarcade PM5 apps (e.g. `pm5-base`, `virtual-monitor`)
@@ -89,9 +100,8 @@ Short version:
 3. Screenshot the running app with Playwright (headless Chromium, viewport
    800×450, dark `colorScheme`) using its Mock transport so no hardware is
    needed — run it for a few simulated minutes first so the numbers look
-   real, not a 0:00 startup state. Save to
-   `static/images/tools/<slug>.png` (exactly 800×450, matches the
-   `.entry-thumb` convention below).
+   real, not a 0:00 startup state. Save to `static/images/tools/<slug>.png`
+   (see "Adding a card thumbnail" above for the dimension convention).
 4. Add `content/tools/<slug>.md`:
    ```yaml
    ---
